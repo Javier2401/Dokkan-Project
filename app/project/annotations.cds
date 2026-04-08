@@ -1,0 +1,1 @@
+using CharacterInfo as service from '../../srv/service';

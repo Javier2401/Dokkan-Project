@@ -1,0 +1,11 @@
+<mvc:View controllerName="project.controller.Segunda"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page id="Pruebdasd">   
+
+         <Button id="button2" text="Cambiar Pantalla de vuelta" press="changeViewToMain" />
+
+    </Page>
+
+</mvc:View>

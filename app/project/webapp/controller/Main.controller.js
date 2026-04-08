@@ -1,0 +1,14 @@
+sap.ui.define([
+    "sap/ui/core/mvc/Controller"
+], (Controller) => {
+    "use strict";
+
+    return Controller.extend("project.controller.Main", {
+        onInit() {
+        },
+
+        changeViewToSegunda: function() {
+            this.getOwnerComponent().getRouter().navTo("RouteSegunda");
+        },
+    });
+});
