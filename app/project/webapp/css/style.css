@@ -896,6 +896,10 @@
     background-color: #5e5e5e !important;
     border-radius: 20px !important;
     border: 1px solid rgba(255,255,255,0.35) !important;
+
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 0 !important;
 }
 
 .navBtn.sapMMenuBtn .sapMBtnInner {
@@ -923,15 +927,14 @@
 
 .sapMMenuBtn .sapMBtnContent {
     font-size: 13px !important;
-    margin-left: 5px !important;
-    margin-right: 5px !important;
-    margin-top: 0.25px !important;
+    margin-left: 7.5px !important;
+    margin-right: 7.5px !important;
+    margin-top: 0.35px !important;
 }
 
 .navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner {
     border-left: none !important;
 }
-
 
 /* ═══════════════════════════════════════════════════════════════
    SECCIÓN 4 — RESPONSIVE
@@ -956,9 +959,9 @@
     .navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner,
     .navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnDefault .sapMBtnInner,
     .navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner {
-        height: 34px !important;
-        min-height: 34px !important;
-        line-height: 34px !important;
+        height: 38px !important;
+        min-height: 38px !important;
+        line-height: 38px !important;
         padding: 0 12px !important;
     }
 
@@ -1006,9 +1009,9 @@
     .navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner,
     .navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnDefault .sapMBtnInner,
     .navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner {
-        height: 30px !important;
-        min-height: 30px !important;
-        line-height: 30px !important;
+        height: 38px !important;
+        min-height: 38px !important;
+        line-height: 38px !important;
         padding: 0 9px !important;
     }
 
