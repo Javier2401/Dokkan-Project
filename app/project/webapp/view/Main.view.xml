@@ -3,190 +3,69 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
 
-    <Page showHeader="false" class="dokkanPage">
+    <Page showHeader="false" enableScrolling="false" class="dokkanPage">
         <content>
+            <VBox class="pageWrapper" width="100%">
 
-            <!-- HEADER COMPLETO -->
-            <VBox class="dokkanHeader" width="100%">
+                <core:Fragment fragmentName="project.view.fragments.Header" type="XML"/>
 
-                <!-- FILA TÍTULO: imagen a la izquierda + texto centrado -->
-                <HBox alignItems="Center" width="100%" class="headerTitleRow">
+                <VBox class="pageContent">
 
-                    <!-- Imagen pegada a la izquierda -->
-                    <Image
-                        src="images/logo.png"
-                        height="55px"
-                        width="55px"
-                        class="headerLogo"
-                    />
+                    <Panel class="dokkanPanel" headerText="Upcoming Characters">
+                        <HBox justifyContent="Center" wrap="Wrap" class="characterRow">
+                            <VBox class="characterCard">
+                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
+                                <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
+                            </VBox>
+                            <VBox class="characterCard">
+                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
+                                <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
+                            </VBox>
+                            <VBox class="characterCard">
+                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
+                                <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
+                            </VBox>
+                            <VBox class="characterCard">
+                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
+                                <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
+                            </VBox>
+                            <VBox class="characterCard">
+                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
+                                <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
+                            </VBox>
+                        </HBox>
+                    </Panel>
 
-                    <!-- Título que ocupa el resto y se centra solo -->
-                    <HBox justifyContent="Center" alignItems="Center" class="headerTitleBox">
-                        <Text text="DRAGON BALL Z DOKKAN BATTLE INFO PAGE" class="dokkanTitle"/>
-                    </HBox>
+                    <Panel class="dokkanPanel" headerText="Recent Characters">
+                        <HBox justifyContent="Center" wrap="Wrap" class="characterRow">
+                            <VBox class="characterCard">
+                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
+                                <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
+                            </VBox>
+                            <VBox class="characterCard">
+                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
+                                <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
+                            </VBox>
+                            <VBox class="characterCard">
+                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
+                                <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
+                            </VBox>
+                            <VBox class="characterCard">
+                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
+                                <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
+                            </VBox>
+                            <VBox class="characterCard">
+                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
+                                <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
+                            </VBox>
+                        </HBox>
+                    </Panel>
 
-                    <!-- Espacio vacío a la derecha igual al ancho de la imagen, para centrar bien el título -->
-                    <HBox class="headerTitleSpacer"/>
+                </VBox>
 
-                </HBox>
-
-                <!-- Separador -->
-                <HBox class="headerDivider" width="100%"/>
-
-                <!-- Navbar -->
-                <HBox justifyContent="Center" alignItems="Center" wrap="Wrap" width="100%" class="navBar">
-
-                    <Button text="NEWS" class="navBtn" press="changeViewToSegunda"/>
-
-                    <MenuButton text="CHARACTERS" class="navBtn">
-                        <Menu>
-                            <MenuItem text="Name" press="onCambiarPantallaCharacters"/>
-                            <MenuItem text="Rarities">
-                                <items>
-                                    <MenuItem text="EZA's"/>
-                                    <MenuItem text="LR"/>
-                                    <MenuItem text="UR"/>
-                                    <MenuItem text="SSR"/>
-                                    <MenuItem text="SR"/>
-                                    <MenuItem text="R"/>
-                                    <MenuItem text="N"/>
-                                </items>
-                            </MenuItem>
-                            <MenuItem text="Types">
-                                <items>
-                                    <MenuItem text="AGL"/>
-                                    <MenuItem text="STR"/>
-                                    <MenuItem text="TEQ"/>
-                                    <MenuItem text="PHY"/>
-                                    <MenuItem text="INT"/>
-                                </items>
-                            </MenuItem>
-                            <MenuItem text="Classes">
-                                <items>
-                                    <MenuItem text="Super Class">
-                                        <items>
-                                            <MenuItem text="SUPER AGL"/>
-                                            <MenuItem text="SUPER STR"/>
-                                            <MenuItem text="SUPER TEQ"/>
-                                            <MenuItem text="SUPER PHY"/>
-                                            <MenuItem text="SUPER INT"/>
-                                        </items>
-                                    </MenuItem>
-                                    <MenuItem text="Extreme Class">
-                                        <items>
-                                            <MenuItem text="EXTREME AGL"/>
-                                            <MenuItem text="EXTREME STR"/>
-                                            <MenuItem text="EXTREME TEQ"/>
-                                            <MenuItem text="EXTREME PHY"/>
-                                            <MenuItem text="EXTREME INT"/>
-                                        </items>
-                                    </MenuItem>
-                                </items>
-                            </MenuItem>
-                            <MenuItem text="Categories"/>
-                        </Menu>
-                    </MenuButton>
-
-                    <MenuButton text="EVENTS" class="navBtn">
-                        <Menu>
-                            <MenuItem text="Events I" press="onCambiarPantallaEvents"/>
-                            <MenuItem text="Events II"/>
-                            <MenuItem text="Events III"/>
-                        </Menu>
-                    </MenuButton>
-
-                    <Button text="BANNERS" class="navBtn" press="onCambiarPantallaBanners"/>
-
-                    <MenuButton text="ITEMS" class="navBtn">
-                        <Menu>
-                            <MenuItem text="Awakening Medals">
-                                <items>
-                                    <MenuItem text="Awakening Medals I" press="onCambiarPantallaItems"/>
-                                    <MenuItem text="Awakening Medals II"/>
-                                </items>
-                            </MenuItem>
-                            <MenuItem text="Support">
-                                <items>
-                                    <MenuItem text="Items"/>
-                                    <MenuItem text="Memories"/>
-                                </items>
-                            </MenuItem>
-                            <MenuItem text="Training">
-                                <items>
-                                    <MenuItem text="Items"/>
-                                    <MenuItem text="Location"/>
-                                </items>
-                            </MenuItem>
-                            <MenuItem text="Orbs">
-                                <items>
-                                    <MenuItem text="Potencial Orbs"/>
-                                    <MenuItem text="Skill Orbs"/>
-                                    <MenuItem text="Link Skill Orbs"/>
-                                </items>
-                            </MenuItem>
-                        </Menu>
-                    </MenuButton>
-
-                    <Button text="MISSIONS" class="navBtn" press="onCambiarPantallaMissions"/>
-
-                </HBox>
-            </VBox>
-
-            <!-- CONTENIDO -->
-            <VBox class="pageContent">
-
-                <Panel class="dokkanPanel" headerText="Upcoming Characters">
-                    <HBox justifyContent="Center" wrap="Wrap" class="characterRow">
-                        <VBox class="characterCard">
-                            <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                            <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
-                        </VBox>
-                        <VBox class="characterCard">
-                            <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                            <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
-                        </VBox>
-                        <VBox class="characterCard">
-                            <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                            <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
-                        </VBox>
-                        <VBox class="characterCard">
-                            <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                            <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
-                        </VBox>
-                        <VBox class="characterCard">
-                            <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                            <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
-                        </VBox>
-                    </HBox>
-                </Panel>
-
-                <Panel class="dokkanPanel" headerText="Recent Characters">
-                    <HBox justifyContent="Center" wrap="Wrap" class="characterRow">
-                        <VBox class="characterCard">
-                            <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                            <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
-                        </VBox>
-                        <VBox class="characterCard">
-                            <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                            <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
-                        </VBox>
-                        <VBox class="characterCard">
-                            <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                            <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
-                        </VBox>
-                        <VBox class="characterCard">
-                            <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                            <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
-                        </VBox>
-                        <VBox class="characterCard">
-                            <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                            <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
-                        </VBox>
-                    </HBox>
-                </Panel>
+                <core:Fragment fragmentName="project.view.fragments.Footer" type="XML"/>
 
             </VBox>
-
         </content>
     </Page>
 

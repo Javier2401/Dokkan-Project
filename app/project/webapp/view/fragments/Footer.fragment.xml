@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <VBox class="dokkanFooter">
+        <HBox class="footerRainbow"/>
+        <HBox alignItems="Center" wrap="Wrap" class="footerContent">
+            <HBox alignItems="Center" class="footerBrand">
+                <Image src="images/titulo.png" class="footerLogo"/>
+                <HBox class="footerBrandDivider"/>
+                <Text text="Your ultimate source for Dragon Ball Z Dokkan Battle info." class="footerTagline"/>
+            </HBox>
+            <HBox justifyContent="Center" alignItems="Center" wrap="Wrap" class="footerLinks">
+                <Button text="Privacy Policy" class="footerLinkBtn"/>
+                <Text text="|" class="footerSep"/>
+                <Button text="Cookie Policy"  class="footerLinkBtn"/>
+                <Text text="|" class="footerSep"/>
+                <Button text="Terms of Use"   class="footerLinkBtn"/>
+            </HBox>
+            <VBox alignItems="End" class="footerRight">
+                <Text text="© 2026 Dokkan Info Project" class="footerCopy"/>
+                <Text text="Fan-made · Not affiliated with Bandai Namco" class="footerDisclaimer"/>
+            </VBox>
+        </HBox>
+    </VBox>
+
+</core:FragmentDefinition>

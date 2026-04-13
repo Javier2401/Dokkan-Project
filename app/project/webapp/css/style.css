@@ -1,256 +1,314 @@
-/* ===========================
-   PÁGINA BASE
-=========================== */
+/* ═══════════════════════════════════════════════════════════════
+   SECCIÓN 1 — CLASES GLOBALES
+   Header, botones nav, menús popup, footer, layout base
+   (Se usan en TODAS las vistas)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Página base ── */
 
 .dokkanPage {
-    background-color: #e0e0e0 !important;
+    background-color: #e8e8e8 !important;
+    height: 100% !important;
 }
 
 .dokkanPage .sapMPageSection {
     padding: 0 !important;
+    height: 100% !important;
 }
 
 .dokkanPage .sapMScrollContScroll {
-    background-color: #e0e0e0 !important;
+    background-color: #e8e8e8 !important;
 }
 
-/* ===========================
-   HEADER
-=========================== */
+.pageWrapper,
+.pageWrapper.sapMVBox {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+}
 
-.dokkanHeader {
+/* ── Header ── */
+
+.dokkanHeader,
+.dokkanHeader.sapMVBox {
     background-color: #4a4a4a !important;
     width: 100% !important;
-    padding: 0.7rem 1rem 0.8rem 1rem !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-}
-
-.dokkanHeader.sapMVBox {
-    width: 100% !important;
-}
-
-/* ===========================
-   FILA TÍTULO: logo + texto + spacer
-=========================== */
-
-.headerTitleRow {
-    width: 100% !important;
-    padding: 0.2rem 0 !important;
-}
-
-/* Imagen a la izquierda — tamaño fijo */
-.headerLogo,
-.headerLogo.sapMImg {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.4);
     flex-shrink: 0 !important;
-    width: 55px !important;
-    height: 55px !important;
-    border-radius: 8px !important;
-    object-fit: contain !important;
 }
-
-/* Caja del título — crece y centra */
-.headerTitleBox,
-.headerTitleBox.sapMHBox {
-    flex: 1 1 auto !important;
-    justify-content: center !important;
-    align-items: center !important;
-}
-
-/* Spacer derecho igual al logo para equilibrar el título */
-.headerTitleSpacer,
-.headerTitleSpacer.sapMHBox {
-    flex-shrink: 0 !important;
-    width: 55px !important;
-    height: 1px !important;
-}
-
-/* Título */
-.dokkanTitle,
-.dokkanTitle.sapMText {
-    font-size: 1.6rem !important;
-    font-weight: 900 !important;
-    color: #ffffff !important;
-    text-align: center !important;
-    letter-spacing: 1px;
-    font-family: 'Arial Black', Arial, sans-serif;
-    white-space: normal !important;
-    word-break: break-word;
-    width: 100% !important;
-}
-
-/* ===========================
-   SEPARADOR
-=========================== */
-
-.headerDivider,
-.headerDivider.sapMHBox {
-    width: 100% !important;
-    height: 1px !important;
-    min-height: 1px !important;
-    background-color: rgba(255, 255, 255, 0.25) !important;
-    margin: 0.5rem 0 0.3rem 0 !important;
-}
-
-/* ===========================
-   NAVBAR
-=========================== */
 
 .navBar,
 .navBar.sapMHBox {
     width: 100% !important;
-    flex-wrap: wrap !important;
+    padding: 0.5rem 1rem !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+.navLogo,
+.navLogo.sapMImg {
+    flex-shrink: 0 !important;
+    width: 170px !important;
+    height: 100px !important;
+    object-fit: contain !important;
+}
+
+.navButtons,
+.navButtons.sapMHBox {
+    flex: 1 1 auto !important;
+    display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    padding: 0.3rem 0 0.1rem 0 !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    padding: 4px 0 !important;
+}
+
+.navIcons,
+.navIcons.sapMHBox {
+    flex-shrink: 0 !important;
+    width: 170px !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
     gap: 6px !important;
 }
 
-/* ===========================
-   BOTONES NORMALES
-=========================== */
+/* ── Botones nav de texto (Button normal) ── */
 
-.navBtn.sapMBtn {
-    background-color: transparent !important;
+.navBtn.sapMBtn,
+.navBtn.sapMBtn.sapMBtnDefault,
+.navBtn.sapMBtn.sapMBtnTransparent,
+.navBtn.sapMBtn.sapMBtnEmphasized {
+    background: transparent !important;
     border: none !important;
-    border-radius: 0 !important;
     box-shadow: none !important;
-    margin: 3px 4px !important;
+    outline: none !important;
+    margin: 0 3px !important;
     padding: 0 !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    border-radius: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    vertical-align: middle !important;
 }
 
-.navBtn.sapMBtn .sapMBtnInner {
+.navBtn.sapMBtn .sapMBtnInner,
+.navBtn.sapMBtn.sapMBtnDefault .sapMBtnInner,
+.navBtn.sapMBtn.sapMBtnTransparent .sapMBtnInner,
+.navBtn.sapMBtn.sapMBtnEmphasized .sapMBtnInner {
     background-color: #5e5e5e !important;
-    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    border: 1px solid rgba(255,255,255,0.35) !important;
     border-radius: 20px !important;
-    color: #ffffff !important;
-    font-size: 0.75rem !important;
-    font-weight: 700 !important;
-    padding: 0 16px !important;
-    height: 32px !important;
-    line-height: 32px !important;
-    letter-spacing: 0.5px;
+    height: 38px !important;
+    min-height: 38px !important;
+    line-height: 38px !important;
+    padding: 0 18px !important;
     box-shadow: none !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 }
 
+.navBtn.sapMBtn .sapMBtnInner *,
 .navBtn.sapMBtn .sapMBtnContent,
-.navBtn.sapMBtn .sapMBtnIcon {
+.navBtn.sapMBtn .sapMBtnText,
+.navBtn.sapMBtn .sapMBtnIcon,
+.navBtn.sapMBtn bdi {
     color: #ffffff !important;
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1 !important;
 }
 
 .navBtn.sapMBtn:hover .sapMBtnInner {
-    background-color: #6e6e6e !important;
-    border-color: rgba(255, 255, 255, 0.6) !important;
+    background-color: #707070 !important;
+    border-color: rgba(255,255,255,0.6) !important;
 }
 
-/* ===========================
-   MENUBOTONES — forzar gris en TODAS sus partes
-=========================== */
+/* ── MenuButton nav (CHARACTERS, EVENTS, ITEMS) ── */
 
-/* Wrapper exterior */
-.navBtn.sapMMenuBtn {
-    background-color: transparent !important;
+.navBtn.sapMMenuBtn,
+.navBtn.sapMMenuBtn.sapMBtnDefault,
+.navBtn.sapMMenuBtn.sapMBtnTransparent {
+    background: transparent !important;
     border: none !important;
     box-shadow: none !important;
-    margin: 3px 4px !important;
+    outline: none !important;
+    margin: 0 3px !important;
     padding: 0 !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    border-radius: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    vertical-align: middle !important;
 }
 
-/* Resetear cualquier fondo/borde que SAPUI5 ponga en el wrapper */
-.navBtn.sapMMenuBtn > *,
-.navBtn.sapMMenuBtn .sapMMenuBtnInner {
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-/* Parte izquierda — texto */
-.navBtn.sapMMenuBtn .sapMMenuBtnRegular,
-.navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtn {
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-.navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner {
+/* Parte izquierda (texto) */
+.navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner,
+.navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnDefault .sapMBtnInner,
+.navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnTransparent .sapMBtnInner,
+.navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnEmphasized .sapMBtnInner {
     background-color: #5e5e5e !important;
-    border: 1px solid rgba(255, 255, 255, 0.35) !important;
+    border: 1px solid rgba(255,255,255,0.35) !important;
     border-right: none !important;
     border-radius: 20px 0 0 20px !important;
-    color: #ffffff !important;
-    font-size: 0.75rem !important;
-    font-weight: 700 !important;
-    padding: 0 14px !important;
-    height: 32px !important;
-    line-height: 32px !important;
-    letter-spacing: 0.5px;
+    height: 38px !important;
+    min-height: 38px !important;
+    line-height: 38px !important;
+    padding: 0 16px !important;
     box-shadow: none !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 }
 
+.navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner *,
 .navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnContent,
-.navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnText {
+.navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnText,
+.navBtn.sapMMenuBtn .sapMMenuBtnRegular bdi {
     color: #ffffff !important;
+    font-size: 0.78rem !important;
     font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    line-height: 1 !important;
 }
 
-/* Parte derecha — flecha */
-.navBtn.sapMMenuBtn .sapMMenuBtnSplit,
-.navBtn.sapMMenuBtn .sapMMenuBtnSplit.sapMBtn {
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-}
-
-.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner {
+/* Parte derecha (flecha) */
+.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner,
+.navBtn.sapMMenuBtn .sapMMenuBtnSplit.sapMBtnDefault .sapMBtnInner,
+.navBtn.sapMMenuBtn .sapMMenuBtnSplit.sapMBtnTransparent .sapMBtnInner {
     background-color: #5e5e5e !important;
-    border: 1px solid rgba(255, 255, 255, 0.35) !important;
-    border-left: 1px solid rgba(255, 255, 255, 0.18) !important;
+    border: 1px solid rgba(255,255,255,0.35) !important;
+    border-left: 1px solid rgba(255,255,255,0.2) !important;
     border-radius: 0 20px 20px 0 !important;
-    color: #ffffff !important;
-    height: 32px !important;
-    line-height: 32px !important;
-    padding: 0 8px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    line-height: 38px !important;
+    padding: 0 10px !important;
     box-shadow: none !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 }
 
-.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnContent,
+.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner *,
 .navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnIcon,
-.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnText {
+.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnContent,
+.navBtn.sapMMenuBtn .sapMMenuBtnSplit bdi {
     color: #ffffff !important;
+    font-size: 0.82rem !important;
+    line-height: 1 !important;
 }
 
-/* Hover en ambas partes */
 .navBtn.sapMMenuBtn .sapMMenuBtnRegular:hover .sapMBtnInner,
 .navBtn.sapMMenuBtn .sapMMenuBtnSplit:hover .sapMBtnInner {
-    background-color: #6e6e6e !important;
-    border-color: rgba(255, 255, 255, 0.6) !important;
+    background-color: #707070 !important;
+    border-color: rgba(255,255,255,0.6) !important;
 }
 
-/* Anular cualquier color azul que inyecte el tema de SAPUI5 */
+/* Barrido antiazul */
 .navBtn.sapMMenuBtn .sapMBtnInner,
 .navBtn.sapMMenuBtn .sapMBtnInner *,
 .navBtn.sapMMenuBtn .sapMBtnContent,
-.navBtn.sapMMenuBtn .sapMBtnText {
+.navBtn.sapMMenuBtn .sapMBtnText,
+.navBtn.sapMMenuBtn bdi {
     color: #ffffff !important;
 }
 
-/* ===========================
-   MENÚ DESPLEGABLE — POPUP GLOBAL
-=========================== */
+/* ── Botones icono circulares (perfil, ajustes) ── */
 
-.sapMMenu {
+.navIconBtn.sapMBtn,
+.navIconBtn.sapMBtn.sapMBtnDefault,
+.navIconBtn.sapMBtn.sapMBtnTransparent {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 38px !important;
+    height: 38px !important;
+    min-width: 38px !important;
+    min-height: 38px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    vertical-align: middle !important;
+}
+
+.navIconBtn.sapMBtn .sapMBtnInner,
+.navIconBtn.sapMBtn.sapMBtnDefault .sapMBtnInner,
+.navIconBtn.sapMBtn.sapMBtnTransparent .sapMBtnInner {
+    background-color: rgba(255,255,255,0.12) !important;
+    border: 1px solid rgba(255,255,255,0.3) !important;
+    border-radius: 50% !important;
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.navIconBtn.sapMBtn .sapMBtnInner *,
+.navIconBtn.sapMBtn .sapMBtnIcon {
+    color: #ffffff !important;
+    font-size: 1rem !important;
+}
+
+.navIconBtn.sapMBtn:hover .sapMBtnInner {
+    background-color: rgba(255,255,255,0.25) !important;
+    border-color: rgba(255,255,255,0.6) !important;
+}
+
+/* ── Botón idioma — IGUAL que los demás MenuButtons ──
+   Usa las mismas clases navBtn + navLangBtn para aprovechar
+   los estilos de MenuButton sin duplicar nada.
+   En el XML: class="navBtn navLangBtn"
+   ─────────────────────────────────────────────────────── */
+
+/*
+   navLangBtn solo añade lo que es distinto del navBtn.sapMMenuBtn:
+   — sin margin (para ir junto a los iconos circulares)
+   La parte izquierda es icono (icon-only) así que ajustamos el padding.
+*/
+
+.navLangBtn.sapMMenuBtn,
+.navLangBtn.sapMMenuBtn.sapMBtnDefault,
+.navLangBtn.sapMMenuBtn.sapMBtnTransparent {
+    margin: 0 !important;
+}
+
+/* Parte icono: mismo ancho que el icono circular */
+.navLangBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner,
+.navLangBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnDefault .sapMBtnInner,
+.navLangBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnTransparent .sapMBtnInner {
+    padding: 0 10px !important;
+}
+
+/* Parte flecha: mismo ancho que los otros MenuButton */
+.navLangBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner,
+.navLangBtn.sapMMenuBtn .sapMMenuBtnSplit.sapMBtnDefault .sapMBtnInner,
+.navLangBtn.sapMMenuBtn .sapMMenuBtnSplit.sapMBtnTransparent .sapMBtnInner {
+    padding: 0 8px !important;
+}
+
+/* ── Menú desplegable popup (global, fuera del DOM) ── */
+
+.sapMMenu,
+.sapMMenu .sapMMenu,
+.sapUiMnu {
     background-color: #3a3a3a !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
     border-radius: 8px !important;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6) !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.6) !important;
     padding: 4px 0 !important;
 }
 
@@ -264,69 +322,183 @@
 
 .sapMMenu li,
 .sapMMenu .sapMMenuItem,
-.sapMMenu .sapMMenuItemBase {
+.sapMMenu .sapMMenuItemBase,
+.sapUiMnuItm,
+.sapUiMnuItmBase {
     background-color: #3a3a3a !important;
     border: none !important;
     padding: 6px 14px !important;
+    color: #ffffff !important;
 }
 
 .sapMMenu .sapMMenuItemText,
-.sapMMenu .sapUiMnuItmTxt {
+.sapMMenu .sapUiMnuItmTxt,
+.sapUiMnuItmTxt {
     color: #ffffff !important;
-    font-size: 0.82rem !important;
+    font-size: 0.85rem !important;
     font-weight: 500 !important;
 }
 
 .sapMMenu .sapMMenuItemExpander,
 .sapMMenu .sapUiMnuItmSubMnuIcon {
-    color: rgba(255, 255, 255, 0.55) !important;
+    color: rgba(255,255,255,0.55) !important;
 }
 
 .sapMMenu li:hover,
 .sapMMenu .sapMMenuItem:hover,
-.sapMMenu .sapMMenuItemHover {
+.sapMMenu .sapMMenuItemHover,
+.sapUiMnuItm:hover,
+.sapUiMnuItmHov {
     background-color: #555555 !important;
     cursor: pointer;
 }
 
-.sapMMenu .sapMMenuItemDivider {
-    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
-    margin: 4px 0 !important;
+/* ── Footer ── */
+
+.dokkanFooter,
+.dokkanFooter.sapMVBox {
+    flex-shrink: 0 !important;
+    background-color: #3a3a3a !important;
+    width: 100% !important;
 }
 
-.sapMMenu .sapMMenu,
-.sapMMenu .sapUiMnu {
-    background-color: #3a3a3a !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: 8px !important;
+.footerRainbow,
+.footerRainbow.sapMHBox {
+    width: 100% !important;
+    height: 4px !important;
+    min-height: 4px !important;
+    background: linear-gradient(90deg,#f59e0b,#ef4444,#a855f7,#3b82f6,#10b981) !important;
 }
 
-.sapUiMnu {
-    background-color: #3a3a3a !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: 8px !important;
+.footerContent,
+.footerContent.sapMHBox {
+    width: 100% !important;
+    padding: 1.2rem 2rem !important;
+    box-sizing: border-box !important;
+    flex-wrap: wrap !important;
+    gap: 1.5rem !important;
+    justify-content: space-between !important;
+    align-items: center !important;
 }
 
-.sapUiMnuItm,
-.sapUiMnuItmBase {
-    background-color: #3a3a3a !important;
+.footerBrand,
+.footerBrand.sapMHBox {
+    align-items: center !important;
+    flex-shrink: 0 !important;
+}
+
+.footerLogo,
+.footerLogo.sapMImg {
+    width: 150px !important;
+    height: 60px !important;
+    object-fit: contain !important;
+    flex-shrink: 0 !important;
+}
+
+.footerBrandDivider,
+.footerBrandDivider.sapMHBox {
+    width: 2px !important;
+    min-width: 2px !important;
+    height: 50px !important;
+    min-height: 50px !important;
+    background-color: rgba(255,255,255,0.4) !important;
+    margin: 0 14px !important;
+    flex-shrink: 0 !important;
+}
+
+.footerTagline,
+.footerTagline.sapMText {
+    font-size: 0.75rem !important;
+    color: rgba(255,255,255,0.6) !important;
+    max-width: 200px;
+    line-height: 1.5 !important;
+}
+
+.footerLinks,
+.footerLinks.sapMHBox {
+    gap: 4px !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.footerLinkBtn.sapMBtn,
+.footerLinkBtn.sapMBtn.sapMBtnDefault,
+.footerLinkBtn.sapMBtn.sapMBtnTransparent {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 2px !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+}
+
+.footerLinkBtn.sapMBtn .sapMBtnInner,
+.footerLinkBtn.sapMBtn.sapMBtnDefault .sapMBtnInner,
+.footerLinkBtn.sapMBtn.sapMBtnTransparent .sapMBtnInner {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.3) !important;
+    border-radius: 0 !important;
+    padding: 2px 4px !important;
+    height: auto !important;
+    box-shadow: none !important;
+}
+
+.footerLinkBtn.sapMBtn .sapMBtnInner *,
+.footerLinkBtn.sapMBtn bdi {
+    color: rgba(255,255,255,0.7) !important;
+    font-size: 0.8rem !important;
+    font-weight: 500 !important;
+}
+
+.footerLinkBtn.sapMBtn:hover .sapMBtnInner {
+    border-bottom-color: #ffffff !important;
+}
+
+.footerLinkBtn.sapMBtn:hover .sapMBtnInner *,
+.footerLinkBtn.sapMBtn:hover bdi {
     color: #ffffff !important;
 }
 
-.sapUiMnuItm:hover,
-.sapUiMnuItmHov {
-    background-color: #555555 !important;
+.footerSep,
+.footerSep.sapMText {
+    color: rgba(255,255,255,0.25) !important;
+    font-size: 0.75rem !important;
+    padding: 0 2px !important;
 }
 
-.sapUiMnuItmTxt {
-    color: #ffffff !important;
+.footerRight,
+.footerRight.sapMVBox {
+    align-items: flex-end !important;
+    gap: 4px !important;
+    flex-shrink: 0 !important;
 }
 
-/* ===========================
-   CONTENIDO PRINCIPAL
-=========================== */
+.footerCopy,
+.footerCopy.sapMText {
+    font-size: 0.78rem !important;
+    color: rgba(255,255,255,0.7) !important;
+    font-weight: 600 !important;
+    text-align: right !important;
+}
 
-.pageContent {
+.footerDisclaimer,
+.footerDisclaimer.sapMText {
+    font-size: 0.65rem !important;
+    color: rgba(255,255,255,0.35) !important;
+    text-align: right !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECCIÓN 2 — MAIN VIEW (Main.view.xml)
+   ═══════════════════════════════════════════════════════════════ */
+
+.pageContent,
+.pageContent.sapMVBox {
+    flex: 1 1 auto !important;
     max-width: 1100px;
     margin: 2rem auto !important;
     padding: 0 1.5rem;
@@ -335,21 +507,17 @@
     gap: 1.5rem;
 }
 
-/* ===========================
-   PANELES
-=========================== */
-
 .dokkanPanel {
     background-color: #ffffff !important;
     border-radius: 12px !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important;
     overflow: hidden;
     margin-bottom: 1.5rem;
 }
 
 .dokkanPanel > .sapMPanelHdr {
     background-color: transparent !important;
-    border-bottom: 1px solid #e0e0e0 !important;
+    border-bottom: 1px solid #e8e8e8 !important;
     padding: 0.8rem 1rem !important;
 }
 
@@ -357,17 +525,15 @@
     font-size: 1.2rem !important;
     font-weight: 800 !important;
     color: #1a1a1a !important;
-    text-align: left !important;
+    text-align: center !important;
+    width: 100% !important;
+    display: block !important;
 }
 
 .dokkanPanel .sapMPanelContent {
     padding: 1rem 1rem 1.5rem 1rem !important;
-    background-color: #f7f7f7 !important;
+    background-color: #fafafa !important;
 }
-
-/* ===========================
-   TARJETAS DE PERSONAJE
-=========================== */
 
 .characterRow {
     gap: 1rem;
@@ -389,7 +555,7 @@
 
 .characterCard:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
 .characterImg {
@@ -405,7 +571,7 @@
     font-size: 0.68rem !important;
     color: #ffffff !important;
     text-align: center !important;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0,0,0,0.5);
     border-radius: 4px;
     padding: 2px 4px;
     line-height: 1.3 !important;
@@ -415,66 +581,493 @@
     box-sizing: border-box;
 }
 
-/* ===========================
-   RESPONSIVE
-=========================== */
+
+/* ═══════════════════════════════════════════════════════════════
+   SECCIÓN 3 — SEGUNDA VIEW (Segunda.view.xml — Card Detail)
+   ═══════════════════════════════════════════════════════════════ */
+
+.cardDetailContent,
+.cardDetailContent.sapMVBox {
+    flex: 1 1 auto !important;
+    max-width: 1200px;
+    margin: 1.5rem auto !important;
+    padding: 0 1.5rem 2rem 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 0 !important;
+}
+
+.cardTopRow,
+.cardTopRow.sapMHBox {
+    gap: 1.2rem !important;
+    align-items: flex-start !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+}
+
+/* Columna izquierda */
+
+.cardLeftCol,
+.cardLeftCol.sapMVBox {
+    flex: 0 0 240px !important;
+    min-width: 200px !important;
+    gap: 1rem !important;
+}
+
+.cardThumbBox,
+.cardThumbBox.sapMVBox {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+    padding: 12px !important;
+    align-items: center !important;
+}
+
+.cardThumbImg,
+.cardThumbImg.sapMImg {
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+
+.cardArtBox,
+.cardArtBox.sapMVBox {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+    padding: 12px 12px 10px 12px !important;
+    align-items: center !important;
+    gap: 8px !important;
+}
+
+.cardArtImg,
+.cardArtImg.sapMImg {
+    width: 216px !important;
+    height: 340px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+
+.cardReleaseDate,
+.cardReleaseDate.sapMText {
+    font-size: 0.75rem !important;
+    color: #999 !important;
+    text-align: center !important;
+}
+
+/* Columna derecha */
+
+.cardRightCol,
+.cardRightCol.sapMVBox {
+    flex: 1 1 480px !important;
+    gap: 1rem !important;
+    min-width: 280px !important;
+}
+
+/* Bloque nombre */
+
+.cardNameBox,
+.cardNameBox.sapMVBox {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+    padding: 1rem 1.2rem !important;
+    border-left: 4px solid #3b82f6 !important;
+    gap: 6px !important;
+}
+
+.cardSubtitle,
+.cardSubtitle.sapMText {
+    font-size: 0.78rem !important;
+    color: #999 !important;
+    font-weight: 600 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+}
+
+.cardTitle .sapMTitle {
+    font-size: 2rem !important;
+    font-weight: 900 !important;
+    color: #1a1a1a !important;
+    line-height: 1.15 !important;
+}
+
+.cardBadgeRow,
+.cardBadgeRow.sapMHBox {
+    gap: 6px !important;
+    flex-wrap: wrap !important;
+    margin-top: 4px !important;
+}
+
+.badgeRarity,
+.badgeRarity.sapMText {
+    background-color: #d4af37 !important;
+    color: #1a1a00 !important;
+    font-weight: 800 !important;
+    font-size: 0.72rem !important;
+    padding: 3px 10px !important;
+    border-radius: 12px !important;
+    letter-spacing: 1px !important;
+}
+
+.badgeType,
+.badgeType.sapMText {
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    font-size: 0.72rem !important;
+    padding: 3px 10px !important;
+    border-radius: 12px !important;
+}
+
+.badgeAGL { background-color: #2563eb !important; }
+.badgeSTR { background-color: #dc2626 !important; }
+.badgeTEQ { background-color: #059669 !important; }
+.badgePHY { background-color: #d97706 !important; }
+.badgeINT { background-color: #7c3aed !important; }
+
+.badgeClass,
+.badgeClass.sapMText {
+    background-color: #f3f4f6 !important;
+    color: #374151 !important;
+    font-size: 0.72rem !important;
+    font-weight: 600 !important;
+    padding: 3px 10px !important;
+    border-radius: 12px !important;
+    border: 1px solid #d1d5db !important;
+}
+
+.badgeCost,
+.badgeCost.sapMText {
+    color: #9ca3af !important;
+    font-size: 0.72rem !important;
+    font-weight: 500 !important;
+    align-self: center !important;
+}
+
+/* Sección genérica (Leader Skill, Super Attack, etc.) */
+
+.cardSection,
+.cardSection.sapMVBox {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
+    padding: 1rem 1.2rem !important;
+    gap: 6px !important;
+}
+
+.cardSectionTitle,
+.cardSectionTitle.sapMText {
+    font-size: 0.88rem !important;
+    font-weight: 800 !important;
+    color: #111827 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+    margin-bottom: 2px !important;
+}
+
+.cardSectionSubtitle,
+.cardSectionSubtitle.sapMText {
+    font-size: 0.88rem !important;
+    font-weight: 600 !important;
+    color: #6b7280 !important;
+}
+
+.cardSectionText,
+.cardSectionText.sapMText {
+    font-size: 0.88rem !important;
+    color: #374151 !important;
+    line-height: 1.65 !important;
+}
+
+.cardSectionSa,
+.cardSectionSa.sapMText {
+    font-size: 0.78rem !important;
+    color: #d97706 !important;
+    font-weight: 600 !important;
+    margin-top: 2px !important;
+}
+
+.statsRow,
+.statsRow.sapMHBox {
+    gap: 0.8rem !important;
+    flex-wrap: wrap !important;
+    margin-top: 4px !important;
+}
+
+.statBox,
+.statBox.sapMVBox {
+    flex: 1 !important;
+    align-items: center !important;
+    background-color: #f9fafb !important;
+    border-radius: 8px !important;
+    padding: 0.6rem 0.4rem !important;
+    min-width: 80px !important;
+}
+
+.statLabel,
+.statLabel.sapMText {
+    font-size: 0.7rem !important;
+    color: #9ca3af !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+}
+
+.statNumber,
+.statNumber.sapMText {
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    margin-top: 2px !important;
+}
+
+.statHP  { color: #ef4444 !important; }
+.statATK { color: #f59e0b !important; }
+.statDEF { color: #3b82f6 !important; }
+
+.linkSkillsGrid,
+.linkSkillsGrid.sapMHBox {
+    gap: 6px !important;
+    flex-wrap: wrap !important;
+    margin-top: 4px !important;
+}
+
+.linkSkillBtn.sapMBtn,
+.linkSkillBtn.sapMBtn.sapMBtnDefault,
+.linkSkillBtn.sapMBtn.sapMBtnTransparent {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+}
+
+.linkSkillBtn.sapMBtn .sapMBtnInner,
+.linkSkillBtn.sapMBtn.sapMBtnDefault .sapMBtnInner,
+.linkSkillBtn.sapMBtn.sapMBtnTransparent .sapMBtnInner {
+    background-color: #eef2ff !important;
+    border: 1px solid #c7d2fe !important;
+    border-radius: 20px !important;
+    padding: 5px 14px !important;
+    height: auto !important;
+    min-height: 30px !important;
+    box-shadow: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.linkSkillBtn.sapMBtn .sapMBtnInner *,
+.linkSkillBtn.sapMBtn bdi {
+    color: #3730a3 !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    line-height: 1.3 !important;
+}
+
+.linkSkillBtn.sapMBtn:hover .sapMBtnInner {
+    background-color: #c7d2fe !important;
+    border-color: #818cf8 !important;
+}
+
+.linkSkillBtn.sapMBtn:hover bdi { color: #1e1b4b !important; }
+
+.categoriesGrid,
+.categoriesGrid.sapMHBox {
+    gap: 6px !important;
+    flex-wrap: wrap !important;
+    margin-top: 4px !important;
+}
+
+.categoryChip,
+.categoryChip.sapMText {
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    padding: 5px 14px !important;
+    border-radius: 20px !important;
+    border: 1px solid #fde68a !important;
+}
+
+.navBtn.sapMMenuBtn {
+    background-color: #5e5e5e !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(255,255,255,0.35) !important;
+}
+
+.navBtn.sapMMenuBtn .sapMBtnInner {
+    background-color:  transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.dokkanPanel .sapMPanelHdr {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.dokkanPanel .sapMPanelHeaderText {
+    text-align: center !important;
+    width: 100% !important;
+}
+
+.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnIcon,
+.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapUiIcon {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+.sapMMenuBtn .sapMBtnContent {
+    font-size: 13px !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+    margin-top: 0.25px !important;
+}
+
+.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner {
+    border-left: none !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECCIÓN 4 — RESPONSIVE
+   Breakpoints: 900px (tablet) · 600px (móvil) · 400px (pequeño)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Tablet (≤900px) ── */
 
 @media (max-width: 900px) {
-    .dokkanTitle,
-    .dokkanTitle.sapMText {
-        font-size: 1.2rem !important;
+
+    /* Header */
+    .navLogo, .navLogo.sapMImg { width: 130px !important; height: 77px !important; }
+    .navIcons, .navIcons.sapMHBox { width: 130px !important; }
+
+    /* Botones nav */
+    .navBtn.sapMBtn,
+    .navBtn.sapMMenuBtn { height: 34px !important; min-height: 34px !important; }
+
+    .navBtn.sapMBtn .sapMBtnInner,
+    .navBtn.sapMBtn.sapMBtnDefault .sapMBtnInner,
+    .navBtn.sapMBtn.sapMBtnTransparent .sapMBtnInner,
+    .navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner,
+    .navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnDefault .sapMBtnInner,
+    .navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner {
+        height: 34px !important;
+        min-height: 34px !important;
+        line-height: 34px !important;
+        padding: 0 12px !important;
     }
-    .headerLogo {
-        width: 45px !important;
-        height: 45px !important;
+
+    .navBtn.sapMBtn bdi,
+    .navBtn.sapMMenuBtn .sapMMenuBtnRegular bdi { font-size: 0.75rem !important; }
+
+    .navIconBtn.sapMBtn .sapMBtnInner,
+    .navIconBtn.sapMBtn.sapMBtnDefault .sapMBtnInner {
+        width: 32px !important;
+        height: 32px !important;
+        min-width: 32px !important;
+        min-height: 32px !important;
     }
-    .headerTitleSpacer {
-        width: 45px !important;
-    }
+
+    /* Footer */
+    .footerContent { padding: 1rem 1.2rem !important; gap: 1rem !important; }
+    .footerRight { align-items: center !important; }
+    .footerCopy.sapMText, .footerDisclaimer.sapMText { text-align: center !important; }
+
+    /* Segunda */
+    .cardDetailContent { padding: 0 0.8rem 1.5rem 0.8rem; margin: 1rem auto !important; }
+    .cardTopRow { gap: 1rem !important; }
+    .cardLeftCol { flex: 0 0 200px !important; }
+    .cardArtImg, .cardArtImg.sapMImg { width: 176px !important; height: 280px !important; }
+    .cardTitle .sapMTitle { font-size: 1.6rem !important; }
 }
+
+/* ── Móvil (≤600px) ── */
 
 @media (max-width: 600px) {
-    .dokkanTitle,
-    .dokkanTitle.sapMText {
-        font-size: 0.85rem !important;
-        letter-spacing: 0.2px;
-    }
-    .headerLogo {
-        width: 36px !important;
-        height: 36px !important;
-    }
-    .headerTitleSpacer {
-        width: 36px !important;
-    }
+
+    /* Header */
+    .navBar, .navBar.sapMHBox { flex-wrap: wrap !important; padding: 0.4rem 0.5rem !important; }
+    .navLogo, .navLogo.sapMImg { width: 100px !important; height: 59px !important; }
+    .navButtons, .navButtons.sapMHBox { width: 100% !important; flex: unset !important; order: 3 !important; }
+    .navIcons, .navIcons.sapMHBox { width: auto !important; flex: 1 !important; justify-content: flex-end !important; order: 2 !important; }
+
+    /* Botones nav */
+    .navBtn.sapMBtn,
+    .navBtn.sapMMenuBtn { height: 30px !important; min-height: 30px !important; margin: 2px !important; }
+
     .navBtn.sapMBtn .sapMBtnInner,
-    .navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner {
-        font-size: 0.62rem !important;
-        padding: 0 8px !important;
+    .navBtn.sapMBtn.sapMBtnDefault .sapMBtnInner,
+    .navBtn.sapMBtn.sapMBtnTransparent .sapMBtnInner,
+    .navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner,
+    .navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnDefault .sapMBtnInner,
+    .navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner {
+        height: 30px !important;
+        min-height: 30px !important;
+        line-height: 30px !important;
+        padding: 0 9px !important;
     }
-    .pageContent {
-        padding: 0 0.6rem;
-        margin: 0.8rem auto !important;
+
+    .navBtn.sapMBtn bdi,
+    .navBtn.sapMMenuBtn .sapMMenuBtnRegular bdi { font-size: 0.65rem !important; }
+
+    .navIconBtn.sapMBtn .sapMBtnInner,
+    .navIconBtn.sapMBtn.sapMBtnDefault .sapMBtnInner {
+        width: 28px !important;
+        height: 28px !important;
+        min-width: 28px !important;
+        min-height: 28px !important;
     }
-    .characterCard {
-        min-width: 72px;
-        max-width: 85px;
-    }
-    .characterImg {
-        width: 50px !important;
-        height: 50px !important;
-    }
+
+    /* Main */
+    .pageContent { padding: 0 0.6rem; margin: 0.8rem auto !important; }
+    .characterCard { min-width: 72px; max-width: 85px; }
+    .characterImg { width: 50px !important; height: 50px !important; }
+
+    /* Footer */
+    .footerContent { flex-direction: column !important; align-items: center !important; padding: 1rem 0.8rem !important; gap: 1rem !important; }
+    .footerBrand { flex-wrap: wrap !important; justify-content: center !important; }
+    .footerTagline.sapMText { text-align: center !important; max-width: 260px; }
+    .footerRight { align-items: center !important; }
+    .footerCopy.sapMText, .footerDisclaimer.sapMText { text-align: center !important; }
+
+    /* Segunda */
+    .cardDetailContent { padding: 0 0.5rem 1rem 0.5rem; }
+    .cardTopRow { flex-direction: column !important; gap: 0.8rem !important; }
+    .cardLeftCol { flex: 0 0 auto !important; width: 100% !important; flex-direction: row !important; gap: 0.8rem !important; }
+    .cardThumbBox { flex: 0 0 140px !important; }
+    .cardThumbImg, .cardThumbImg.sapMImg { width: 120px !important; height: 120px !important; }
+    .cardArtBox { flex: 1 !important; }
+    .cardArtImg, .cardArtImg.sapMImg { width: 100% !important; height: 200px !important; }
+    .cardRightCol { flex: 0 0 100% !important; }
+    .cardTitle .sapMTitle { font-size: 1.5rem !important; }
 }
 
+/* ── Móvil pequeño (≤400px) ── */
+
 @media (max-width: 400px) {
-    .dokkanTitle,
-    .dokkanTitle.sapMText {
-        font-size: 0.72rem !important;
-    }
-    .headerLogo {
-        width: 30px !important;
-        height: 30px !important;
-    }
-    .headerTitleSpacer {
-        width: 30px !important;
-    }
+
+    /* Header */
+    .navLogo, .navLogo.sapMImg { width: 80px !important; height: 47px !important; }
+    .navBtn.sapMBtn bdi,
+    .navBtn.sapMMenuBtn .sapMMenuBtnRegular bdi { font-size: 0.58rem !important; }
+
+    /* Main */
+    .characterCard { min-width: 62px; max-width: 74px; }
+
+    /* Footer */
+    .footerLogo, .footerLogo.sapMImg { width: 120px !important; height: 48px !important; }
+    .footerBrandDivider { display: none !important; }
+    .footerTagline.sapMText { font-size: 0.68rem !important; }
+
+    /* Segunda */
+    .cardLeftCol { flex-direction: column !important; align-items: center !important; }
+    .cardThumbBox { flex: unset !important; width: 100% !important; }
+    .cardArtImg, .cardArtImg.sapMImg { height: 240px !important; }
+    .cardTitle .sapMTitle { font-size: 1.2rem !important; }
+    .statNumber.sapMText { font-size: 1rem !important; }
 }
