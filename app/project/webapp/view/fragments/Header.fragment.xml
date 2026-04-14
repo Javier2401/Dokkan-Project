@@ -10,8 +10,8 @@
 
             <HBox justifyContent="Center" alignItems="Center" wrap="Wrap" class="navButtons">
                 <Button text="{i18n>nav.news}"     class="navBtn" press=".onNavNews"/>
-                <Button text="{i18n>nav.banners}"  class="navBtn"/>
-                <Button text="{i18n>nav.missions}" class="navBtn"/>
+                <Button text="{i18n>nav.banners}"  class="navBtn" press=".onNavBanners"/>
+                <Button text="{i18n>nav.missions}" class="navBtn" press=".onNavMissions"/>
                 <MenuButton text="{i18n>nav.characters}" class="navBtn">
                     <Menu>
                         <MenuItem text="Name"/>
@@ -30,8 +30,8 @@
             </HBox>
 
             <HBox alignItems="Center" class="navIcons">
-                <Button icon="sap-icon://person-placeholder" class="navIconBtn"/>
-                <Button icon="sap-icon://action-settings"    class="navIconBtn"/>
+                <Button icon="sap-icon://person-placeholder" class="navIconBtn" press=".onOpenProfile"/>
+                <Button icon="sap-icon://action-settings"    class="navIconBtn" press=".onOpenSettings"/>
                 <MenuButton icon="sap-icon://world" class="navBtn navLangBtn">
                     <Menu>
                         <MenuItem text="🇬🇧  English" press=".onChangeLang"/>

@@ -1,0 +1,22 @@
+<mvc:View controllerName="project.controller.News"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page showHeader="false" enableScrolling="true" class="dokkanPage">
+        <content>
+            <VBox class="pageWrapper">
+
+                <core:Fragment fragmentName="project.view.fragments.Header" type="XML"/>
+
+                <VBox class="pageContent">
+                    <Text text=" PAGINA NEWS"/>
+                </VBox>
+
+                <core:Fragment fragmentName="project.view.fragments.Footer" type="XML"/>
+
+            </VBox>
+        </content>
+    </Page>
+
+</mvc:View>

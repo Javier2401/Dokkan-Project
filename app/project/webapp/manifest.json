@@ -112,12 +112,46 @@
             "TargetMain"
           ]
         },
-
         {
-          "name": "RouteSegunda",
-          "pattern": "app",
+          "name": "RouteInfoCharacter",
+          "pattern": "character", 
           "target": [
-            "TargetSegunda"
+            "TargetInfoCharacter"
+          ]
+        },
+        {
+          "name": "RouteNews",
+          "pattern": "news",
+          "target": [
+            "TargetNews"
+          ]
+        },
+        {
+          "name": "RouteBanners",
+          "pattern": "banners",
+          "target": [
+            "TargetBanners"
+          ]
+        },
+        {
+          "name": "RouteMissions",
+          "pattern": "missions",
+          "target": [
+            "TargetMissions"
+          ]
+        },
+        {
+          "name": "RouteProfile",
+          "pattern": "profile",
+          "target": [
+            "TargetProfile"
+          ]
+        },
+        {
+          "name": "RouteSettings",
+          "pattern": "settings",
+          "target": [
+            "TargetSettings"
           ]
         }
       ],
@@ -126,12 +160,31 @@
           "id": "Main",
           "name": "Main"
         },
-        "TargetSegunda": {
-          "id": "Segunda",
-          "name": "Segunda"
+        "TargetInfoCharacter": {
+          "id": "InfoCharacter",
+          "name": "InfoCharacter"
+        },
+        "TargetNews": {
+          "id": "News",
+          "name": "News"
+        },
+        "TargetBanners": {
+          "id": "Banners",
+          "name": "Banners"
+        },
+        "TargetMissions": {
+          "id": "Missions",
+          "name": "Missions"
+        },
+        "TargetProfile": {
+          "id": "Profile",
+          "name": "Profile"
+        },
+        "TargetSettings": {
+          "id": "Settings",
+          "name": "Settings"
         }
       }
-      
     },
     "rootView": {
       "viewName": "project.view.App",

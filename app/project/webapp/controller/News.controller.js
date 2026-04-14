@@ -3,16 +3,15 @@ sap.ui.define([
 ], (BaseController) => {
     "use strict";
 
-    return BaseController.extend("project.controller.Main", {
+    return BaseController.extend("project.controller.News", {
 
         onInit() { },
 
-        onNavInfoCharacter: function() { this.getOwnerComponent().getRouter().navTo("RouteInfoCharacter"); },
         onNavBanners:    function() { this.getOwnerComponent().getRouter().navTo("RouteBanners"); },
         onNavMissions:   function() { this.getOwnerComponent().getRouter().navTo("RouteMissions"); },
-        onNavCharacters: function() { this.getOwnerComponent().getRouter().navTo("RouteCharacters"); },
-        onNavEvents:     function() { this.getOwnerComponent().getRouter().navTo("RouteEvents"); },
-        onNavItems:      function() { this.getOwnerComponent().getRouter().navTo("RouteItems"); },
+        onNavCharacters: function() { },
+        onNavEvents:     function() { },
+        onNavItems:      function() { },
         onOpenProfile:   function() { this.getOwnerComponent().getRouter().navTo("RouteProfile"); },
         onOpenSettings:  function() { this.getOwnerComponent().getRouter().navTo("RouteSettings"); },
         onOpenPrivacy:   function() { },

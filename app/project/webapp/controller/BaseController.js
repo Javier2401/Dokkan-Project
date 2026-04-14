@@ -7,9 +7,7 @@ sap.ui.define([
     return Controller.extend("project.controller.BaseController", {
 
         onChangeLang: function(oEvent) {
-
             const sText = oEvent.getSource().getText();
-
             const sLocale = sText.includes("Español") ? "es" : "en";
             LanguageManager.changeLanguage(sLocale);
         },
@@ -17,8 +15,32 @@ sap.ui.define([
         onNavMain: function() {
             this.getOwnerComponent().getRouter().navTo("RouteMain");
         },
+
         onNavNews: function() {
-            this.getOwnerComponent().getRouter().navTo("RouteSegunda");
-        }
+            this.getOwnerComponent().getRouter().navTo("RouteNews");
+        },
+
+        onNavBanners: function() {
+            this.getOwnerComponent().getRouter().navTo("RouteBanners");
+        },
+
+        onNavMissions: function() {
+            this.getOwnerComponent().getRouter().navTo("RouteMissions");
+        },
+
+        onOpenProfile: function() {
+            this.getOwnerComponent().getRouter().navTo("RouteProfile");
+        },
+
+        onOpenSettings: function() {
+            this.getOwnerComponent().getRouter().navTo("RouteSettings");
+        },
+
+        
+        onNavInfoCharacter: function(oEvent) {
+            this.getOwnerComponent().getRouter().navTo("RouteInfoCharacter", {
+                characterId: "1"
+            });
+        },
     });
 });
