@@ -5,7 +5,17 @@ sap.ui.define([
 
     return BaseController.extend("project.controller.Main", {
 
-        onInit() { },
+        onInit() {
+            
+            /** 
+            const oModel = this.getView().getModel();
+            oModel.read("/Characters", {
+            success: (data) => console.log(data),
+            error:   (err)  => console.error(err)
+            
+            });
+            */
+        },
 
         onNavBanners:    function() { },
         onNavMissions:   function() { },

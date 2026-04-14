@@ -1,0 +1,4 @@
+ID,name,type,hp,atk,def,passive
+1,Son Goku,AGL,12000,15000,8000,ATK & DEF +120%
+2,Vegeta,STR,11000,16000,7000,ATK +100% when HP 80%+
+3,Gohan,TEQ,10000,13000,9000,DEF +150% when attacked

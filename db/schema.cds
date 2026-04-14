@@ -9,3 +9,9 @@ entity Character {
     def: Integer;
     passive: String;
 }
+
+entity Category {
+    key ID: Integer;
+    name: String;
+    characters: Association to many Character on characters.ID = $self.ID;
+}
