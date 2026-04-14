@@ -12,35 +12,17 @@ sap.ui.define([
             LanguageManager.changeLanguage(sLocale);
         },
 
-        onNavMain: function() {
-            this.getOwnerComponent().getRouter().navTo("RouteMain");
-        },
-
-        onNavNews: function() {
-            this.getOwnerComponent().getRouter().navTo("RouteNews");
-        },
-
-        onNavBanners: function() {
-            this.getOwnerComponent().getRouter().navTo("RouteBanners");
-        },
-
-        onNavMissions: function() {
-            this.getOwnerComponent().getRouter().navTo("RouteMissions");
-        },
-
-        onOpenProfile: function() {
-            this.getOwnerComponent().getRouter().navTo("RouteProfile");
-        },
-
-        onOpenSettings: function() {
-            this.getOwnerComponent().getRouter().navTo("RouteSettings");
-        },
-
-        
         onNavInfoCharacter: function(oEvent) {
             this.getOwnerComponent().getRouter().navTo("RouteInfoCharacter", {
                 characterId: "1"
             });
         },
+
+        onNavMain: function() { this.getOwnerComponent().getRouter().navTo("RouteMain"); },
+        onNavNews: function() { this.getOwnerComponent().getRouter().navTo("RouteNews"); },
+        onNavBanners: function() { this.getOwnerComponent().getRouter().navTo("RouteBanners"); },
+        onNavMissions: function() { this.getOwnerComponent().getRouter().navTo("RouteMissions"); },
+        onOpenProfile: function() { this.getOwnerComponent().getRouter().navTo("RouteProfile"); },
+        onOpenSettings: function() { this.getOwnerComponent().getRouter().navTo("RouteSettings"); },
     });
 });

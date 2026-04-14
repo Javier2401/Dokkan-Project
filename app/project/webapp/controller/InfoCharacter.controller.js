@@ -6,16 +6,5 @@ sap.ui.define([
     return BaseController.extend("project.controller.InfoCharacter", {
 
         onInit() { },
-
-        onNavBanners:    function() { },
-        onNavMissions:   function() { },
-        onNavCharacters: function() { },
-        onNavEvents:     function() { },
-        onNavItems:      function() { },
-        onOpenProfile:   function() { },
-        onOpenSettings:  function() { },
-        onOpenPrivacy:   function() { },
-        onOpenCookies:   function() { },
-        onOpenTerms:     function() { }
     });
 });
