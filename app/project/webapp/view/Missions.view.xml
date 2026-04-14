@@ -7,13 +7,13 @@
         <content>
             <VBox class="pageWrapper">
  
-                <core:Fragment fragmentName="project.view.fragments.Header" type="XML"/>
+                <core:Fragment fragmentName="project.view.shared.Header" type="XML"/>
  
                 <VBox class="pageContent">
                     <Text text=" PAGINA MISIONES"/>
                 </VBox>
  
-                <core:Fragment fragmentName="project.view.fragments.Footer" type="XML"/>
+                <core:Fragment fragmentName="project.view.shared.Footer" type="XML"/>
  
             </VBox>
         </content>

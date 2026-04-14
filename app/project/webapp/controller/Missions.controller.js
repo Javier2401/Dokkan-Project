@@ -1,5 +1,5 @@
 sap.ui.define([
-    "project/controller/BaseController"
+    "project/controller/shared/BaseController"
 ], (BaseController) => {
     "use strict";
 

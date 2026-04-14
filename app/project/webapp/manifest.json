@@ -158,7 +158,7 @@
       "targets": {
         "TargetMain": {
           "id": "Main",
-          "name": "Main"
+          "name": "main.Main"
         },
         "TargetInfoCharacter": {
           "id": "InfoCharacter",

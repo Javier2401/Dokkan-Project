@@ -4,7 +4,7 @@ sap.ui.define([
 ], (Controller, LanguageManager) => {
     "use strict";
 
-    return Controller.extend("project.controller.BaseController", {
+    return Controller.extend("project.controller.shared.BaseController", {
 
         onChangeLang: function(oEvent) {
             const sText = oEvent.getSource().getText();
