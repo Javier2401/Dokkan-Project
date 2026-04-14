@@ -3,39 +3,44 @@
     xmlns:core="sap.ui.core">
 
     <VBox class="dokkanHeader">
+
         <HBox alignItems="Center" class="navBar">
+
             <Image src="images/titulo.png" class="navLogo" press=".onNavMain"/>
+
             <HBox justifyContent="Center" alignItems="Center" wrap="Wrap" class="navButtons">
-                <Button text="NEWS"     class="navBtn" press=".onNavNews"/>
-                <Button text="BANNERS"  class="navBtn"/>
-                <Button text="MISSIONS" class="navBtn"/>
-                <MenuButton text="CHARACTERS" class="navBtn">
+                <Button text="{i18n>nav.news}"     class="navBtn" press=".onNavNews"/>
+                <Button text="{i18n>nav.banners}"  class="navBtn"/>
+                <Button text="{i18n>nav.missions}" class="navBtn"/>
+                <MenuButton text="{i18n>nav.characters}" class="navBtn">
                     <Menu>
                         <MenuItem text="Name"/>
                     </Menu>
                 </MenuButton>
-                <MenuButton text="EVENTS" class="navBtn">
+                <MenuButton text="{i18n>nav.events}" class="navBtn">
                     <Menu>
                         <MenuItem text="Current Events"/>
                     </Menu>
                 </MenuButton>
-                <MenuButton text="ITEMS" class="navBtn">
+                <MenuButton text="{i18n>nav.items}" class="navBtn">
                     <Menu>
                         <MenuItem text="Support Items"/>
                     </Menu>
                 </MenuButton>
             </HBox>
+
             <HBox alignItems="Center" class="navIcons">
                 <Button icon="sap-icon://person-placeholder" class="navIconBtn"/>
                 <Button icon="sap-icon://action-settings"    class="navIconBtn"/>
                 <MenuButton icon="sap-icon://world" class="navBtn navLangBtn">
                     <Menu>
-                        <MenuItem text="🇬🇧  English"/>
-                        <MenuItem text="🇪🇸  Español"/>
+                        <MenuItem text="🇬🇧  English" press=".onChangeLang"/>
+                        <MenuItem text="🇪🇸  Español" press=".onChangeLang"/>
                     </Menu>
                 </MenuButton>
             </HBox>
         </HBox>
+
     </VBox>
 
 </core:FragmentDefinition>

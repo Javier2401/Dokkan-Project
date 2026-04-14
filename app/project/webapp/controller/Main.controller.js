@@ -1,42 +1,21 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
-], (Controller) => {
+    "project/controller/BaseController"
+], (BaseController) => {
     "use strict";
 
-    return Controller.extend("project.controller.Main", {
+    return BaseController.extend("project.controller.Main", {
 
-        onInit() {
-        },
+        onInit() { },
 
-        onNavMain: function () {
-            this.getOwnerComponent().getRouter().navTo("RouteMain");
-        },
-
-        onNavNews: function () {
-            this.getOwnerComponent().getRouter().navTo("RouteSegunda");
-        },
-        onNavBanners: function () {
-            // this.getOwnerComponent().getRouter().navTo("RouteBanners");
-        },
-        onNavMissions: function () {
-            // this.getOwnerComponent().getRouter().navTo("RouteMissions");
-        },
-        onNavCharacters: function () {
-            // this.getOwnerComponent().getRouter().navTo("RouteCharacters");
-        },
-        onNavEvents: function () {
-            // this.getOwnerComponent().getRouter().navTo("RouteEvents");
-        },
-        onNavItems: function () {
-            // this.getOwnerComponent().getRouter().navTo("RouteItems");
-        },
-
-        onOpenProfile:  function () { },
-        onOpenSettings: function () { },
-        onChangeLang:   function () { },
-
-        onOpenPrivacy: function () { },
-        onOpenCookies: function () { },
-        onOpenTerms:   function () { },
+        onNavBanners:    function() { },
+        onNavMissions:   function() { },
+        onNavCharacters: function() { },
+        onNavEvents:     function() { },
+        onNavItems:      function() { },
+        onOpenProfile:   function() { },
+        onOpenSettings:  function() { },
+        onOpenPrivacy:   function() { },
+        onOpenCookies:   function() { },
+        onOpenTerms:     function() { },
     });
 });

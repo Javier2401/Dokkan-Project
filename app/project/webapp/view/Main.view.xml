@@ -11,7 +11,7 @@
 
                 <VBox class="pageContent">
 
-                    <Panel class="dokkanPanel" headerText="Upcoming Characters">
+                    <Panel class="dokkanPanel" headerText="{i18n>panel.upcoming}">
                         <HBox justifyContent="Center" wrap="Wrap" class="characterRow">
                             <VBox class="characterCard">
                                 <Image src="https://via.placeholder.com/60" class="characterImg"/>
@@ -36,7 +36,7 @@
                         </HBox>
                     </Panel>
 
-                    <Panel class="dokkanPanel" headerText="Recent Characters">
+                    <Panel class="dokkanPanel" headerText="{i18n>panel.recent}">
                         <HBox justifyContent="Center" wrap="Wrap" class="characterRow">
                             <VBox class="characterCard">
                                 <Image src="https://via.placeholder.com/60" class="characterImg"/>

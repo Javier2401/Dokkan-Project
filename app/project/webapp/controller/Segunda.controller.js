@@ -1,34 +1,21 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
-], (Controller) => {
+    "project/controller/BaseController"
+], (BaseController) => {
     "use strict";
 
-    return Controller.extend("project.controller.Segunda", {
+    return BaseController.extend("project.controller.Segunda", {
 
-        onInit() {
-        },
+        onInit() { },
 
-        onNavMain: function () {
-            this.getOwnerComponent().getRouter().navTo("RouteMain");
-        },
-
-        onNavNews:       function () { },
-        onNavBanners:    function () { },
-        onNavMissions:   function () { },
-        onNavCharacters: function () { },
-        onNavEvents:     function () { },
-        onNavItems:      function () { },
-
-        onOpenProfile:  function () { },
-        onOpenSettings: function () { },
-        onChangeLang:   function () { },
-
-        onOpenPrivacy: function () { },
-        onOpenCookies: function () { },
-        onOpenTerms:   function () { },
-
-        changeViewToMain: function () {
-            this.getOwnerComponent().getRouter().navTo("RouteMain");
-        },
+        onNavBanners:    function() { },
+        onNavMissions:   function() { },
+        onNavCharacters: function() { },
+        onNavEvents:     function() { },
+        onNavItems:      function() { },
+        onOpenProfile:   function() { },
+        onOpenSettings:  function() { },
+        onOpenPrivacy:   function() { },
+        onOpenCookies:   function() { },
+        onOpenTerms:     function() { }
     });
 });
