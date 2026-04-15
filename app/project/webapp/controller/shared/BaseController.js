@@ -24,5 +24,8 @@ sap.ui.define([
         onNavMissions: function() { this.getOwnerComponent().getRouter().navTo("RouteMissions"); },
         onOpenProfile: function() { this.getOwnerComponent().getRouter().navTo("RouteProfile"); },
         onOpenSettings: function() { this.getOwnerComponent().getRouter().navTo("RouteSettings"); },
+        onOpenTermsOfUse: function() { this.getOwnerComponent().getRouter().navTo("RouteTermsOfUse"); },
+        onOpenCookiePolicy: function() { this.getOwnerComponent().getRouter().navTo("RouteCookiePolicy"); },
+        onOpenPrivacyPolicy: function() { this.getOwnerComponent().getRouter().navTo("RoutePrivacyPolicy"); }
     });
 });

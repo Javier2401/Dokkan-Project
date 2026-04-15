@@ -153,6 +153,27 @@
           "target": [
             "TargetSettings"
           ]
+        },
+        {
+          "name": "RouteTermsOfUse",
+          "pattern": "terms-of-use",
+          "target": [
+            "TargetTermsOfUse"
+          ]
+        },
+        {
+          "name": "RouteCookiePolicy",
+          "pattern": "cookie-policy",
+          "target": [
+            "TargetCookiePolicy"
+          ]
+        },
+        {
+          "name": "RoutePrivacyPolicy",
+          "pattern": "privacy-policy",
+          "target": [
+            "TargetPrivacyPolicy"
+          ]
         }
       ],
       "targets": {
@@ -183,6 +204,18 @@
         "TargetSettings": {
           "id": "Settings",
           "name": "pages.Settings"
+        },
+        "TargetTermsOfUse": {
+          "id": "TermsOfUse",
+          "name": "pages.TermsOfUse"  
+        },
+        "TargetCookiePolicy": {
+          "id": "CookiePolicy",
+          "name": "pages.CookiePolicy"
+        },
+        "TargetPrivacyPolicy": {
+          "id": "PrivacyPolicy",
+          "name": "pages.PrivacyPolicy"
         }
       }
     },

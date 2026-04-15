@@ -15,11 +15,11 @@
             </HBox>
 
             <HBox justifyContent="Center" alignItems="Center" wrap="Wrap" class="footerLinks">
-                <Button text="{i18n>footer.privacy}" class="footerLinkBtn"/>
+                <Button text="{i18n>footer.privacy}" class="footerLinkBtn" press=".onOpenPrivacyPolicy"/>
                 <Text text="|" class="footerSep"/>
-                <Button text="{i18n>footer.cookies}"  class="footerLinkBtn"/>
+                <Button text="{i18n>footer.cookies}"  class="footerLinkBtn" press=".onOpenCookiePolicy"/>
                 <Text text="|" class="footerSep"/>
-                <Button text="{i18n>footer.terms}"   class="footerLinkBtn"/>
+                <Button text="{i18n>footer.terms}"   class="footerLinkBtn" press=".onOpenTermsOfUse"/>
             </HBox>
 
             <VBox alignItems="End" class="footerRight">
