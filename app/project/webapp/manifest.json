@@ -162,27 +162,27 @@
         },
         "TargetInfoCharacter": {
           "id": "InfoCharacter",
-          "name": "InfoCharacter"
+          "name": "pages.characters.InfoCharacter"
         },
         "TargetNews": {
           "id": "News",
-          "name": "News"
+          "name": "pages.News"
         },
         "TargetBanners": {
           "id": "Banners",
-          "name": "Banners"
+          "name": "pages.Banners"
         },
         "TargetMissions": {
           "id": "Missions",
-          "name": "Missions"
+          "name": "pages.Missions"
         },
         "TargetProfile": {
           "id": "Profile",
-          "name": "Profile"
+          "name": "pages.Profile"
         },
         "TargetSettings": {
           "id": "Settings",
-          "name": "Settings"
+          "name": "pages.Settings"
         }
       }
     },

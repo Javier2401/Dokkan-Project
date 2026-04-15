@@ -3,7 +3,7 @@ sap.ui.define([
 ], (BaseController) => {
     "use strict";
 
-    return BaseController.extend("project.controller.InfoCharacter", {
+    return BaseController.extend("project.controller.pages.characters.InfoCharacter", {
 
         onInit() { },
     });

@@ -1,4 +1,4 @@
-<mvc:View controllerName="project.controller.InfoCharacter"
+<mvc:View controllerName="project.controller.pages.characters.InfoCharacter"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:core="sap.ui.core">

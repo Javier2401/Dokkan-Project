@@ -3,7 +3,7 @@ sap.ui.define([
 ], (BaseController) => {
     "use strict";
 
-    return BaseController.extend("project.controller.Settings", {
+    return BaseController.extend("project.controller.pages.Banners", {
 
         onInit() { },
     });
