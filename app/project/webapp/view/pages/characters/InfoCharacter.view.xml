@@ -13,65 +13,49 @@
 
                     <HBox class="cardTopRow" wrap="Wrap">
 
-                        <!-- ═══ COLUMNA IZQUIERDA ═══ -->
                         <VBox class="cardLeftCol">
-
                             <VBox class="cardThumbBox">
-                                <Image src="https://via.placeholder.com/150x150/4a90d9/ffffff?text=CARD"
-                                       class="cardThumbImg"/>
+                                <Image src="{thumbnail}" class="cardThumbImg"/>
                             </VBox>
 
                             <VBox class="cardArtBox">
-                                <Image src="https://via.placeholder.com/280x400/ccddee/333333?text=ARTWORK"
-                                       class="cardArtImg"/>
-                                <Text text="Release date: 26/09/2024" class="cardReleaseDate"/>
+                                <Image src="{artwork}" class="cardArtImg"/>
+                                <Text text="Release date: {releaseDate}" class="cardReleaseDate"/>
                             </VBox>
-
                         </VBox>
 
-                        <!-- ═══ COLUMNA DERECHA ═══ -->
                         <VBox class="cardRightCol">
 
-                            <!-- 1. NOMBRE -->
                             <VBox class="cardNameBox">
-                                <Text text="SUPER SAIYAN" class="cardSubtitle"/>
-                                <Title text="Son Goku" class="cardTitle" titleStyle="H1"/>
+                                <Text text="{rarity}" class="cardSubtitle"/>
+                                <Title text="{title} {name}" class="cardTitle" titleStyle="H1"/>
                             </VBox>
 
-                            <!-- 2. LEADER SKILL -->
                             <VBox class="cardSection">
                                 <Text text="Leader Skill" class="cardSectionTitle"/>
-                                <Text text="'Pure Saiyans' or 'Movie Heroes' Category Ki +4 and HP, ATK &amp; DEF +170%; plus an additional ATK &amp; DEF +10% per Rainbow Ki Sphere obtained."
-                                      class="cardSectionText"/>
+                                <Text text="{leaderSkill}" class="cardSectionText"/>
                             </VBox>
 
-                            <!-- 3. ULTRA SUPER ATTACK -->
-                            <VBox class="cardSection">
-                                <Text text="Ultra Super Attack" class="cardSectionTitle"/>
-                                <Text text="Kamehameha" class="cardSectionSubtitle"/>
-                                <Text text="Raises ATK &amp; DEF for 1 turn and causes mega-colossal damage to enemy."
-                                      class="cardSectionText"/>
-                                <Text text="SA Lv 20: Super Attack +30%" class="cardSectionSa"/>
-                            </VBox>
-
-                            <!-- 4. SUPER ATTACK -->
                             <VBox class="cardSection">
                                 <Text text="Super Attack" class="cardSectionTitle"/>
-                                <Text text="Shocking Waves" class="cardSectionSubtitle"/>
-                                <Text text="Raises ATK &amp; DEF for 1 turn and causes colossal damage to enemy."
-                                      class="cardSectionText"/>
+                                <Text text="{superAttackName}" class="cardSectionSubtitle"/>
+                                <Text text="{superAttack}" class="cardSectionText"/>
                                 <Text text="SA Lv 20: Super Attack +30%" class="cardSectionSa"/>
                             </VBox>
 
-                            <!-- 5. PASSIVE SKILL -->
                             <VBox class="cardSection">
-                                <Text text="Passive Skill" class="cardSectionTitle"/>
-                                <Text text="Mastered Power" class="cardSectionSubtitle"/>
-                                <Text text="ATK &amp; DEF +120%; plus an additional ATK +10% (up to 50%) for each attack performed."
-                                      class="cardSectionText"/>
+                                <Text text="Ultra Super Attack" class="cardSectionTitle"/>
+                                <Text text="{ultraSAName}" class="cardSectionSubtitle"/>
+                                <Text text="{ultraSA}" class="cardSectionText"/>
+                                <Text text="SA Lv 20: Super Attack +30%" class="cardSectionSa"/>
                             </VBox>
 
-                            <!-- 6. LINK SKILLS — tooltip muestra Level 1 al hover -->
+                            <VBox class="cardSection">
+                                <Text text="Passive Skill" class="cardSectionTitle"/>
+                                <Text text="{passiveName}" class="cardSectionSubtitle"/>
+                                <Text text="{passive}" class="cardSectionText"/>
+                            </VBox>
+
                             <VBox class="cardSection">
                                 <Text text="Link Skills" class="cardSectionTitle"/>
                                 <HBox wrap="Wrap" class="linkSkillsGrid">
@@ -99,7 +83,6 @@
                                 </HBox>
                             </VBox>
 
-                            <!-- 7. CATEGORIES -->
                             <VBox class="cardSection">
                                 <Text text="Categories" class="cardSectionTitle"/>
                                 <HBox wrap="Wrap" class="categoriesGrid">

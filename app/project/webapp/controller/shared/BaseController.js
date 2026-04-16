@@ -13,8 +13,10 @@ sap.ui.define([
         },
 
         onNavInfoCharacter: function(oEvent) {
+            const oBindingContext = oEvent.getSource().getBindingContext();
+            const sId = oBindingContext.getProperty("ID");
             this.getOwnerComponent().getRouter().navTo("RouteInfoCharacter", {
-                characterId: "1"
+                    characterId: sId
             });
         },
 

@@ -12,53 +12,31 @@
                 <VBox class="pageContent">
 
                     <Panel class="dokkanPanel" headerText="{i18n>panel.upcoming}">
-                        <HBox justifyContent="Center" wrap="Wrap" class="characterRow">
-                            <VBox class="characterCard" >
-                                <Image src="images/logo.png" class="characterImg" press=".onNavInfoCharacter"/>
-                                <Text text="26/09/2024 14:35 CEST" class="characterDate" />
-                            </VBox>
-                            <VBox class="characterCard">
-                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                                <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
-                            </VBox>
-                            <VBox class="characterCard">
-                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                                <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
-                            </VBox>
-                            <VBox class="characterCard">
-                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                                <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
-                            </VBox>
-                            <VBox class="characterCard">
-                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                                <Text text="26/09/2024 14:35 CEST" class="characterDate"/>
-                            </VBox>
-                        </HBox>
+                        <content>
+                            <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
+                                    items="{path: '/Characters', filters: [{path: 'isUpcoming', operator: 'EQ', value1: true}]}">
+                                <items>
+                                    <VBox class="characterCard">
+                                        <Image src="{thumbnail}" class="characterImg" press=".onNavInfoCharacter"/>
+                                        <Text text="{rarity}" class="characterDate"/>
+                                    </VBox>
+                                </items>
+                            </FlexBox>
+                        </content>
                     </Panel>
 
                     <Panel class="dokkanPanel" headerText="{i18n>panel.recent}">
-                        <HBox justifyContent="Center" wrap="Wrap" class="characterRow">
-                            <VBox class="characterCard">
-                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                                <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
-                            </VBox>
-                            <VBox class="characterCard">
-                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                                <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
-                            </VBox>
-                            <VBox class="characterCard">
-                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                                <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
-                            </VBox>
-                            <VBox class="characterCard">
-                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                                <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
-                            </VBox>
-                            <VBox class="characterCard">
-                                <Image src="https://via.placeholder.com/60" class="characterImg"/>
-                                <Text text="07/10/2024 10:20 CEST" class="characterDate"/>
-                            </VBox>
-                        </HBox>
+                        <content>
+                            <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
+                                    items="{path: '/Characters', filters: [{path: 'isUpcoming', operator: 'EQ', value1: false}]}">
+                                <items>
+                                    <VBox class="characterCard">
+                                        <Image src="{thumbnail}" class="characterImg" press=".onNavInfoCharacter"/>
+                                        <Text text="{rarity}" class="characterDate"/>
+                                    </VBox>
+                                </items>
+                            </FlexBox>
+                        </content>
                     </Panel>
 
                 </VBox>

@@ -114,7 +114,7 @@
         },
         {
           "name": "RouteInfoCharacter",
-          "pattern": "character", 
+          "pattern": "character/{characterId}", 
           "target": [
             "TargetInfoCharacter"
           ]
