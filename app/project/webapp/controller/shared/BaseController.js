@@ -6,28 +6,39 @@ sap.ui.define([
 
     return Controller.extend("project.controller.shared.BaseController", {
 
-        onChangeLang: function(oEvent) {
-            const sText = oEvent.getSource().getText();
+        onChangeLang: function (oEvent) {
+            const sText   = oEvent.getSource().getText();
             const sLocale = sText.includes("Español") ? "es" : "en";
             LanguageManager.changeLanguage(sLocale);
         },
 
-        onNavInfoCharacter: function(oEvent) {
-            const oBindingContext = oEvent.getSource().getBindingContext();
-            const sId = oBindingContext.getProperty("ID");
-            this.getOwnerComponent().getRouter().navTo("RouteInfoCharacter", {
-                    characterId: sId
-            });
+        onNavInfoCharacter: function (oEvent) {
+            const oSource = oEvent.getSource();
+
+            const oCtx = oSource.getBindingContext("chars")
+                      || oSource.getBindingContext();
+
+            if (!oCtx) {
+                console.warn("onNavInfoCharacter: no binding context found");
+                return;
+            }
+
+            const sId = oCtx.getProperty("ID");
+            if (sId !== undefined && sId !== null) {
+                this.getOwnerComponent().getRouter().navTo("RouteInfoCharacter", {
+                    characterId: String(sId)
+                });
+            }
         },
 
-        onNavMain: function() { this.getOwnerComponent().getRouter().navTo("RouteMain"); },
-        onNavNews: function() { this.getOwnerComponent().getRouter().navTo("RouteNews"); },
-        onNavBanners: function() { this.getOwnerComponent().getRouter().navTo("RouteBanners"); },
-        onNavMissions: function() { this.getOwnerComponent().getRouter().navTo("RouteMissions"); },
-        onOpenProfile: function() { this.getOwnerComponent().getRouter().navTo("RouteProfile"); },
-        onOpenSettings: function() { this.getOwnerComponent().getRouter().navTo("RouteSettings"); },
-        onOpenTermsOfUse: function() { this.getOwnerComponent().getRouter().navTo("RouteTermsOfUse"); },
-        onOpenCookiePolicy: function() { this.getOwnerComponent().getRouter().navTo("RouteCookiePolicy"); },
-        onOpenPrivacyPolicy: function() { this.getOwnerComponent().getRouter().navTo("RoutePrivacyPolicy"); }
+        onNavMain:          function () { this.getOwnerComponent().getRouter().navTo("RouteMain"); },
+        onNavNews:          function () { this.getOwnerComponent().getRouter().navTo("RouteNews"); },
+        onNavBanners:       function () { this.getOwnerComponent().getRouter().navTo("RouteBanners"); },
+        onNavMissions:      function () { this.getOwnerComponent().getRouter().navTo("RouteMissions"); },
+        onOpenProfile:      function () { this.getOwnerComponent().getRouter().navTo("RouteProfile"); },
+        onOpenSettings:     function () { this.getOwnerComponent().getRouter().navTo("RouteSettings"); },
+        onOpenTermsOfUse:   function () { this.getOwnerComponent().getRouter().navTo("RouteTermsOfUse"); },
+        onOpenCookiePolicy: function () { this.getOwnerComponent().getRouter().navTo("RouteCookiePolicy"); },
+        onOpenPrivacyPolicy:function () { this.getOwnerComponent().getRouter().navTo("RoutePrivacyPolicy"); }
     });
 });

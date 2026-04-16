@@ -7,17 +7,18 @@ sap.ui.define([
 
         onInit() {
             const oRouter = this.getOwnerComponent().getRouter();
-            oRouter.getRoute("RouteInfoCharacter").attachPatternMatched(this._onRouteMatched, this);
+            oRouter.getRoute("RouteInfoCharacter")
+                   .attachPatternMatched(this._onRouteMatched, this);
         },
 
-        _onRouteMatched: function(oEvent) {
+        _onRouteMatched: function (oEvent) {
             const sCharacterId = oEvent.getParameter("arguments").characterId;
-            const sPath = `/Characters(${sCharacterId})`;
+            // Bind this view to the OData entity — all {fieldName} bindings in the XML work automatically
             this.getView().bindElement({
-                path: sPath,
+                path: `/Characters(${sCharacterId})`,
                 events: {
-                    dataRequested: () => { },
-                    dataReceived: () => { }
+                    dataRequested: () => { this.getView().setBusy(true);  },
+                    dataReceived: ()  => { this.getView().setBusy(false); }
                 }
             });
         }

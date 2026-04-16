@@ -2,14 +2,14 @@ namespace my.dokkanproject;
 
 entity Character {
     key ID          : Integer;
-    title           : String;  
-    name            : String;   
-    rarity          : String;   
-    type            : String;   
-    classType       : String;  
+    title           : String;
+    name            : String;
+    rarity          : String;   // LR, UR, SSR...
+    type            : String;   // AGL, TEQ, INT, STR, PHY
+    classType       : String;   // Super, Extreme
     cost            : Integer;
-    thumbnail       : String;   
-    artwork         : String;   
+    thumbnail       : String;
+    artwork         : String;
     hp              : Integer;
     atk             : Integer;
     def             : Integer;
@@ -20,10 +20,11 @@ entity Character {
     ultraSA         : String;
     passiveName     : String;
     passive         : String;
-    linkSkills      : String;  
-    categories      : String;  
+    linkSkills      : String;
+    categories      : String;
     releaseDate     : String;
     isUpcoming      : Boolean default false;
+    isEZA           : Boolean default false;
 }
 
 entity Category {

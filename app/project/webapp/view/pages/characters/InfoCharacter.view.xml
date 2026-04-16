@@ -13,86 +13,105 @@
 
                     <HBox class="cardTopRow" wrap="Wrap">
 
+                        <!-- ══ LEFT COLUMN ══ -->
                         <VBox class="cardLeftCol">
+
                             <VBox class="cardThumbBox">
-                                <Image src="{thumbnail}" class="cardThumbImg"/>
+                                <Image src="{thumbnail}" class="cardThumbImg" densityAware="false"/>
                             </VBox>
 
                             <VBox class="cardArtBox">
-                                <Image src="{artwork}" class="cardArtImg"/>
-                                <Text text="Release date: {releaseDate}" class="cardReleaseDate"/>
+                                <Image src="{artwork}" class="cardArtImg" densityAware="false"/>
+                                <Text text="{releaseDate}" class="cardReleaseDate"/>
                             </VBox>
+
                         </VBox>
 
+                        <!-- ══ RIGHT COLUMN ══ -->
                         <VBox class="cardRightCol">
 
+                            <!-- Name + Badges -->
                             <VBox class="cardNameBox">
-                                <Text text="{rarity}" class="cardSubtitle"/>
-                                <Title text="{title} {name}" class="cardTitle" titleStyle="H1"/>
+                                <Text text="{title}" class="cardSubtitle"/>
+                                <Title text="{name}" class="cardTitle" titleStyle="H1"/>
+
+                                <HBox class="cardBadgeRow">
+                                    <!-- Rarity -->
+                                    <Text text="{rarity}" class="badgeRarity"/>
+
+                                    <!-- EZA badge -->
+                                    <Text text="EZA" visible="{isEZA}"
+                                          class="badgeRarity"/>
+
+                                    <!-- Type badge (only one visible at a time) -->
+                                    <Text text="AGL" class="badgeType badgeAGL" visible="{= ${type} === 'AGL'}"/>
+                                    <Text text="STR" class="badgeType badgeSTR" visible="{= ${type} === 'STR'}"/>
+                                    <Text text="TEQ" class="badgeType badgeTEQ" visible="{= ${type} === 'TEQ'}"/>
+                                    <Text text="PHY" class="badgeType badgePHY" visible="{= ${type} === 'PHY'}"/>
+                                    <Text text="INT" class="badgeType badgeINT" visible="{= ${type} === 'INT'}"/>
+
+                                    <!-- Class + Cost -->
+                                    <Text text="{classType}" class="badgeClass"/>
+                                    <Text text="Cost: {cost}" class="badgeCost"/>
+                                </HBox>
                             </VBox>
 
+                            <!-- Stats -->
+                            <VBox class="cardSection">
+                                <Text text="Stats" class="cardSectionTitle"/>
+                                <HBox class="statsRow">
+                                    <VBox class="statBox">
+                                        <Text text="HP"  class="statLabel"/>
+                                        <Text text="{hp}" class="statNumber statHP"/>
+                                    </VBox>
+                                    <VBox class="statBox">
+                                        <Text text="ATK" class="statLabel"/>
+                                        <Text text="{atk}" class="statNumber statATK"/>
+                                    </VBox>
+                                    <VBox class="statBox">
+                                        <Text text="DEF" class="statLabel"/>
+                                        <Text text="{def}" class="statNumber statDEF"/>
+                                    </VBox>
+                                </HBox>
+                            </VBox>
+
+                            <!-- Leader Skill -->
                             <VBox class="cardSection">
                                 <Text text="Leader Skill" class="cardSectionTitle"/>
-                                <Text text="{leaderSkill}" class="cardSectionText"/>
+                                <Text text="{leaderSkill}" class="cardSectionText" wrapping="true"/>
                             </VBox>
 
+                            <!-- Super Attack -->
                             <VBox class="cardSection">
                                 <Text text="Super Attack" class="cardSectionTitle"/>
                                 <Text text="{superAttackName}" class="cardSectionSubtitle"/>
-                                <Text text="{superAttack}" class="cardSectionText"/>
-                                <Text text="SA Lv 20: Super Attack +30%" class="cardSectionSa"/>
+                                <Text text="{superAttack}" class="cardSectionText" wrapping="true"/>
                             </VBox>
 
-                            <VBox class="cardSection">
+                            <!-- Ultra Super Attack (hidden if empty) -->
+                            <VBox class="cardSection" visible="{= !!${ultraSAName}}">
                                 <Text text="Ultra Super Attack" class="cardSectionTitle"/>
                                 <Text text="{ultraSAName}" class="cardSectionSubtitle"/>
-                                <Text text="{ultraSA}" class="cardSectionText"/>
-                                <Text text="SA Lv 20: Super Attack +30%" class="cardSectionSa"/>
+                                <Text text="{ultraSA}" class="cardSectionText" wrapping="true"/>
                             </VBox>
 
+                            <!-- Passive Skill -->
                             <VBox class="cardSection">
                                 <Text text="Passive Skill" class="cardSectionTitle"/>
                                 <Text text="{passiveName}" class="cardSectionSubtitle"/>
-                                <Text text="{passive}" class="cardSectionText"/>
+                                <Text text="{passive}" class="cardSectionText" wrapping="true"/>
                             </VBox>
 
+                            <!-- Link Skills -->
                             <VBox class="cardSection">
                                 <Text text="Link Skills" class="cardSectionTitle"/>
-                                <HBox wrap="Wrap" class="linkSkillsGrid">
-                                    <Button text="Super Saiyan"
-                                            class="linkSkillBtn"
-                                            tooltip="Level 1: Ki +1&#10;Level 10: Ki +2; ATK +10%"/>
-                                    <Button text="Kamehameha"
-                                            class="linkSkillBtn"
-                                            tooltip="Level 1: ATK +500&#10;Level 10: ATK +2500 when HP 50%+"/>
-                                    <Button text="Prepared for Battle"
-                                            class="linkSkillBtn"
-                                            tooltip="Level 1: Ki +1&#10;Level 10: Ki +2"/>
-                                    <Button text="Golden Warrior"
-                                            class="linkSkillBtn"
-                                            tooltip="Level 1: Ki +1&#10;Level 10: Ki +1; ATK, DEF +5%"/>
-                                    <Button text="Saiyan Warrior Race"
-                                            class="linkSkillBtn"
-                                            tooltip="Level 1: ATK +100&#10;Level 10: ATK +700"/>
-                                    <Button text="Over in a Flash"
-                                            class="linkSkillBtn"
-                                            tooltip="Level 1: Ki +1&#10;Level 10: Ki +3"/>
-                                    <Button text="Fierce Battle"
-                                            class="linkSkillBtn"
-                                            tooltip="Level 1: ATK +5%&#10;Level 10: ATK +15%"/>
-                                </HBox>
+                                <Text text="{linkSkills}" class="cardSectionText" wrapping="true"/>
                             </VBox>
 
+                            <!-- Categories -->
                             <VBox class="cardSection">
                                 <Text text="Categories" class="cardSectionTitle"/>
-                                <HBox wrap="Wrap" class="categoriesGrid">
-                                    <Text text="Pure Saiyans"                  class="categoryChip"/>
-                                    <Text text="Movie Heroes"                  class="categoryChip"/>
-                                    <Text text="Kamehameha"                    class="categoryChip"/>
-                                    <Text text="Goku's Family"                 class="categoryChip"/>
-                                    <Text text="Legendary Power"               class="categoryChip"/>
-                                    <Text text="Representatives of Universe 7" class="categoryChip"/>
-                                </HBox>
+                                <Text text="{categories}" class="cardSectionText" wrapping="true"/>
                             </VBox>
 
                         </VBox>
