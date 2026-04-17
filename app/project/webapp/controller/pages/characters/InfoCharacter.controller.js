@@ -1,7 +1,6 @@
 sap.ui.define([
-    "project/controller/shared/BaseController",
-    "sap/ui/model/json/JSONModel"
-], (BaseController, JSONModel) => {
+    "project/controller/shared/BaseController"
+], (BaseController) => {
     "use strict";
 
     return BaseController.extend("project.controller.pages.characters.InfoCharacter", {
@@ -9,27 +8,30 @@ sap.ui.define([
         onInit() {
             const oRouter = this.getOwnerComponent().getRouter();
             oRouter.getRoute("RouteInfoCharacter")
-                   .attachPatternMatched(this._onRouteMatched, this);
+                .attachPatternMatched(this._onRouteMatched, this);
         },
 
-        _onRouteMatched: function (oEvent) {
+        _onRouteMatched(oEvent) {
             const sCharacterId = oEvent.getParameter("arguments").characterId;
             const oView = this.getView();
+
             oView.setBusy(true);
 
-            oView.setModel(new JSONModel({}));
+            const sPath = "/Characters(" + sCharacterId + ")";
 
-            fetch("/odata/v4/character-info/Characters(" + sCharacterId + ")")
-                .then(function (response) { return response.json(); })
-                .then(function (data) {
-                    
-                    oView.setModel(new JSONModel(data));
-                    oView.setBusy(false);
-                })
-                .catch(function (err) {
-                    console.error("Error loading character:", err);
-                    oView.setBusy(false);
-                });
+            const oModel = this.getOwnerComponent().getModel();
+
+            oView.bindElement({
+                path: sPath,
+                events: {
+                    dataRequested: function () {
+                        oView.setBusy(true);
+                    },
+                    dataReceived: function () {
+                        oView.setBusy(false);
+                    }
+                }
+            });
         }
     });
 });

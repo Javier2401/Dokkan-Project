@@ -88,7 +88,7 @@
                             </VBox>
 
                             <!-- Ultra Super Attack (hidden if empty) -->
-                            <VBox class="cardSection" visible="{= !!${ultraSAName}}">
+                            <VBox class="cardSection">
                                 <Text text="Ultra Super Attack" class="cardSectionTitle"/>
                                 <Text text="{ultraSAName}" class="cardSectionSubtitle"/>
                                 <Text text="{ultraSA}" class="cardSectionText" wrapping="true"/>
