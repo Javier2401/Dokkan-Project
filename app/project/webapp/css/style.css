@@ -936,6 +936,115 @@
     border-left: none !important;
 }
 
+/* ═══════════════════════════════════════════════════════════
+   CAMBIOS EN style.css  —  Copia y pega cada bloque en el
+   lugar indicado reemplazando el bloque original.
+   ═══════════════════════════════════════════════════════════ */
+
+
+/* ── 1. TARJETAS DE PERSONAJE (Main.view.xml) ──────────────
+   Busca la clase  .characterCard  en SECCIÓN 2.
+   Cambia min-width / max-width para ajustar el tamaño del contenedor.
+   ──────────────────────────────────────────────────────── */
+
+.characterCard {
+    align-items: center;
+    background-color: #d0d0d0;
+    border-radius: 8px;
+    padding: 0.5rem;
+    min-width: 105px;   /* ← AQUÍ ajustas el ancho mínimo de la tarjeta */
+    max-width: 125px;   /* ← AQUÍ ajustas el ancho máximo de la tarjeta */
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+}
+
+/* ── 2. IMAGEN DEL PERSONAJE (cuadrícula Main) ─────────────
+   Busca la clase  .characterImg  en SECCIÓN 2.
+   ──────────────────────────────────────────────────────── */
+
+.characterImg {
+    width: 100px !important;    /* ← AQUÍ cambias el ancho de las fotos */
+    height: 100px !important;   /* ← AQUÍ cambias la altura de las fotos */
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+}
+
+
+/* ── 3. COLUMNA IZQUIERDA EN INFOCHARACTER ─────────────────
+   Busca la clase  .cardLeftCol  en SECCIÓN 3.
+   ──────────────────────────────────────────────────────── */
+
+.cardLeftCol,
+.cardLeftCol.sapMVBox {
+    flex: 0 0 300px !important;    /* ← ancho de la columna izq. */
+    min-width: 260px !important;
+    gap: 1rem !important;
+}
+
+
+/* ── 4. IMAGEN ARTWORK GRANDE (InfoCharacter) ──────────────
+   Busca la clase  .cardArtImg  en SECCIÓN 3.
+   ──────────────────────────────────────────────────────── */
+
+.cardArtImg,
+.cardArtImg.sapMImg {
+    width: 276px !important;    /* ← AQUÍ ajustas el ancho del artwork */
+    height: 460px !important;   /* ← AQUÍ ajustas la altura del artwork */
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+
+
+/* ── 5. MINIATURA THUMBNAIL (InfoCharacter) ─────────────────
+   Busca la clase  .cardThumbImg  en SECCIÓN 3.
+   (sin cambio pero te lo dejo aquí por referencia)
+   ──────────────────────────────────────────────────────── */
+
+.cardThumbImg,
+.cardThumbImg.sapMImg {
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+
+
+/* ── 6. RESPONSIVE — TABLET (max-width: 900px) ─────────────
+   Busca el bloque  @media (max-width: 900px)
+   y reemplaza las líneas de cardLeftCol y cardArtImg:
+   ──────────────────────────────────────────────────────── */
+
+/* DENTRO DE @media (max-width: 900px): */
+/* .cardLeftCol { flex: 0 0 260px !important; } */
+/* .cardArtImg, .cardArtImg.sapMImg { width: 236px !important; height: 380px !important; } */
+
+
+/* ── 7. RESPONSIVE — MÓVIL (max-width: 600px) ──────────────
+   Busca el bloque  @media (max-width: 600px)
+   y reemplaza:
+   ──────────────────────────────────────────────────────── */
+
+/* DENTRO DE @media (max-width: 600px): */
+/* .characterCard { min-width: 80px; max-width: 100px; }  */
+/* .characterImg { width: 62px !important; height: 62px !important; } */
+/* .cardArtImg, .cardArtImg.sapMImg { width: 100% !important; height: 220px !important; } */
+
+
+/* ── 8. NOMBRE DEL PERSONAJE — evitar recorte ───────────────
+   Añade esto al final de SECCIÓN 3, o reemplaza .cardTitle .sapMTitle:
+   ──────────────────────────────────────────────────────── */
+
+.cardTitle .sapMTitle {
+    font-size: 2rem !important;
+    font-weight: 900 !important;
+    color: #1a1a1a !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;   /* ← permite que el texto haga salto */
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+}
+
 /* ═══════════════════════════════════════════════════════════════
    SECCIÓN 4 — RESPONSIVE
    Breakpoints: 900px (tablet) · 600px (móvil) · 400px (pequeño)
