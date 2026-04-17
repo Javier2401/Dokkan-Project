@@ -1,6 +1,7 @@
 sap.ui.define([
-    "project/controller/shared/BaseController"
-], (BaseController) => {
+    "project/controller/shared/BaseController",
+    "sap/ui/model/json/JSONModel"
+], (BaseController, JSONModel) => {
     "use strict";
 
     return BaseController.extend("project.controller.pages.characters.InfoCharacter", {
@@ -13,14 +14,22 @@ sap.ui.define([
 
         _onRouteMatched: function (oEvent) {
             const sCharacterId = oEvent.getParameter("arguments").characterId;
-            // Bind this view to the OData entity — all {fieldName} bindings in the XML work automatically
-            this.getView().bindElement({
-                path: `/Characters(${sCharacterId})`,
-                events: {
-                    dataRequested: () => { this.getView().setBusy(true);  },
-                    dataReceived: ()  => { this.getView().setBusy(false); }
-                }
-            });
+            const oView = this.getView();
+            oView.setBusy(true);
+
+            oView.setModel(new JSONModel({}));
+
+            fetch("/odata/v4/character-info/Characters(" + sCharacterId + ")")
+                .then(function (response) { return response.json(); })
+                .then(function (data) {
+                    
+                    oView.setModel(new JSONModel(data));
+                    oView.setBusy(false);
+                })
+                .catch(function (err) {
+                    console.error("Error loading character:", err);
+                    oView.setBusy(false);
+                });
         }
     });
 });

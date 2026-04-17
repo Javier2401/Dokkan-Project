@@ -10,7 +10,6 @@
                 <core:Fragment fragmentName="project.view.shared.Header" type="XML"/>
 
                 <VBox class="cardDetailContent">
-
                     <HBox class="cardTopRow" wrap="Wrap">
 
                         <!-- ══ LEFT COLUMN ══ -->
@@ -36,14 +35,14 @@
                                 <Title text="{name}" class="cardTitle" titleStyle="H1"/>
 
                                 <HBox class="cardBadgeRow">
-                                    <!-- Rarity -->
                                     <Text text="{rarity}" class="badgeRarity"/>
 
                                     <!-- EZA badge -->
                                     <Text text="EZA" visible="{isEZA}"
-                                          class="badgeRarity"/>
+                                          class="badgeRarity"
+                                          />
 
-                                    <!-- Type badge (only one visible at a time) -->
+                                    <!-- Type badge -->
                                     <Text text="AGL" class="badgeType badgeAGL" visible="{= ${type} === 'AGL'}"/>
                                     <Text text="STR" class="badgeType badgeSTR" visible="{= ${type} === 'STR'}"/>
                                     <Text text="TEQ" class="badgeType badgeTEQ" visible="{= ${type} === 'TEQ'}"/>
@@ -61,15 +60,15 @@
                                 <Text text="Stats" class="cardSectionTitle"/>
                                 <HBox class="statsRow">
                                     <VBox class="statBox">
-                                        <Text text="HP"  class="statLabel"/>
+                                        <Text text="HP"   class="statLabel"/>
                                         <Text text="{hp}" class="statNumber statHP"/>
                                     </VBox>
                                     <VBox class="statBox">
-                                        <Text text="ATK" class="statLabel"/>
+                                        <Text text="ATK"   class="statLabel"/>
                                         <Text text="{atk}" class="statNumber statATK"/>
                                     </VBox>
                                     <VBox class="statBox">
-                                        <Text text="DEF" class="statLabel"/>
+                                        <Text text="DEF"   class="statLabel"/>
                                         <Text text="{def}" class="statNumber statDEF"/>
                                     </VBox>
                                 </HBox>
@@ -116,7 +115,6 @@
 
                         </VBox>
                     </HBox>
-
                 </VBox>
 
                 <core:Fragment fragmentName="project.view.shared.Footer" type="XML"/>

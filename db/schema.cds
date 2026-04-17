@@ -4,9 +4,9 @@ entity Character {
     key ID          : Integer;
     title           : String;
     name            : String;
-    rarity          : String;   // LR, UR, SSR...
-    type            : String;   // AGL, TEQ, INT, STR, PHY
-    classType       : String;   // Super, Extreme
+    rarity          : String;
+    type            : String;
+    classType       : String;
     cost            : Integer;
     thumbnail       : String;
     artwork         : String;

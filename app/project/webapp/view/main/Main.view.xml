@@ -10,37 +10,34 @@
                 <core:Fragment fragmentName="project.view.shared.Header" type="XML"/>
 
                 <VBox class="pageContent">
-
-                    <!-- UPCOMING CHARACTERS -->
                     <Panel class="dokkanPanel" headerText="{i18n>panel.upcoming}">
                         <content>
-                            <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
-                                     items="{chars>/upcoming}">
+                            <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow" items="{chars>/upcoming}">
                                 <items>
                                     <VBox class="characterCard">
                                         <Image src="{chars>thumbnail}"
                                                class="characterImg"
                                                press=".onNavInfoCharacter"
                                                densityAware="false"/>
-                                        <Text text="{chars>rarity}" class="characterDate"/>
+                                        <HBox justifyContent="Center" wrap="Wrap">
+                                            <Text text="{chars>releaseDate}" class="characterDate"/>
+                                        </HBox>
                                     </VBox>
                                 </items>
                             </FlexBox>
                         </content>
                     </Panel>
 
-                    <!-- RECENT CHARACTERS -->
                     <Panel class="dokkanPanel" headerText="{i18n>panel.recent}">
                         <content>
                             <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
                                      items="{chars>/recent}">
                                 <items>
                                     <VBox class="characterCard">
-                                        <Image src="{chars>thumbnail}"
-                                               class="characterImg"
-                                               press=".onNavInfoCharacter"
-                                               densityAware="false"/>
-                                        <Text text="{chars>rarity}" class="characterDate"/>
+                                        <Image src="{chars>thumbnail}" class="characterImg" press=".onNavInfoCharacter" densityAware="false"/>
+                                        <HBox justifyContent="Center" wrap="Wrap">
+                                            <Text text="{chars>releaseDate}" class="characterDate"/>
+                                        </HBox>
                                     </VBox>
                                 </items>
                             </FlexBox>
