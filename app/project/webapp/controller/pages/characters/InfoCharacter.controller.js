@@ -12,10 +12,8 @@ sap.ui.define([
             oRouter.getRoute("RouteInfoCharacter")
                 .attachPatternMatched(this._onRouteMatched, this);
 
-            this.getView().setModel(
-                new JSONModel({ skills: [] }),
-                "linkSkills"
-            );
+            this.getView().setModel(new JSONModel({ skills: [] }), "linkSkills");
+            this.getView().setModel(new JSONModel({ items: [] }), "categories");
         },
 
         _onRouteMatched(oEvent) {
@@ -24,15 +22,12 @@ sap.ui.define([
 
             oView.setBusy(true);
 
-            const oModel = oView.getModel(); 
-
-            const sPath = `/Characters(${sCharacterId})`;
+            const oModel = oView.getModel();
+            const sPath  = `/Characters(${sCharacterId})`;
 
             oModel.bindContext(sPath)
                 .requestObject()
                 .then((oData) => {
-
-                    console.log("DATA OK:", oData);
 
                     const aSkills = (oData.linkSkills || "")
                         .split(" - ")
@@ -40,13 +35,17 @@ sap.ui.define([
                         .filter(Boolean)
                         .map(s => ({ name: s }));
 
-                    oView.getModel("linkSkills")
-                        .setProperty("/skills", aSkills);
+                    oView.getModel("linkSkills").setProperty("/skills", aSkills);
 
-                    oView.bindElement({
-                        path: sPath
-                    });
+                    const aCategories = (oData.categories || "")
+                        .split(" - ")
+                        .map(s => s.trim())
+                        .filter(Boolean)
+                        .map(s => ({ name: s }));
 
+                    oView.getModel("categories").setProperty("/items", aCategories);
+
+                    oView.bindElement({ path: sPath });
                     oView.setBusy(false);
                 })
                 .catch((err) => {

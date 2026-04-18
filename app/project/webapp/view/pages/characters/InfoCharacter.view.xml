@@ -28,8 +28,8 @@
                         <VBox class="cardRightCol">
 
                             <VBox class="cardNameBox">
-                                <Text text="{title}" class="cardSubtitle"/>
-                                <Title text="{name}" class="cardTitle" titleStyle="H1" wrapping="true"/>
+                                <Text  text="{title}" class="cardSubtitle"/>
+                                <Title text="{name}"  class="cardTitle" titleStyle="H1" wrapping="true"/>
                             </VBox>
 
                             <VBox class="cardSection">
@@ -58,31 +58,37 @@
                             <VBox class="cardSection">
                                 <Text text="Super Attack" class="cardSectionTitle"/>
                                 <Text text="{superAttackName}" class="cardSectionSubtitle" wrapping="true"/>
-                                <Text text="{superAttack}" class="cardSectionText" wrapping="true"/>
+                                <Text text="{superAttack}"     class="cardSectionText"     wrapping="true"/>
                             </VBox>
 
                             <VBox class="cardSection">
                                 <Text text="Ultra Super Attack" class="cardSectionTitle"/>
                                 <Text text="{ultraSAName}" class="cardSectionSubtitle" wrapping="true"/>
-                                <Text text="{ultraSA}" class="cardSectionText" wrapping="true"/>
+                                <Text text="{ultraSA}"     class="cardSectionText"     wrapping="true"/>
                             </VBox>
 
                             <VBox class="cardSection">
                                 <Text text="Passive Skill" class="cardSectionTitle"/>
                                 <Text text="{passiveName}" class="cardSectionSubtitle" wrapping="true"/>
-                                <Text text="{passive}" class="cardSectionText" wrapping="true"/>
+                                <Text text="{passive}"     class="cardSectionText"     wrapping="true"/>
                             </VBox>
 
                             <VBox class="cardSection">
                                 <Text text="Link Skills" class="cardSectionTitle"/>
                                 <FlexBox wrap="Wrap" class="linkSkillsGrid" items="{linkSkills>/skills}">
-                                    <Button text="{linkSkills>name}" class="linkSkillBtn" tooltip="LEVEL 1:&#xa;LEVEL 10:"/>
+                                    <items>
+                                        <Button text="{linkSkills>name}" class="linkSkillBtn" tooltip="LEVEL 1:&#xa;LEVEL 10:"/>
+                                    </items>
                                 </FlexBox>
                             </VBox>
 
                             <VBox class="cardSection">
                                 <Text text="Categories" class="cardSectionTitle"/>
-                                <Text text="{categories}" class="cardSectionText" wrapping="true"/>
+                                <FlexBox wrap="Wrap" class="categoriesGrid" items="{categories>/items}">
+                                    <items>
+                                        <Text text="{categories>name}" class="categoryChip"/>
+                                    </items>
+                                </FlexBox>
                             </VBox>
 
                         </VBox>

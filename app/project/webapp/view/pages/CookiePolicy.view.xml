@@ -2,22 +2,80 @@
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
- 
+
     <Page showHeader="false" enableScrolling="true" class="dokkanPage">
         <content>
             <VBox class="pageWrapper">
- 
+
                 <core:Fragment fragmentName="project.view.shared.Header" type="XML"/>
- 
-                <VBox class="pageContent">
-                    <Text text=" PAGINA POLÍTICA DE COOKIES"/>
+
+                <VBox class="legalPageContent">
+                    <VBox class="legalCard">
+
+                        <VBox class="legalHero">
+                            <Title text="Cookie Policy" titleStyle="H1" class="legalHeroTitle"/>
+                            <Text text="Last updated: April 2026" class="legalHeroDate"/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="1. What Are Cookies?" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="Cookies are small text files stored on your device when you visit a website. They help the site remember your preferences and provide a more consistent experience across visits. Cookies are widely used and are generally harmless."/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="2. Cookies We Use" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="Dokkan Project uses only essential technical cookies to operate correctly. Specifically, we store your language preference (English or Spanish) so you do not have to re-select it every time you visit. No advertising cookies, tracking cookies, or analytics cookies are used on this site."/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="3. Cookie Details" titleStyle="H3" class="legalSectionTitle"/>
+
+                            <VBox class="legalTable">
+                                <HBox class="legalTableHeader">
+                                    <Text text="Name" class="legalTableCell legalTableHead"/>
+                                    <Text text="Purpose" class="legalTableCell legalTableHead"/>
+                                    <Text text="Duration" class="legalTableCell legalTableHead"/>
+                                </HBox>
+                                <HBox class="legalTableRow">
+                                    <Text text="dokkanLocale" class="legalTableCell legalTableMono"/>
+                                    <Text text="Stores your chosen language (en / es)" class="legalTableCell"/>
+                                    <Text text="Persistent" class="legalTableCell"/>
+                                </HBox>
+                                <HBox class="legalTableRow">
+                                    <Text text="sap-language" class="legalTableCell legalTableMono"/>
+                                    <Text text="UI5 framework language session parameter" class="legalTableCell"/>
+                                    <Text text="Session" class="legalTableCell"/>
+                                </HBox>
+                            </VBox>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="4. Third-Party Cookies" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="We do not use any third-party advertising, social media, or analytics cookies. Character images and assets are loaded from external CDN sources (such as wikia.nocookie.net), which may set their own cookies subject to their respective policies. We have no control over third-party cookie behaviour."/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="5. Managing Cookies" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="You can control or delete cookies at any time through your browser settings. Instructions vary by browser — look for 'Privacy', 'Security', or 'Cookies' in your browser's settings menu. Disabling cookies may prevent the language preference from being saved between sessions, but the site will still be fully usable."/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="6. Updates" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="This Cookie Policy may be updated to reflect changes to the site. Any updates will be noted with a revised date at the top of this page."/>
+                        </VBox>
+
+                    </VBox>
                 </VBox>
- 
+
                 <core:Fragment fragmentName="project.view.shared.Footer" type="XML"/>
- 
+
             </VBox>
         </content>
     </Page>
- 
+
 </mvc:View>
- 

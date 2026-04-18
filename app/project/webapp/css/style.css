@@ -1,10 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
-   SECCIÓN 1 — CLASES GLOBALES
-   Header, botones nav, menús popup, footer, layout base
-   (Se usan en TODAS las vistas)
+   1. GLOBAL — página base y layout wrapper
    ═══════════════════════════════════════════════════════════════ */
-
-/* ── Página base ── */
 
 .dokkanPage {
     background-color: #e8e8e8 !important;
@@ -28,7 +24,10 @@
     width: 100% !important;
 }
 
-/* ── Header ── */
+
+/* ═══════════════════════════════════════════════════════════════
+   2. HEADER — barra de navegación
+   ═══════════════════════════════════════════════════════════════ */
 
 .dokkanHeader,
 .dokkanHeader.sapMVBox {
@@ -76,12 +75,7 @@
     gap: 6px !important;
 }
 
-/* ── Botones nav de texto (Button normal) ── */
-
-.navBtn.sapMBtn,
-.navBtn.sapMBtn.sapMBtnDefault,
-.navBtn.sapMBtn.sapMBtnTransparent,
-.navBtn.sapMBtn.sapMBtnEmphasized {
+.navBtn.sapMBtn {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -96,10 +90,7 @@
     vertical-align: middle !important;
 }
 
-.navBtn.sapMBtn .sapMBtnInner,
-.navBtn.sapMBtn.sapMBtnDefault .sapMBtnInner,
-.navBtn.sapMBtn.sapMBtnTransparent .sapMBtnInner,
-.navBtn.sapMBtn.sapMBtnEmphasized .sapMBtnInner {
+.navBtn.sapMBtn .sapMBtnInner {
     background-color: #5e5e5e !important;
     border: 1px solid rgba(255,255,255,0.35) !important;
     border-radius: 20px !important;
@@ -113,10 +104,8 @@
     justify-content: center !important;
 }
 
-.navBtn.sapMBtn .sapMBtnInner *,
 .navBtn.sapMBtn .sapMBtnContent,
 .navBtn.sapMBtn .sapMBtnText,
-.navBtn.sapMBtn .sapMBtnIcon,
 .navBtn.sapMBtn bdi {
     color: #ffffff !important;
     font-size: 0.82rem !important;
@@ -130,11 +119,7 @@
     border-color: rgba(255,255,255,0.6) !important;
 }
 
-/* ── MenuButton nav (CHARACTERS, EVENTS, ITEMS) ── */
-
-.navBtn.sapMMenuBtn,
-.navBtn.sapMMenuBtn.sapMBtnDefault,
-.navBtn.sapMMenuBtn.sapMBtnTransparent {
+.navBtn.sapMMenuBtn {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -149,11 +134,7 @@
     vertical-align: middle !important;
 }
 
-/* Parte izquierda (texto) */
-.navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner,
-.navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnDefault .sapMBtnInner,
-.navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnTransparent .sapMBtnInner,
-.navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnEmphasized .sapMBtnInner {
+.navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner {
     background-color: #5e5e5e !important;
     border: 1px solid rgba(255,255,255,0.35) !important;
     border-right: none !important;
@@ -168,9 +149,7 @@
     justify-content: center !important;
 }
 
-.navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner *,
 .navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnContent,
-.navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnText,
 .navBtn.sapMMenuBtn .sapMMenuBtnRegular bdi {
     color: #ffffff !important;
     font-size: 0.78rem !important;
@@ -179,10 +158,7 @@
     line-height: 1 !important;
 }
 
-/* Parte derecha (flecha) */
-.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner,
-.navBtn.sapMMenuBtn .sapMMenuBtnSplit.sapMBtnDefault .sapMBtnInner,
-.navBtn.sapMMenuBtn .sapMMenuBtnSplit.sapMBtnTransparent .sapMBtnInner {
+.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner {
     background-color: #5e5e5e !important;
     border: 1px solid rgba(255,255,255,0.35) !important;
     border-left: 1px solid rgba(255,255,255,0.2) !important;
@@ -197,13 +173,11 @@
     justify-content: center !important;
 }
 
-.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner *,
 .navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnIcon,
-.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnContent,
-.navBtn.sapMMenuBtn .sapMMenuBtnSplit bdi {
+.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapUiIcon {
     color: #ffffff !important;
+    fill: #ffffff !important;
     font-size: 0.82rem !important;
-    line-height: 1 !important;
 }
 
 .navBtn.sapMMenuBtn .sapMMenuBtnRegular:hover .sapMBtnInner,
@@ -212,20 +186,13 @@
     border-color: rgba(255,255,255,0.6) !important;
 }
 
-/* Barrido antiazul */
-.navBtn.sapMMenuBtn .sapMBtnInner,
-.navBtn.sapMMenuBtn .sapMBtnInner *,
-.navBtn.sapMMenuBtn .sapMBtnContent,
-.navBtn.sapMMenuBtn .sapMBtnText,
-.navBtn.sapMMenuBtn bdi {
-    color: #ffffff !important;
+.navBtn.sapMMenuBtn .sapMBtnContent {
+    font-size: 13px !important;
+    margin-left: 7.5px !important;
+    margin-right: 7.5px !important;
 }
 
-/* ── Botones icono circulares (perfil, ajustes) ── */
-
-.navIconBtn.sapMBtn,
-.navIconBtn.sapMBtn.sapMBtnDefault,
-.navIconBtn.sapMBtn.sapMBtnTransparent {
+.navIconBtn.sapMBtn {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -242,9 +209,7 @@
     vertical-align: middle !important;
 }
 
-.navIconBtn.sapMBtn .sapMBtnInner,
-.navIconBtn.sapMBtn.sapMBtnDefault .sapMBtnInner,
-.navIconBtn.sapMBtn.sapMBtnTransparent .sapMBtnInner {
+.navIconBtn.sapMBtn .sapMBtnInner {
     background-color: rgba(255,255,255,0.12) !important;
     border: 1px solid rgba(255,255,255,0.3) !important;
     border-radius: 50% !important;
@@ -257,7 +222,6 @@
     justify-content: center !important;
 }
 
-.navIconBtn.sapMBtn .sapMBtnInner *,
 .navIconBtn.sapMBtn .sapMBtnIcon {
     color: #ffffff !important;
     font-size: 1rem !important;
@@ -268,43 +232,20 @@
     border-color: rgba(255,255,255,0.6) !important;
 }
 
-/* ── Botón idioma — IGUAL que los demás MenuButtons ──
-   Usa las mismas clases navBtn + navLangBtn para aprovechar
-   los estilos de MenuButton sin duplicar nada.
-   En el XML: class="navBtn navLangBtn"
-   ─────────────────────────────────────────────────────── */
-
-/*
-   navLangBtn solo añade lo que es distinto del navBtn.sapMMenuBtn:
-   — sin margin (para ir junto a los iconos circulares)
-   La parte izquierda es icono (icon-only) así que ajustamos el padding.
-*/
-
-.navLangBtn.sapMMenuBtn,
-.navLangBtn.sapMMenuBtn.sapMBtnDefault,
-.navLangBtn.sapMMenuBtn.sapMBtnTransparent {
+.navLangBtn.sapMMenuBtn {
     margin: 0 !important;
 }
 
-/* Parte icono: mismo ancho que el icono circular */
-.navLangBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner,
-.navLangBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnDefault .sapMBtnInner,
-.navLangBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnTransparent .sapMBtnInner {
+.navLangBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner {
     padding: 0 10px !important;
 }
 
-/* Parte flecha: mismo ancho que los otros MenuButton */
-.navLangBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner,
-.navLangBtn.sapMMenuBtn .sapMMenuBtnSplit.sapMBtnDefault .sapMBtnInner,
-.navLangBtn.sapMMenuBtn .sapMMenuBtnSplit.sapMBtnTransparent .sapMBtnInner {
+.navLangBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner {
     padding: 0 8px !important;
 }
 
-/* ── Menú desplegable popup (global, fuera del DOM) ── */
-
 .sapMMenu,
-.sapMMenu .sapMMenu,
-.sapUiMnu {
+.sapMMenu .sapMMenu {
     background-color: #3a3a3a !important;
     border: 1px solid rgba(255,255,255,0.2) !important;
     border-radius: 8px !important;
@@ -321,39 +262,29 @@
 }
 
 .sapMMenu li,
-.sapMMenu .sapMMenuItem,
-.sapMMenu .sapMMenuItemBase,
-.sapUiMnuItm,
-.sapUiMnuItmBase {
+.sapMMenu .sapMMenuItem {
     background-color: #3a3a3a !important;
     border: none !important;
     padding: 6px 14px !important;
     color: #ffffff !important;
 }
 
-.sapMMenu .sapMMenuItemText,
-.sapMMenu .sapUiMnuItmTxt,
-.sapUiMnuItmTxt {
+.sapMMenu .sapMMenuItemText {
     color: #ffffff !important;
     font-size: 0.85rem !important;
     font-weight: 500 !important;
 }
 
-.sapMMenu .sapMMenuItemExpander,
-.sapMMenu .sapUiMnuItmSubMnuIcon {
-    color: rgba(255,255,255,0.55) !important;
-}
-
 .sapMMenu li:hover,
-.sapMMenu .sapMMenuItem:hover,
-.sapMMenu .sapMMenuItemHover,
-.sapUiMnuItm:hover,
-.sapUiMnuItmHov {
+.sapMMenu .sapMMenuItem:hover {
     background-color: #555555 !important;
     cursor: pointer;
 }
 
-/* ── Footer ── */
+
+/* ═══════════════════════════════════════════════════════════════
+   3. FOOTER
+   ═══════════════════════════════════════════════════════════════ */
 
 .dokkanFooter,
 .dokkanFooter.sapMVBox {
@@ -422,9 +353,7 @@
     align-items: center !important;
 }
 
-.footerLinkBtn.sapMBtn,
-.footerLinkBtn.sapMBtn.sapMBtnDefault,
-.footerLinkBtn.sapMBtn.sapMBtnTransparent {
+.footerLinkBtn.sapMBtn {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -434,9 +363,7 @@
     min-height: auto !important;
 }
 
-.footerLinkBtn.sapMBtn .sapMBtnInner,
-.footerLinkBtn.sapMBtn.sapMBtnDefault .sapMBtnInner,
-.footerLinkBtn.sapMBtn.sapMBtnTransparent .sapMBtnInner {
+.footerLinkBtn.sapMBtn .sapMBtnInner {
     background: transparent !important;
     border: none !important;
     border-bottom: 1px solid rgba(255,255,255,0.3) !important;
@@ -446,7 +373,6 @@
     box-shadow: none !important;
 }
 
-.footerLinkBtn.sapMBtn .sapMBtnInner *,
 .footerLinkBtn.sapMBtn bdi {
     color: rgba(255,255,255,0.7) !important;
     font-size: 0.8rem !important;
@@ -457,7 +383,6 @@
     border-bottom-color: #ffffff !important;
 }
 
-.footerLinkBtn.sapMBtn:hover .sapMBtnInner *,
 .footerLinkBtn.sapMBtn:hover bdi {
     color: #ffffff !important;
 }
@@ -491,9 +416,8 @@
     text-align: right !important;
 }
 
-
 /* ═══════════════════════════════════════════════════════════════
-   SECCIÓN 2 — MAIN VIEW (Main.view.xml)
+   4. MAIN PAGE — paneles y cuadrícula de personajes
    ═══════════════════════════════════════════════════════════════ */
 
 .pageContent,
@@ -515,13 +439,16 @@
     margin-bottom: 1.5rem;
 }
 
-.dokkanPanel > .sapMPanelHdr {
+.dokkanPanel .sapMPanelHdr {
     background-color: transparent !important;
     border-bottom: 1px solid #e8e8e8 !important;
     padding: 0.8rem 1rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
-.dokkanPanel > .sapMPanelHdr .sapMPanelHeaderText {
+.dokkanPanel .sapMPanelHeaderText {
     font-size: 1.2rem !important;
     font-weight: 800 !important;
     color: #1a1a1a !important;
@@ -547,8 +474,8 @@
     background-color: #d0d0d0;
     border-radius: 8px;
     padding: 0.5rem;
-    min-width: 90px;
-    max-width: 110px;
+    min-width: 110px;
+    max-width: 130px;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     cursor: pointer;
 }
@@ -559,8 +486,8 @@
 }
 
 .characterImg {
-    width: 64px !important;
-    height: 64px !important;
+    width: 100px !important;
+    height: 100px !important;
     border-radius: 6px;
     display: block;
     margin: 0 auto;
@@ -583,7 +510,7 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
-   SECCIÓN 3 — SEGUNDA VIEW (Segunda.view.xml — Card Detail)
+   5. INFO CHARACTER — página de detalle del personaje
    ═══════════════════════════════════════════════════════════════ */
 
 .cardDetailContent,
@@ -594,23 +521,20 @@
     padding: 0 1.5rem 2rem 1.5rem;
     width: 100%;
     box-sizing: border-box;
-    gap: 0 !important;
 }
 
 .cardTopRow,
 .cardTopRow.sapMHBox {
-    gap: 1.2rem !important;
+    gap: 1.4rem !important;
     align-items: flex-start !important;
     flex-wrap: wrap !important;
     width: 100% !important;
 }
 
-/* Columna izquierda */
-
 .cardLeftCol,
 .cardLeftCol.sapMVBox {
-    flex: 0 0 240px !important;
-    min-width: 200px !important;
+    flex: 0 0 320px !important;
+    min-width: 260px !important;
     gap: 1rem !important;
 }
 
@@ -619,14 +543,14 @@
     background-color: #ffffff !important;
     border-radius: 12px !important;
     box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
-    padding: 12px !important;
+    padding: 16px !important;
     align-items: center !important;
 }
 
 .cardThumbImg,
 .cardThumbImg.sapMImg {
-    width: 150px !important;
-    height: 150px !important;
+    width: 200px !important;
+    height: 200px !important;
     object-fit: cover !important;
     border-radius: 8px !important;
 }
@@ -636,27 +560,26 @@
     background-color: #ffffff !important;
     border-radius: 12px !important;
     box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
-    padding: 12px 12px 10px 12px !important;
+    padding: 16px 16px 12px 16px !important;
     align-items: center !important;
-    gap: 8px !important;
+    gap: 10px !important;
 }
 
 .cardArtImg,
 .cardArtImg.sapMImg {
-    width: 216px !important;
-    height: 340px !important;
+    width: 288px !important;
+    height: 500px !important;
     object-fit: cover !important;
     border-radius: 8px !important;
 }
 
 .cardReleaseDate,
 .cardReleaseDate.sapMText {
-    font-size: 0.75rem !important;
-    color: #999 !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    color: #555555 !important;
     text-align: center !important;
 }
-
-/* Columna derecha */
 
 .cardRightCol,
 .cardRightCol.sapMVBox {
@@ -665,127 +588,66 @@
     min-width: 280px !important;
 }
 
-/* Bloque nombre */
-
 .cardNameBox,
 .cardNameBox.sapMVBox {
     background-color: #ffffff !important;
     border-radius: 12px !important;
     box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
-    padding: 1rem 1.2rem !important;
+    padding: 1.2rem 1.4rem !important;
     border-left: 4px solid #3b82f6 !important;
     gap: 6px !important;
 }
 
 .cardSubtitle,
 .cardSubtitle.sapMText {
-    font-size: 0.78rem !important;
-    color: #999 !important;
+    font-size: 0.85rem !important;
+    color: #999999 !important;
     font-weight: 600 !important;
     letter-spacing: 1.5px !important;
     text-transform: uppercase !important;
 }
 
 .cardTitle .sapMTitle {
-    font-size: 2rem !important;
+    font-size: 2.2rem !important;
     font-weight: 900 !important;
     color: #1a1a1a !important;
-    line-height: 1.15 !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
 }
-
-.cardBadgeRow,
-.cardBadgeRow.sapMHBox {
-    gap: 6px !important;
-    flex-wrap: wrap !important;
-    margin-top: 4px !important;
-}
-
-.badgeRarity,
-.badgeRarity.sapMText {
-    background-color: #d4af37 !important;
-    color: #1a1a00 !important;
-    font-weight: 800 !important;
-    font-size: 0.72rem !important;
-    padding: 3px 10px !important;
-    border-radius: 12px !important;
-    letter-spacing: 1px !important;
-}
-
-.badgeType,
-.badgeType.sapMText {
-    color: #ffffff !important;
-    font-weight: 700 !important;
-    font-size: 0.72rem !important;
-    padding: 3px 10px !important;
-    border-radius: 12px !important;
-}
-
-.badgeAGL { background-color: #2563eb !important; }
-.badgeSTR { background-color: #dc2626 !important; }
-.badgeTEQ { background-color: #059669 !important; }
-.badgePHY { background-color: #d97706 !important; }
-.badgeINT { background-color: #7c3aed !important; }
-
-.badgeClass,
-.badgeClass.sapMText {
-    background-color: #f3f4f6 !important;
-    color: #374151 !important;
-    font-size: 0.72rem !important;
-    font-weight: 600 !important;
-    padding: 3px 10px !important;
-    border-radius: 12px !important;
-    border: 1px solid #d1d5db !important;
-}
-
-.badgeCost,
-.badgeCost.sapMText {
-    color: #9ca3af !important;
-    font-size: 0.72rem !important;
-    font-weight: 500 !important;
-    align-self: center !important;
-}
-
-/* Sección genérica (Leader Skill, Super Attack, etc.) */
 
 .cardSection,
 .cardSection.sapMVBox {
     background-color: #ffffff !important;
     border-radius: 12px !important;
     box-shadow: 0 4px 16px rgba(0,0,0,0.10) !important;
-    padding: 1rem 1.2rem !important;
-    gap: 6px !important;
+    padding: 1.2rem 1.4rem !important;
+    gap: 8px !important;
 }
 
 .cardSectionTitle,
 .cardSectionTitle.sapMText {
-    font-size: 0.88rem !important;
-    font-weight: 800 !important;
+    font-size: 1rem !important;
+    font-weight: 900 !important;
     color: #111827 !important;
     text-transform: uppercase !important;
-    letter-spacing: 0.6px !important;
+    letter-spacing: 0.8px !important;
     margin-bottom: 2px !important;
 }
 
 .cardSectionSubtitle,
 .cardSectionSubtitle.sapMText {
-    font-size: 0.88rem !important;
-    font-weight: 600 !important;
-    color: #6b7280 !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    color: #374151 !important;
 }
 
 .cardSectionText,
 .cardSectionText.sapMText {
-    font-size: 0.88rem !important;
+    font-size: 0.95rem !important;
     color: #374151 !important;
-    line-height: 1.65 !important;
-}
-
-.cardSectionSa,
-.cardSectionSa.sapMText {
-    font-size: 0.78rem !important;
-    color: #d97706 !important;
-    font-weight: 600 !important;
-    margin-top: 2px !important;
+    line-height: 1.7 !important;
 }
 
 .statsRow,
@@ -801,28 +663,28 @@
     align-items: center !important;
     background-color: #f9fafb !important;
     border-radius: 8px !important;
-    padding: 0.6rem 0.4rem !important;
-    min-width: 80px !important;
+    padding: 0.8rem 0.5rem !important;
+    min-width: 90px !important;
 }
 
 .statLabel,
 .statLabel.sapMText {
-    font-size: 0.7rem !important;
+    font-size: 0.78rem !important;
     color: #9ca3af !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     letter-spacing: 0.5px !important;
     text-transform: uppercase !important;
 }
 
 .statNumber,
 .statNumber.sapMText {
-    font-size: 1.25rem !important;
+    font-size: 1.6rem !important;
     font-weight: 800 !important;
-    margin-top: 2px !important;
+    margin-top: 4px !important;
 }
 
-.statHP  { color: #ef4444 !important; }
-.statATK { color: #f59e0b !important; }
+.statHP  { color: #77df36 !important; }
+.statATK { color: #fa0808 !important; }
 .statDEF { color: #3b82f6 !important; }
 
 .linkSkillsGrid,
@@ -832,9 +694,7 @@
     margin-top: 4px !important;
 }
 
-.linkSkillBtn.sapMBtn,
-.linkSkillBtn.sapMBtn.sapMBtnDefault,
-.linkSkillBtn.sapMBtn.sapMBtnTransparent {
+.linkSkillBtn.sapMBtn {
     background: transparent !important;
     border: none !important;
     box-shadow: none !important;
@@ -844,25 +704,22 @@
     min-height: auto !important;
 }
 
-.linkSkillBtn.sapMBtn .sapMBtnInner,
-.linkSkillBtn.sapMBtn.sapMBtnDefault .sapMBtnInner,
-.linkSkillBtn.sapMBtn.sapMBtnTransparent .sapMBtnInner {
+.linkSkillBtn.sapMBtn .sapMBtnInner {
     background-color: #eef2ff !important;
     border: 1px solid #c7d2fe !important;
     border-radius: 20px !important;
     padding: 5px 14px !important;
     height: auto !important;
-    min-height: 30px !important;
+    min-height: 32px !important;
     box-shadow: none !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
 }
 
-.linkSkillBtn.sapMBtn .sapMBtnInner *,
 .linkSkillBtn.sapMBtn bdi {
     color: #3730a3 !important;
-    font-size: 0.8rem !important;
+    font-size: 0.82rem !important;
     font-weight: 600 !important;
     line-height: 1.3 !important;
 }
@@ -872,7 +729,9 @@
     border-color: #818cf8 !important;
 }
 
-.linkSkillBtn.sapMBtn:hover bdi { color: #1e1b4b !important; }
+.linkSkillBtn.sapMBtn:hover bdi {
+    color: #1e1b4b !important;
+}
 
 .categoriesGrid,
 .categoriesGrid.sapMHBox {
@@ -883,13 +742,137 @@
 
 .categoryChip,
 .categoryChip.sapMText {
-    background-color: #fef3c7 !important;
-    color: #92400e !important;
-    font-size: 0.8rem !important;
+    background-color: #eef2ff !important;
+    color: #3730a3 !important;
+    font-size: 0.82rem !important;
     font-weight: 600 !important;
     padding: 5px 14px !important;
     border-radius: 20px !important;
-    border: 1px solid #fde68a !important;
+    border: 1px solid #c7d2fe !important;
+    line-height: 1.3 !important;
+    display: inline-block !important;
+    cursor: default !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   6. POLICY PAGES — Privacy Policy, Cookie Policy, Terms of Use
+   ═══════════════════════════════════════════════════════════════ */
+
+.legalPageContent,
+.legalPageContent.sapMVBox {
+    flex: 1 1 auto !important;
+    max-width: 860px;
+    margin: 2.5rem auto !important;
+    padding: 0 1.5rem 3rem 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.legalCard,
+.legalCard.sapMVBox {
+    background-color: #ffffff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.10) !important;
+    padding: 2.5rem 3rem !important;
+    gap: 0 !important;
+}
+
+.legalHero,
+.legalHero.sapMVBox {
+    border-bottom: 2px solid #f3f4f6 !important;
+    padding-bottom: 1.5rem !important;
+    margin-bottom: 2rem !important;
+    gap: 6px !important;
+}
+
+.legalHeroTitle .sapMTitle {
+    font-size: 2.4rem !important;
+    font-weight: 900 !important;
+    color: #111827 !important;
+    line-height: 1.15 !important;
+}
+
+.legalHeroDate,
+.legalHeroDate.sapMText {
+    font-size: 0.82rem !important;
+    color: #9ca3af !important;
+    font-weight: 500 !important;
+    margin-top: 4px !important;
+}
+
+.legalSection,
+.legalSection.sapMVBox {
+    padding: 1.4rem 0 !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    gap: 8px !important;
+}
+
+.legalSection:last-child {
+    border-bottom: none !important;
+}
+
+.legalSectionTitle .sapMTitle {
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    color: #1f2937 !important;
+}
+
+.legalSectionText,
+.legalSectionText.sapMText {
+    font-size: 0.95rem !important;
+    color: #4b5563 !important;
+    line-height: 1.75 !important;
+}
+
+.legalTable,
+.legalTable.sapMVBox {
+    border: 1px solid #e5e7eb !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    margin-top: 4px !important;
+}
+
+.legalTableHeader,
+.legalTableHeader.sapMHBox {
+    background-color: #f9fafb !important;
+    border-bottom: 1px solid #e5e7eb !important;
+}
+
+.legalTableRow,
+.legalTableRow.sapMHBox {
+    border-bottom: 1px solid #f3f4f6 !important;
+}
+
+.legalTableRow:last-child {
+    border-bottom: none !important;
+}
+
+.legalTableCell,
+.legalTableCell.sapMText {
+    flex: 1 !important;
+    padding: 10px 14px !important;
+    font-size: 0.88rem !important;
+    color: #374151 !important;
+    line-height: 1.4 !important;
+}
+
+.legalTableHead,
+.legalTableHead.sapMText {
+    font-weight: 700 !important;
+    color: #111827 !important;
+    font-size: 0.82rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.legalTableMono,
+.legalTableMono.sapMText {
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 0.82rem !important;
+    color: #6366f1 !important;
+    font-weight: 600 !important;
+    background-color: #f5f3ff !important;
 }
 
 .navBtn.sapMMenuBtn {
@@ -908,278 +891,113 @@
     box-shadow: none !important;
 }
 
-.dokkanPanel .sapMPanelHdr {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-}
-
-.dokkanPanel .sapMPanelHeaderText {
-    text-align: center !important;
-    width: 100% !important;
-}
-
 .navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnIcon,
 .navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapUiIcon {
     color: #ffffff !important;
     fill: #ffffff !important;
 }
 
-.sapMMenuBtn .sapMBtnContent {
-    font-size: 13px !important;
-    margin-left: 7.5px !important;
-    margin-right: 7.5px !important;
-    margin-top: 0.35px !important;
-}
-
-.navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner {
-    border-left: none !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   CAMBIOS EN style.css  —  Copia y pega cada bloque en el
-   lugar indicado reemplazando el bloque original.
-   ═══════════════════════════════════════════════════════════ */
-
-
-/* ── 1. TARJETAS DE PERSONAJE (Main.view.xml) ──────────────
-   Busca la clase  .characterCard  en SECCIÓN 2.
-   Cambia min-width / max-width para ajustar el tamaño del contenedor.
-   ──────────────────────────────────────────────────────── */
-
-.characterCard {
-    align-items: center;
-    background-color: #d0d0d0;
-    border-radius: 8px;
-    padding: 0.5rem;
-    min-width: 105px;   /* ← AQUÍ ajustas el ancho mínimo de la tarjeta */
-    max-width: 125px;   /* ← AQUÍ ajustas el ancho máximo de la tarjeta */
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    cursor: pointer;
-}
-
-/* ── 2. IMAGEN DEL PERSONAJE (cuadrícula Main) ─────────────
-   Busca la clase  .characterImg  en SECCIÓN 2.
-   ──────────────────────────────────────────────────────── */
-
-.characterImg {
-    width: 100px !important;    /* ← AQUÍ cambias el ancho de las fotos */
-    height: 100px !important;   /* ← AQUÍ cambias la altura de las fotos */
-    border-radius: 6px;
-    display: block;
-    margin: 0 auto;
-}
-
-
-/* ── 3. COLUMNA IZQUIERDA EN INFOCHARACTER ─────────────────
-   Busca la clase  .cardLeftCol  en SECCIÓN 3.
-   ──────────────────────────────────────────────────────── */
-
-.cardLeftCol,
-.cardLeftCol.sapMVBox {
-    flex: 0 0 300px !important;    /* ← ancho de la columna izq. */
-    min-width: 260px !important;
-    gap: 1rem !important;
-}
-
-
-/* ── 4. IMAGEN ARTWORK GRANDE (InfoCharacter) ──────────────
-   Busca la clase  .cardArtImg  en SECCIÓN 3.
-   ──────────────────────────────────────────────────────── */
-
-.cardArtImg,
-.cardArtImg.sapMImg {
-    width: 276px !important;    /* ← AQUÍ ajustas el ancho del artwork */
-    height: 460px !important;   /* ← AQUÍ ajustas la altura del artwork */
-    object-fit: cover !important;
-    border-radius: 8px !important;
-}
-
-
-/* ── 5. MINIATURA THUMBNAIL (InfoCharacter) ─────────────────
-   Busca la clase  .cardThumbImg  en SECCIÓN 3.
-   (sin cambio pero te lo dejo aquí por referencia)
-   ──────────────────────────────────────────────────────── */
-
-.cardThumbImg,
-.cardThumbImg.sapMImg {
-    width: 150px !important;
-    height: 150px !important;
-    object-fit: cover !important;
-    border-radius: 8px !important;
-}
-
-
-/* ── 6. RESPONSIVE — TABLET (max-width: 900px) ─────────────
-   Busca el bloque  @media (max-width: 900px)
-   y reemplaza las líneas de cardLeftCol y cardArtImg:
-   ──────────────────────────────────────────────────────── */
-
-/* DENTRO DE @media (max-width: 900px): */
-/* .cardLeftCol { flex: 0 0 260px !important; } */
-/* .cardArtImg, .cardArtImg.sapMImg { width: 236px !important; height: 380px !important; } */
-
-
-/* ── 7. RESPONSIVE — MÓVIL (max-width: 600px) ──────────────
-   Busca el bloque  @media (max-width: 600px)
-   y reemplaza:
-   ──────────────────────────────────────────────────────── */
-
-/* DENTRO DE @media (max-width: 600px): */
-/* .characterCard { min-width: 80px; max-width: 100px; }  */
-/* .characterImg { width: 62px !important; height: 62px !important; } */
-/* .cardArtImg, .cardArtImg.sapMImg { width: 100% !important; height: 220px !important; } */
-
-
-/* ── 8. NOMBRE DEL PERSONAJE — evitar recorte ───────────────
-   Añade esto al final de SECCIÓN 3, o reemplaza .cardTitle .sapMTitle:
-   ──────────────────────────────────────────────────────── */
-
-.cardTitle .sapMTitle {
-    font-size: 2rem !important;
-    font-weight: 900 !important;
-    color: #1a1a1a !important;
-    line-height: 1.2 !important;
-    white-space: normal !important;   /* ← permite que el texto haga salto */
-    overflow-wrap: break-word !important;
-    word-break: break-word !important;
+.navBtn.sapMMenuBtn * {
+    color: #ffffff !important;
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   SECCIÓN 4 — RESPONSIVE
-   Breakpoints: 900px (tablet) · 600px (móvil) · 400px (pequeño)
+   7. RESPONSIVE — tablet (900 px) · móvil (600 px) · pequeño (400 px)
    ═══════════════════════════════════════════════════════════════ */
-
-/* ── Tablet (≤900px) ── */
 
 @media (max-width: 900px) {
 
-    /* Header */
     .navLogo, .navLogo.sapMImg { width: 130px !important; height: 77px !important; }
     .navIcons, .navIcons.sapMHBox { width: 130px !important; }
 
-    /* Botones nav */
-    .navBtn.sapMBtn,
-    .navBtn.sapMMenuBtn { height: 34px !important; min-height: 34px !important; }
-
     .navBtn.sapMBtn .sapMBtnInner,
-    .navBtn.sapMBtn.sapMBtnDefault .sapMBtnInner,
-    .navBtn.sapMBtn.sapMBtnTransparent .sapMBtnInner,
     .navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner,
-    .navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnDefault .sapMBtnInner,
     .navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner {
-        height: 38px !important;
-        min-height: 38px !important;
-        line-height: 38px !important;
         padding: 0 12px !important;
     }
 
     .navBtn.sapMBtn bdi,
     .navBtn.sapMMenuBtn .sapMMenuBtnRegular bdi { font-size: 0.75rem !important; }
 
-    .navIconBtn.sapMBtn .sapMBtnInner,
-    .navIconBtn.sapMBtn.sapMBtnDefault .sapMBtnInner {
-        width: 32px !important;
-        height: 32px !important;
-        min-width: 32px !important;
-        min-height: 32px !important;
-    }
+    .navIconBtn.sapMBtn .sapMBtnInner { width: 32px !important; height: 32px !important; }
 
-    /* Footer */
     .footerContent { padding: 1rem 1.2rem !important; gap: 1rem !important; }
     .footerRight { align-items: center !important; }
     .footerCopy.sapMText, .footerDisclaimer.sapMText { text-align: center !important; }
 
-    /* Segunda */
     .cardDetailContent { padding: 0 0.8rem 1.5rem 0.8rem; margin: 1rem auto !important; }
-    .cardTopRow { gap: 1rem !important; }
-    .cardLeftCol { flex: 0 0 200px !important; }
-    .cardArtImg, .cardArtImg.sapMImg { width: 176px !important; height: 280px !important; }
-    .cardTitle .sapMTitle { font-size: 1.6rem !important; }
-}
+    .cardLeftCol { flex: 0 0 240px !important; }
+    .cardThumbImg, .cardThumbImg.sapMImg { width: 170px !important; height: 170px !important; }
+    .cardArtImg, .cardArtImg.sapMImg { width: 220px !important; height: 380px !important; }
+    .cardTitle .sapMTitle { font-size: 1.7rem !important; }
 
-/* ── Móvil (≤600px) ── */
+    .legalCard { padding: 1.8rem 1.8rem !important; }
+    .legalHeroTitle .sapMTitle { font-size: 2rem !important; }
+}
 
 @media (max-width: 600px) {
 
-    /* Header */
     .navBar, .navBar.sapMHBox { flex-wrap: wrap !important; padding: 0.4rem 0.5rem !important; }
     .navLogo, .navLogo.sapMImg { width: 100px !important; height: 59px !important; }
     .navButtons, .navButtons.sapMHBox { width: 100% !important; flex: unset !important; order: 3 !important; }
     .navIcons, .navIcons.sapMHBox { width: auto !important; flex: 1 !important; justify-content: flex-end !important; order: 2 !important; }
 
-    /* Botones nav */
-    .navBtn.sapMBtn,
-    .navBtn.sapMMenuBtn { height: 30px !important; min-height: 30px !important; margin: 2px !important; }
-
     .navBtn.sapMBtn .sapMBtnInner,
-    .navBtn.sapMBtn.sapMBtnDefault .sapMBtnInner,
-    .navBtn.sapMBtn.sapMBtnTransparent .sapMBtnInner,
     .navBtn.sapMMenuBtn .sapMMenuBtnRegular .sapMBtnInner,
-    .navBtn.sapMMenuBtn .sapMMenuBtnRegular.sapMBtnDefault .sapMBtnInner,
-    .navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner {
-        height: 38px !important;
-        min-height: 38px !important;
-        line-height: 38px !important;
-        padding: 0 9px !important;
-    }
+    .navBtn.sapMMenuBtn .sapMMenuBtnSplit .sapMBtnInner { padding: 0 9px !important; }
 
     .navBtn.sapMBtn bdi,
     .navBtn.sapMMenuBtn .sapMMenuBtnRegular bdi { font-size: 0.65rem !important; }
 
-    .navIconBtn.sapMBtn .sapMBtnInner,
-    .navIconBtn.sapMBtn.sapMBtnDefault .sapMBtnInner {
-        width: 28px !important;
-        height: 28px !important;
-        min-width: 28px !important;
-        min-height: 28px !important;
-    }
+    .navIconBtn.sapMBtn .sapMBtnInner { width: 28px !important; height: 28px !important; }
 
-    /* Main */
     .pageContent { padding: 0 0.6rem; margin: 0.8rem auto !important; }
-    .characterCard { min-width: 72px; max-width: 85px; }
-    .characterImg { width: 50px !important; height: 50px !important; }
+    .characterCard { min-width: 80px; max-width: 95px; }
+    .characterImg { width: 68px !important; height: 68px !important; }
 
-    /* Footer */
     .footerContent { flex-direction: column !important; align-items: center !important; padding: 1rem 0.8rem !important; gap: 1rem !important; }
     .footerBrand { flex-wrap: wrap !important; justify-content: center !important; }
     .footerTagline.sapMText { text-align: center !important; max-width: 260px; }
     .footerRight { align-items: center !important; }
     .footerCopy.sapMText, .footerDisclaimer.sapMText { text-align: center !important; }
 
-    /* Segunda */
     .cardDetailContent { padding: 0 0.5rem 1rem 0.5rem; }
     .cardTopRow { flex-direction: column !important; gap: 0.8rem !important; }
     .cardLeftCol { flex: 0 0 auto !important; width: 100% !important; flex-direction: row !important; gap: 0.8rem !important; }
-    .cardThumbBox { flex: 0 0 140px !important; }
-    .cardThumbImg, .cardThumbImg.sapMImg { width: 120px !important; height: 120px !important; }
+    .cardThumbBox { flex: 0 0 160px !important; }
+    .cardThumbImg, .cardThumbImg.sapMImg { width: 140px !important; height: 140px !important; }
     .cardArtBox { flex: 1 !important; }
-    .cardArtImg, .cardArtImg.sapMImg { width: 100% !important; height: 200px !important; }
+    .cardArtImg, .cardArtImg.sapMImg { width: 100% !important; height: 220px !important; }
     .cardRightCol { flex: 0 0 100% !important; }
     .cardTitle .sapMTitle { font-size: 1.5rem !important; }
-}
 
-/* ── Móvil pequeño (≤400px) ── */
+    .legalCard { padding: 1.2rem 1rem !important; }
+    .legalHeroTitle .sapMTitle { font-size: 1.7rem !important; }
+    .legalSectionTitle .sapMTitle { font-size: 1rem !important; }
+    .legalTableCell.sapMText { padding: 8px 10px !important; font-size: 0.8rem !important; }
+}
 
 @media (max-width: 400px) {
 
-    /* Header */
     .navLogo, .navLogo.sapMImg { width: 80px !important; height: 47px !important; }
     .navBtn.sapMBtn bdi,
     .navBtn.sapMMenuBtn .sapMMenuBtnRegular bdi { font-size: 0.58rem !important; }
 
-    /* Main */
-    .characterCard { min-width: 62px; max-width: 74px; }
+    .characterCard { min-width: 68px; max-width: 80px; }
+    .characterImg { width: 56px !important; height: 56px !important; }
 
-    /* Footer */
     .footerLogo, .footerLogo.sapMImg { width: 120px !important; height: 48px !important; }
     .footerBrandDivider { display: none !important; }
     .footerTagline.sapMText { font-size: 0.68rem !important; }
 
-    /* Segunda */
     .cardLeftCol { flex-direction: column !important; align-items: center !important; }
     .cardThumbBox { flex: unset !important; width: 100% !important; }
+    .cardThumbImg, .cardThumbImg.sapMImg { width: 180px !important; height: 180px !important; }
     .cardArtImg, .cardArtImg.sapMImg { height: 240px !important; }
     .cardTitle .sapMTitle { font-size: 1.2rem !important; }
-    .statNumber.sapMText { font-size: 1rem !important; }
+    .statNumber.sapMText { font-size: 1.2rem !important; }
+
+    .legalCard { padding: 1rem 0.8rem !important; }
+    .legalHeroTitle .sapMTitle { font-size: 1.5rem !important; }
+    .legalTable { display: none !important; }
 }

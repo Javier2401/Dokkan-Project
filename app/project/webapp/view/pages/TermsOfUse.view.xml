@@ -9,8 +9,69 @@
 
                 <core:Fragment fragmentName="project.view.shared.Header" type="XML"/>
 
-                <VBox class="pageContent">
-                    <Text text=" PAGINA TERMINOS DE USO"/>
+                <VBox class="legalPageContent">
+                    <VBox class="legalCard">
+
+                        <VBox class="legalHero">
+                            <Title text="Terms of Use" titleStyle="H1" class="legalHeroTitle"/>
+                            <Text text="Last updated: April 2026" class="legalHeroDate"/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="1. Acceptance of Terms" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="By accessing and using Dokkan Project, you agree to these Terms of Use. If you do not agree, please do not use this site. We reserve the right to modify these terms at any time, and your continued use of the site constitutes acceptance of any changes."/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="2. Fan-Made Disclaimer" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="Dokkan Project is an unofficial, fan-created website. We are not affiliated with, endorsed by, or partnered with Bandai Namco Entertainment Inc., Akatsuki Inc., or TOEI Animation. Dragon Ball Z Dokkan Battle, Dragon Ball Z, and all related characters, names, and imagery are trademarks and copyrights of their respective owners. All game content displayed on this site belongs to the original rights holders."/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="3. Use of the Site" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="Dokkan Project is provided for personal, non-commercial, informational use only. You may browse and use the information on this site for your own reference. You may not reproduce, redistribute, or commercially exploit any content from this site without prior written consent. This site does not facilitate any in-game purchases or account transactions."/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="4. Intellectual Property" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="The original code, design, and layout of Dokkan Project are the work of its creators. Game data, character artwork, icons, and related assets remain the intellectual property of Bandai Namco Entertainment Inc. and Akatsuki Inc. These assets are used here under fair-use principles for non-commercial fan purposes."/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="5. Accuracy of Information" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="We strive to keep all character data, stats, and information as accurate and up-to-date as possible. However, game content changes frequently and we cannot guarantee that all information is current at any given time. Always refer to the official game or official sources for the most accurate data."/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="6. Limitation of Liability" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="Dokkan Project is provided 'as is' without warranties of any kind. We are not responsible for any decisions made based on information found on this site, any errors or omissions in the data, or any interruptions or outages of the service. Use this site at your own discretion."/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="7. External Links" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="This site may contain links to external websites or resources. We are not responsible for the content, privacy practices, or availability of those external sites. Visiting external links is done at your own risk."/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="8. Changes to Terms" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="We may revise these Terms of Use from time to time. Any revisions will be posted on this page with an updated date. If you continue to use Dokkan Project after changes are posted, you accept the revised terms."/>
+                        </VBox>
+
+                        <VBox class="legalSection">
+                            <Title text="9. Contact" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" class="legalSectionText"
+                                text="For any questions regarding these Terms of Use, or to report incorrect content or intellectual property concerns, please contact us through our community channels. We take all concerns seriously and will respond promptly."/>
+                        </VBox>
+
+                    </VBox>
                 </VBox>
 
                 <core:Fragment fragmentName="project.view.shared.Footer" type="XML"/>
