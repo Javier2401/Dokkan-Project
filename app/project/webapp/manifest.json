@@ -174,7 +174,14 @@
           "target": [
             "TargetPrivacyPolicy"
           ]
-        }
+        },
+        {
+          "name": "RouteCategory",
+          "pattern": "category:?query:",
+          "target": [
+            "TargetCategory"
+          ]
+        } 
       ],
       "targets": {
         "TargetMain": {
@@ -216,6 +223,10 @@
         "TargetPrivacyPolicy": {
           "id": "PrivacyPolicy",
           "name": "pages.PrivacyPolicy"
+        },
+        "TargetCategory": {
+          "id": "CategoryCharacter",
+          "name": "pages.characters.CategoryCharacter" 
         }
       }
     },

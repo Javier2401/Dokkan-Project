@@ -4,6 +4,35 @@ sap.ui.define([
 ], (BaseController, JSONModel) => {
     "use strict";
 
+    const COMPOUND_CATEGORIES = [
+        "Earth - Bred Fighters",
+        "Earth - Protecting Heroes",
+        "All - Out Struggle"
+    ];
+
+    function parseCategories(str) {
+        const parts = (str || "").split(" - ");
+        const result = [];
+        let i = 0;
+        while (i < parts.length) {
+            let matched = false;
+            if (i + 1 < parts.length) {
+                const compound = parts[i] + " - " + parts[i + 1];
+                if (COMPOUND_CATEGORIES.includes(compound)) {
+                    result.push({ name: compound });
+                    i += 2;
+                    matched = true;
+                }
+            }
+            if (!matched) {
+                const trimmed = (parts[i] || "").trim();
+                if (trimmed) result.push({ name: trimmed });
+                i++;
+            }
+        }
+        return result;
+    }
+
     return BaseController.extend("project.controller.pages.characters.InfoCharacter", {
 
         onInit() {
@@ -34,15 +63,9 @@ sap.ui.define([
                         .map(s => s.trim())
                         .filter(Boolean)
                         .map(s => ({ name: s }));
-
                     oView.getModel("linkSkills").setProperty("/skills", aSkills);
 
-                    const aCategories = (oData.categories || "")
-                        .split(" - ")
-                        .map(s => s.trim())
-                        .filter(Boolean)
-                        .map(s => ({ name: s }));
-
+                    const aCategories = parseCategories(oData.categories);
                     oView.getModel("categories").setProperty("/items", aCategories);
 
                     oView.bindElement({ path: sPath });

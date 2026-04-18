@@ -86,7 +86,9 @@
                                 <Text text="Categories" class="cardSectionTitle"/>
                                 <FlexBox wrap="Wrap" class="categoriesGrid" items="{categories>/items}">
                                     <items>
-                                        <Text text="{categories>name}" class="categoryChip"/>
+                                        <Button text="{categories>name}"
+                                                class="categoryChipBtn"
+                                                press=".onNavCategory"/>
                                     </items>
                                 </FlexBox>
                             </VBox>

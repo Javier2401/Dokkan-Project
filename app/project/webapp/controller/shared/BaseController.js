@@ -31,6 +31,15 @@ sap.ui.define([
             }
         },
 
+        onNavCategory: function (oEvent) {
+            const sCategoryName = oEvent.getSource().getText();
+            if (!sCategoryName) return;
+
+            this.getOwnerComponent().getRouter().navTo("RouteCategory", {
+                "?query": { name: sCategoryName }
+            });
+        },
+
         onNavMain:           function () { this.getOwnerComponent().getRouter().navTo("RouteMain"); },
         onNavNews:           function () { this.getOwnerComponent().getRouter().navTo("RouteNews"); },
         onNavBanners:        function () { this.getOwnerComponent().getRouter().navTo("RouteBanners"); },
