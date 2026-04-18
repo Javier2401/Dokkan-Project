@@ -980,6 +980,170 @@
     text-align: center !important;
 }
 
+/* ================================================================
+   APPEND to the end of app/project/webapp/css/style.css
+   ================================================================ */
+
+/* ── 1. Main page — bigger character cards ──────────────────────── */
+
+/* Override previous values */
+.characterCard {
+    min-width: 140px !important;
+    max-width: 165px !important;
+}
+
+.characterImg {
+    width: 130px !important;
+    height: 130px !important;
+}
+
+/* ── 2. InfoCharacter — bigger artwork ──────────────────────────── */
+
+.cardArtImg,
+.cardArtImg.sapMImg {
+    width: 340px !important;
+    height: 620px !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+}
+
+/* ── 3. InfoCharacter — date box below the artwork ─────────────── */
+
+.cardDateBox,
+.cardDateBox.sapMVBox {
+    background-color: #1f2937 !important;
+    border-radius: 10px !important;
+    padding: 0.6rem 1rem !important;
+    align-items: center !important;
+    margin-top: 0 !important;
+}
+
+.cardReleaseDateBig,
+.cardReleaseDateBig.sapMText {
+    font-size: 1rem !important;
+    font-weight: 700 !important;
+    color: #f9fafb !important;
+    text-align: center !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* remove old release date text inside cardArtBox if it still exists */
+.cardReleaseDate,
+.cardReleaseDate.sapMText {
+    display: none !important;
+}
+
+/* ── 4. InfoCharacter — stats table (purple, like image 2) ──────── */
+
+.statsTableBox,
+.statsTableBox.sapMVBox {
+    margin-top: 1.5rem !important;
+    width: 100% !important;
+    gap: 0.6rem !important;
+}
+
+.statsTableTitle,
+.statsTableTitle.sapMText {
+    font-size: 1.1rem !important;
+    font-weight: 900 !important;
+    color: #111827 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+}
+
+.statsTable,
+.statsTable.sapMVBox {
+    width: 100% !important;
+    border-radius: 10px !important;
+    overflow: hidden !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.18) !important;
+}
+
+.statsTableRow,
+.statsTableRow.sapMHBox {
+    width: 100% !important;
+}
+
+.statsTableHeader,
+.statsTableHeader.sapMHBox {
+    background-color: #4a1d7a !important;
+}
+
+.statsTableRow:not(.statsTableHeader) {
+    background-color: #2d1254 !important;
+}
+
+.statsTableRow:not(.statsTableHeader):nth-child(odd) {
+    background-color: #341565 !important;
+}
+
+.statsTableCell,
+.statsTableCell.sapMText {
+    flex: 1 !important;
+    padding: 14px 18px !important;
+    font-size: 1rem !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.statsTableHead,
+.statsTableHead.sapMText {
+    font-weight: 800 !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    color: #e9d5ff !important;
+}
+
+.statsColLabel,
+.statsColLabel.sapMText {
+    flex: 0.7 !important;
+}
+
+.statsRowLabel,
+.statsRowLabel.sapMText {
+    flex: 0.7 !important;
+    font-weight: 800 !important;
+    font-size: 1.05rem !important;
+}
+
+.statsValue,
+.statsValue.sapMText {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+}
+
+.statsColorHP  { color: #86efac !important; }
+.statsColorATK { color: #fca5a5 !important; }
+.statsColorDEF { color: #93c5fd !important; }
+
+/* ── 5. CategoryCharacter — hero title ──────────────────────────── */
+
+.categoryHero,
+.categoryHero.sapMVBox {
+    background-color: #ffffff !important;
+    border-radius: 14px !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12) !important;
+    padding: 2rem 1.5rem !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 0 !important;
+    border-bottom: 4px solid #3b82f6 !important;
+}
+
+.categoryHeroTitle .sapMTitle {
+    font-size: 2.4rem !important;
+    font-weight: 900 !important;
+    color: #111827 !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    white-space: normal !important;
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    7. RESPONSIVE — tablet (900 px) · móvil (600 px) · pequeño (400 px)
@@ -1013,6 +1177,11 @@
 
     .legalCard { padding: 1.8rem 1.8rem !important; }
     .legalHeroTitle .sapMTitle { font-size: 2rem !important; }
+
+    .characterCard   { min-width: 110px !important; max-width: 130px !important; }
+    .characterImg    { width: 100px !important; height: 100px !important; }
+    .cardArtImg, .cardArtImg.sapMImg { width: 260px !important; height: 480px !important; }
+    .categoryHeroTitle .sapMTitle { font-size: 1.9rem !important; }
 }
 
 @media (max-width: 600px) {
@@ -1056,6 +1225,14 @@
     .legalSectionTitle .sapMTitle { font-size: 1rem !important; }
     .legalTableCell.sapMText { padding: 8px 10px !important; font-size: 0.8rem !important; }
     .characterCardName.sapMText { font-size: 0.65rem !important; }
+
+    .characterCard   { min-width: 85px !important; max-width: 105px !important; }
+    .characterImg    { width: 78px !important; height: 78px !important; }
+    .cardArtImg, .cardArtImg.sapMImg { width: 100% !important; height: 260px !important; }
+    .statsTableCell.sapMText { padding: 10px 8px !important; font-size: 0.82rem !important; }
+    .statsValue.sapMText     { font-size: 0.88rem !important; }
+    .categoryHeroTitle .sapMTitle { font-size: 1.5rem !important; }
+    .cardDateBox { padding: 0.5rem 0.8rem !important; }
 }
 
 @media (max-width: 400px) {
@@ -1081,4 +1258,9 @@
     .legalCard { padding: 1rem 0.8rem !important; }
     .legalHeroTitle .sapMTitle { font-size: 1.5rem !important; }
     .legalTable { display: none !important; }
+
+    .characterCard   { min-width: 72px !important; max-width: 88px !important; }
+    .characterImg    { width: 64px !important; height: 64px !important; }
+    .statsTableCell.sapMText { padding: 8px 5px !important; font-size: 0.72rem !important; }
+    .categoryHeroTitle .sapMTitle { font-size: 1.3rem !important; }
 }

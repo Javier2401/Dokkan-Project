@@ -12,6 +12,7 @@
                 <VBox class="cardDetailContent">
                     <HBox class="cardTopRow" wrap="Wrap">
 
+                        <!-- ── Left column: thumbnail + big art + date ── -->
                         <VBox class="cardLeftCol">
 
                             <VBox class="cardThumbBox">
@@ -20,34 +21,21 @@
 
                             <VBox class="cardArtBox">
                                 <Image src="{artwork}" class="cardArtImg" densityAware="false"/>
-                                <Text text="{releaseDate}" class="cardReleaseDate"/>
+                            </VBox>
+
+                            <!-- Release date in its own dedicated box -->
+                            <VBox class="cardDateBox">
+                                <Text text="{stats>/releaseDate}" class="cardReleaseDateBig"/>
                             </VBox>
 
                         </VBox>
 
+                        <!-- ── Right column: name, leader, SA, passive, links, categories ── -->
                         <VBox class="cardRightCol">
 
                             <VBox class="cardNameBox">
                                 <Text  text="{title}" class="cardSubtitle"/>
                                 <Title text="{name}"  class="cardTitle" titleStyle="H1" wrapping="true"/>
-                            </VBox>
-
-                            <VBox class="cardSection">
-                                <Text text="Stats" class="cardSectionTitle"/>
-                                <HBox class="statsRow">
-                                    <VBox class="statBox">
-                                        <Text text="HP"   class="statLabel"/>
-                                        <Text text="{hp}" class="statNumber statHP"/>
-                                    </VBox>
-                                    <VBox class="statBox">
-                                        <Text text="ATK"   class="statLabel"/>
-                                        <Text text="{atk}" class="statNumber statATK"/>
-                                    </VBox>
-                                    <VBox class="statBox">
-                                        <Text text="DEF"   class="statLabel"/>
-                                        <Text text="{def}" class="statNumber statDEF"/>
-                                    </VBox>
-                                </HBox>
                             </VBox>
 
                             <VBox class="cardSection">
@@ -77,7 +65,7 @@
                                 <Text text="Link Skills" class="cardSectionTitle"/>
                                 <FlexBox wrap="Wrap" class="linkSkillsGrid" items="{linkSkills>/skills}">
                                     <items>
-                                        <Button text="{linkSkills>name}" class="linkSkillBtn" tooltip="LEVEL 1:&#xa;LEVEL 10:"/>
+                                        <Button text="{linkSkills>name}" class="linkSkillBtn"/>
                                     </items>
                                 </FlexBox>
                             </VBox>
@@ -95,6 +83,42 @@
 
                         </VBox>
                     </HBox>
+
+                    <!-- ── Stats table — full width at the bottom ── -->
+                    <VBox class="statsTableBox">
+                        <Text text="Stats" class="statsTableTitle"/>
+                        <VBox class="statsTable">
+                            <!-- Header row -->
+                            <HBox class="statsTableRow statsTableHeader">
+                                <Text text="Stats"    class="statsTableCell statsTableHead statsColLabel"/>
+                                <Text text="Base Max" class="statsTableCell statsTableHead"/>
+                                <Text text="55%"      class="statsTableCell statsTableHead"/>
+                                <Text text="100%"     class="statsTableCell statsTableHead"/>
+                            </HBox>
+                            <!-- HP row -->
+                            <HBox class="statsTableRow">
+                                <Text text="HP"                    class="statsTableCell statsRowLabel statsColorHP"/>
+                                <Text text="{stats>/hp}"           class="statsTableCell statsValue"/>
+                                <Text text="{stats>/hp55}"         class="statsTableCell statsValue"/>
+                                <Text text="{stats>/hp100}"        class="statsTableCell statsValue"/>
+                            </HBox>
+                            <!-- ATK row -->
+                            <HBox class="statsTableRow">
+                                <Text text="ATK"                   class="statsTableCell statsRowLabel statsColorATK"/>
+                                <Text text="{stats>/atk}"          class="statsTableCell statsValue"/>
+                                <Text text="{stats>/atk55}"        class="statsTableCell statsValue"/>
+                                <Text text="{stats>/atk100}"       class="statsTableCell statsValue"/>
+                            </HBox>
+                            <!-- DEF row -->
+                            <HBox class="statsTableRow">
+                                <Text text="DEF"                   class="statsTableCell statsRowLabel statsColorDEF"/>
+                                <Text text="{stats>/def}"          class="statsTableCell statsValue"/>
+                                <Text text="{stats>/def55}"        class="statsTableCell statsValue"/>
+                                <Text text="{stats>/def100}"       class="statsTableCell statsValue"/>
+                            </HBox>
+                        </VBox>
+                    </VBox>
+
                 </VBox>
 
                 <core:Fragment fragmentName="project.view.shared.Footer" type="XML"/>

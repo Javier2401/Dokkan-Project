@@ -6,70 +6,48 @@
     <Page showHeader="false" enableScrolling="true" class="dokkanPage">
         <content>
             <VBox class="pageWrapper">
-
                 <core:Fragment fragmentName="project.view.shared.Header" type="XML"/>
-
                 <VBox class="legalPageContent">
                     <VBox class="legalCard">
-
                         <VBox class="legalHero">
-                            <Title text="Privacy Policy" titleStyle="H1" class="legalHeroTitle"/>
-                            <Text text="Last updated: April 2026" class="legalHeroDate"/>
+                            <Title text="{i18n>privacy.hero.title}" titleStyle="H1" class="legalHeroTitle"/>
+                            <Text text="{i18n>privacy.hero.date}" class="legalHeroDate"/>
                         </VBox>
-
                         <VBox class="legalSection">
-                            <Title text="1. About Dokkan Project" titleStyle="H3" class="legalSectionTitle"/>
-                            <Text wrapping="true" class="legalSectionText"
-                                text="Dokkan Project is a fan-made, non-commercial website dedicated to Dragon Ball Z Dokkan Battle. We are not affiliated with, endorsed by, or connected to Bandai Namco Entertainment Inc., Akatsuki Inc., or any of their subsidiaries. This site exists solely to provide informational content for the community."/>
+                            <Title text="{i18n>privacy.s1.title}" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" text="{i18n>privacy.s1.text}" class="legalSectionText"/>
                         </VBox>
-
                         <VBox class="legalSection">
-                            <Title text="2. Information We Collect" titleStyle="H3" class="legalSectionTitle"/>
-                            <Text wrapping="true" class="legalSectionText"
-                                text="We do not collect personal data directly. When you visit Dokkan Project, standard server logs may automatically record your IP address, browser type, and the pages you visit. This information is used only for technical diagnostics and site stability. We do not sell, trade, or share this data with third parties."/>
+                            <Title text="{i18n>privacy.s2.title}" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" text="{i18n>privacy.s2.text}" class="legalSectionText"/>
                         </VBox>
-
                         <VBox class="legalSection">
-                            <Title text="3. Cookies" titleStyle="H3" class="legalSectionTitle"/>
-                            <Text wrapping="true" class="legalSectionText"
-                                text="We use a small number of technical cookies to remember your preferences (such as your selected language). These cookies do not contain personal information and are not used for advertising or tracking purposes. You can disable cookies in your browser settings at any time, although some features may not function as expected."/>
+                            <Title text="{i18n>privacy.s3.title}" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" text="{i18n>privacy.s3.text}" class="legalSectionText"/>
                         </VBox>
-
                         <VBox class="legalSection">
-                            <Title text="4. Third-Party Services" titleStyle="H3" class="legalSectionTitle"/>
-                            <Text wrapping="true" class="legalSectionText"
-                                text="Game assets, character images, and artwork displayed on this site are the property of Bandai Namco Entertainment Inc. and Akatsuki Inc. These are used under the principles of fair use for informational, non-commercial, fan purposes. All trademarks and registered trademarks mentioned on this site remain the property of their respective owners."/>
+                            <Title text="{i18n>privacy.s4.title}" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" text="{i18n>privacy.s4.text}" class="legalSectionText"/>
                         </VBox>
-
                         <VBox class="legalSection">
-                            <Title text="5. Data Security" titleStyle="H3" class="legalSectionTitle"/>
-                            <Text wrapping="true" class="legalSectionText"
-                                text="Since we do not collect personal data, there is no personal data at risk. We implement standard web security measures to keep the site stable and safe to visit."/>
+                            <Title text="{i18n>privacy.s5.title}" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" text="{i18n>privacy.s5.text}" class="legalSectionText"/>
                         </VBox>
-
                         <VBox class="legalSection">
-                            <Title text="6. Children's Privacy" titleStyle="H3" class="legalSectionTitle"/>
-                            <Text wrapping="true" class="legalSectionText"
-                                text="Dokkan Project is a general-audience fan site. We do not knowingly collect any personal information from children. If you believe a child has provided personal information, please contact us so we can take appropriate action."/>
+                            <Title text="{i18n>privacy.s6.title}" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" text="{i18n>privacy.s6.text}" class="legalSectionText"/>
                         </VBox>
-
                         <VBox class="legalSection">
-                            <Title text="7. Changes to This Policy" titleStyle="H3" class="legalSectionTitle"/>
-                            <Text wrapping="true" class="legalSectionText"
-                                text="We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated date. We encourage you to review this policy periodically."/>
+                            <Title text="{i18n>privacy.s7.title}" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" text="{i18n>privacy.s7.text}" class="legalSectionText"/>
                         </VBox>
-
                         <VBox class="legalSection">
-                            <Title text="8. Contact" titleStyle="H3" class="legalSectionTitle"/>
-                            <Text wrapping="true" class="legalSectionText"
-                                text="If you have questions about this Privacy Policy or how the site operates, you can reach out to us through our community channels. We are a small fan project and will do our best to respond."/>
+                            <Title text="{i18n>privacy.s8.title}" titleStyle="H3" class="legalSectionTitle"/>
+                            <Text wrapping="true" text="{i18n>privacy.s8.text}" class="legalSectionText"/>
                         </VBox>
-
                     </VBox>
                 </VBox>
-
                 <core:Fragment fragmentName="project.view.shared.Footer" type="XML"/>
-
             </VBox>
         </content>
     </Page>

@@ -33,11 +33,23 @@ sap.ui.define([
         return result;
     }
 
+    /* A character is a "leader" if its leaderSkill string mentions
+       the category name — meaning it buffs allies who belong to it. */
+    function isLeader(oChar, sCategoryName) {
+        return (oChar.leaderSkill || "").includes(sCategoryName);
+    }
+
     return BaseController.extend("project.controller.pages.characters.CategoryCharacter", {
 
         onInit() {
             this.getView().setModel(
-                new JSONModel({ characters: [], categoryName: "", hasNoResults: false }),
+                new JSONModel({
+                    categoryName: "",
+                    leaders: [],
+                    members: [],
+                    hasNoLeaders: false,
+                    hasNoMembers: false
+                }),
                 "chars"
             );
 
@@ -47,14 +59,16 @@ sap.ui.define([
         },
 
         _onRouteMatched(oEvent) {
-            const oArgs        = oEvent.getParameter("arguments");
-            const oQuery       = oArgs["?query"] || {};
+            const oArgs         = oEvent.getParameter("arguments");
+            const oQuery        = oArgs["?query"] || {};
             const sCategoryName = oQuery.name || "";
 
             const oModel = this.getView().getModel("chars");
             oModel.setProperty("/categoryName", sCategoryName);
-            oModel.setProperty("/characters",   []);
-            oModel.setProperty("/hasNoResults",  false);
+            oModel.setProperty("/leaders",      []);
+            oModel.setProperty("/members",      []);
+            oModel.setProperty("/hasNoLeaders", false);
+            oModel.setProperty("/hasNoMembers", false);
 
             this.getView().setBusy(true);
 
@@ -63,18 +77,27 @@ sap.ui.define([
                 .then(data => {
                     const aAll = data.value || [];
 
+                    /* All characters that belong to the category */
                     const aFiltered = aAll.filter(c => {
                         const aCategories = parseCategories(c.categories);
                         return aCategories.includes(sCategoryName);
                     });
 
-                    oModel.setProperty("/characters",  aFiltered);
-                    oModel.setProperty("/hasNoResults", aFiltered.length === 0);
+                    /* Split into leaders (buff the category) and plain members */
+                    const aLeaders = aFiltered.filter(c =>  isLeader(c, sCategoryName));
+                    const aMembers = aFiltered.filter(c => !isLeader(c, sCategoryName));
+
+                    oModel.setProperty("/leaders",      aLeaders);
+                    oModel.setProperty("/members",      aMembers);
+                    oModel.setProperty("/hasNoLeaders", aLeaders.length === 0);
+                    oModel.setProperty("/hasNoMembers", aMembers.length === 0);
+
                     this.getView().setBusy(false);
                 })
                 .catch(err => {
                     console.error("Error loading characters:", err);
-                    oModel.setProperty("/hasNoResults", true);
+                    oModel.setProperty("/hasNoLeaders", true);
+                    oModel.setProperty("/hasNoMembers", true);
                     this.getView().setBusy(false);
                 });
         }

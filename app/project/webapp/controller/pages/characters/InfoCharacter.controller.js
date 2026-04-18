@@ -33,48 +33,58 @@ sap.ui.define([
         return result;
     }
 
+    const MONTH_MAP = {
+        Jan:"01", Feb:"02", Mar:"03", Apr:"04",
+        May:"05", Jun:"06", Jul:"07", Aug:"08",
+        Sep:"09", Oct:"10", Nov:"11", Dec:"12"
+    };
+    function formatDate(s) {
+        if (!s) return "";
+        const p = s.trim().split(" ");
+        if (p.length !== 3) return s;
+        return `${p[0].padStart(2,"0")}/${MONTH_MAP[p[1]] || "00"}/${p[2]}`;
+    }
+
+    function buildStats(d) {
+        return {
+            hp:    d.hp,  atk:    d.atk,  def:    d.def,
+            hp55:  d.hp  + 2000, atk55:  d.atk + 2000, def55:  d.def + 2000,
+            hp100: d.hp  + 5000, atk100: d.atk + 5000, def100: d.def + 5000,
+            releaseDate: formatDate(d.releaseDate)
+        };
+    }
+
     return BaseController.extend("project.controller.pages.characters.InfoCharacter", {
 
         onInit() {
-            const oRouter = this.getOwnerComponent().getRouter();
-
-            oRouter.getRoute("RouteInfoCharacter")
+            this.getOwnerComponent().getRouter()
+                .getRoute("RouteInfoCharacter")
                 .attachPatternMatched(this._onRouteMatched, this);
 
             this.getView().setModel(new JSONModel({ skills: [] }), "linkSkills");
-            this.getView().setModel(new JSONModel({ items: [] }), "categories");
+            this.getView().setModel(new JSONModel({ items: [] }),  "categories");
+            this.getView().setModel(new JSONModel({}),             "stats");
         },
 
         _onRouteMatched(oEvent) {
-            const sCharacterId = oEvent.getParameter("arguments").characterId;
+            const sId   = oEvent.getParameter("arguments").characterId;
             const oView = this.getView();
-
             oView.setBusy(true);
 
-            const oModel = oView.getModel();
-            const sPath  = `/Characters(${sCharacterId})`;
+            const sPath = `/Characters(${sId})`;
 
-            oModel.bindContext(sPath)
-                .requestObject()
-                .then((oData) => {
-
-                    const aSkills = (oData.linkSkills || "")
-                        .split(" - ")
-                        .map(s => s.trim())
-                        .filter(Boolean)
-                        .map(s => ({ name: s }));
-                    oView.getModel("linkSkills").setProperty("/skills", aSkills);
-
-                    const aCategories = parseCategories(oData.categories);
-                    oView.getModel("categories").setProperty("/items", aCategories);
-
+            oView.getModel().bindContext(sPath).requestObject()
+                .then(d => {
+                    oView.getModel("linkSkills").setProperty("/skills",
+                        (d.linkSkills || "").split(" - ")
+                            .map(s => s.trim()).filter(Boolean).map(s => ({ name: s }))
+                    );
+                    oView.getModel("categories").setProperty("/items", parseCategories(d.categories));
+                    oView.getModel("stats").setData(buildStats(d));
                     oView.bindElement({ path: sPath });
                     oView.setBusy(false);
                 })
-                .catch((err) => {
-                    console.error("OData ERROR:", err);
-                    oView.setBusy(false);
-                });
+                .catch(err => { console.error("OData ERROR:", err); oView.setBusy(false); });
         }
     });
 });

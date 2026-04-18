@@ -11,17 +11,27 @@
 
                 <VBox class="pageContent">
 
-                    <Panel class="dokkanPanel" headerText="{chars>/categoryName}">
+                    <!-- ── 1. Category name hero ── -->
+                    <VBox class="categoryHero">
+                        <Title text="{chars>/categoryName}"
+                               titleStyle="H1"
+                               class="categoryHeroTitle"
+                               wrapping="true"/>
+                    </VBox>
+
+                    <!-- ── 2. Leaders panel ── -->
+                    <Panel class="dokkanPanel" headerText="Leaders">
                         <content>
 
                             <VBox alignItems="Center" class="categoryEmptyState"
-                                  visible="{chars>/hasNoResults}">
-                                <Text text="No characters found for this category." class="categoryEmptyText"/>
+                                  visible="{chars>/hasNoLeaders}">
+                                <Text text="No leaders found for this category."
+                                      class="categoryEmptyText"/>
                             </VBox>
 
                             <FlexBox wrap="Wrap" justifyContent="Center"
                                      class="characterRow"
-                                     items="{chars>/characters}">
+                                     items="{chars>/leaders}">
                                 <items>
                                     <VBox class="characterCard">
                                         <Image src="{chars>thumbnail}"
@@ -31,8 +41,34 @@
                                         <HBox justifyContent="Center" wrap="Wrap">
                                             <Text text="{chars>name}" class="characterCardName"/>
                                         </HBox>
+                                    </VBox>
+                                </items>
+                            </FlexBox>
+
+                        </content>
+                    </Panel>
+
+                    <!-- ── 3. Members panel ── -->
+                    <Panel class="dokkanPanel" headerText="Members">
+                        <content>
+
+                            <VBox alignItems="Center" class="categoryEmptyState"
+                                  visible="{chars>/hasNoMembers}">
+                                <Text text="No members found for this category."
+                                      class="categoryEmptyText"/>
+                            </VBox>
+
+                            <FlexBox wrap="Wrap" justifyContent="Center"
+                                     class="characterRow"
+                                     items="{chars>/members}">
+                                <items>
+                                    <VBox class="characterCard">
+                                        <Image src="{chars>thumbnail}"
+                                               class="characterImg"
+                                               press=".onNavInfoCharacter"
+                                               densityAware="false"/>
                                         <HBox justifyContent="Center" wrap="Wrap">
-                                            <Text text="{chars>releaseDate}" class="characterDate"/>
+                                            <Text text="{chars>name}" class="characterCardName"/>
                                         </HBox>
                                     </VBox>
                                 </items>
