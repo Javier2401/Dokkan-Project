@@ -1371,6 +1371,306 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   ADDITIONS & OVERRIDES  (append to end of style.css)
+   Sections: 1·Main cards  2·InfoCharacter  3·CategoryCharacter
+   Buttons left untouched.  Responsive at the very bottom.
+   ═══════════════════════════════════════════════════════════════ */
+ 
+/* ── 1. MAIN PAGE ─ character card + date ────────────────────── */
+ 
+.characterCard {
+    min-width: 140px !important;
+    max-width: 165px !important;
+}
+ 
+.characterImg {
+    width: 130px !important;
+    height: 130px !important;
+}
+ 
+/* Dark pill label – original style, now shows DD/MM/YY date */
+.characterDate {
+    margin-top: 0.4rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    text-align: center !important;
+    background-color: rgba(0,0,0,0.6) !important;
+    border-radius: 0 0 6px 6px !important;
+    padding: 4px 6px !important;
+    line-height: 1.4 !important;
+    display: block !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+ 
+/* Panel header: bigger text */
+.dokkanPanel .sapMPanelHeaderText {
+    font-size: 1.5rem !important;
+}
+ 
+/* ── 2. INFO CHARACTER ────────────────────────────────────────── */
+ 
+/* Artwork: container is invisible, image sets the size */
+.cardArtBox,
+.cardArtBox.sapMVBox {
+    background: transparent !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    align-items: flex-start !important;
+}
+ 
+.cardArtImg,
+.cardArtImg.sapMImg {
+    display: block !important;
+    width: 320px !important;
+    height: auto !important;
+    max-width: 100% !important;
+    object-fit: contain !important;
+    border-radius: 8px !important;
+}
+ 
+/* Release date: normal section title + text – no special box */
+.cardReleaseDateBig,
+.cardReleaseDateBig.sapMText {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #374151 !important;
+}
+ 
+/* Stats table: borders between columns, full-width, centered values */
+.inlineStatsTable,
+.inlineStatsTable.sapMVBox {
+    width: 100% !important;
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    border: 1px solid #e5e7eb !important;
+    margin-top: 8px !important;
+}
+ 
+.inlineStatsHeaderRow,
+.inlineStatsHeaderRow.sapMHBox {
+    background-color: #f3f4f6 !important;
+    border-bottom: 2px solid #e5e7eb !important;
+    width: 100% !important;
+}
+ 
+.inlineStatsDataRow,
+.inlineStatsDataRow.sapMHBox {
+    width: 100% !important;
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e5e7eb !important;
+}
+ 
+.inlineStatsDataRow:last-child {
+    border-bottom: none !important;
+}
+ 
+.inlineStatsAlt,
+.inlineStatsAlt.sapMHBox {
+    background-color: #fafafa !important;
+}
+ 
+/* Stat label (HP / ATK / DEF) */
+.inlineStatLabel,
+.inlineStatLabel.sapMText {
+    flex: 0 0 70px !important;
+    min-width: 70px !important;
+    padding: 12px 12px !important;
+    font-weight: 900 !important;
+    font-size: 1rem !important;
+    border-right: 1px solid #e5e7eb !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+ 
+/* Stat value cells — centered, with optional right divider */
+.inlineStatVal,
+.inlineStatVal.sapMText {
+    flex: 1 !important;
+    padding: 12px 6px !important;
+    font-size: 0.95rem !important;
+    color: #1f2937 !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+ 
+/* Divider class — right border on non-last value cells */
+.inlineDivider,
+.inlineDivider.sapMText {
+    border-right: 1px solid #e5e7eb !important;
+}
+ 
+/* Header text style */
+.inlineStatHead,
+.inlineStatHead.sapMText {
+    color: #6b7280 !important;
+    font-weight: 700 !important;
+    font-size: 0.78rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+ 
+/* Stat colors */
+.inlineHP  { color: #16a34a !important; }
+.inlineATK { color: #dc2626 !important; }
+.inlineDEF { color: #2563eb !important; }
+ 
+/* ── 3. CATEGORY CHARACTER ─ Cards section stat tiles ─────────── */
+ 
+/* Card in category view: slightly wider to fit stat grid */
+.catCard,
+.catCard.sapMVBox {
+    min-width: 150px !important;
+    max-width: 170px !important;
+}
+ 
+/* Stat grid container: dark rounded bottom */
+.catStatGrid,
+.catStatGrid.sapMHBox {
+    width: 100% !important;
+    background-color: #1a1a2e !important;
+    border-radius: 0 0 6px 6px !important;
+    gap: 2px !important;
+    padding: 4px 4px !important;
+    box-sizing: border-box !important;
+}
+ 
+/* Individual stat box */
+.catStatBox,
+.catStatBox.sapMVBox {
+    flex: 1 !important;
+    align-items: center !important;
+    background-color: rgba(255,255,255,0.08) !important;
+    border-radius: 4px !important;
+    padding: 4px 2px !important;
+    gap: 1px !important;
+}
+ 
+/* Stat label (HP / ATK / DEF) */
+.catStatLabel,
+.catStatLabel.sapMText {
+    font-size: 0.62rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px !important;
+    text-transform: uppercase !important;
+    text-align: center !important;
+    line-height: 1.1 !important;
+}
+ 
+/* Stat value */
+.catStatVal,
+.catStatVal.sapMText {
+    font-size: 0.78rem !important;
+    font-weight: 900 !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+    color: #ffffff !important;
+}
+ 
+/* Stat label colors */
+.catStatHP  .catStatLabel { color: #86efac !important; }
+.catStatATK .catStatLabel { color: #fca5a5 !important; }
+.catStatDEF .catStatLabel { color: #93c5fd !important; }
+ 
+/* Leader/Sub-leader table — plain white, no blue */
+.categoryHero,
+.categoryHero.sapMVBox {
+    border: 1px solid #e5e7eb !important;
+    border-bottom: none !important;
+}
+ 
+.catLeaderTableHeader,
+.catLeaderTableHeader.sapMHBox {
+    background-color: #f3f4f6 !important;
+    border-bottom: 2px solid #e5e7eb !important;
+    padding: 10px 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+ 
+.catLeaderHeaderText,
+.catLeaderHeaderText.sapMText {
+    font-weight: 700 !important;
+    font-size: 0.82rem !important;
+    color: #374151 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+ 
+.catLeaderList,
+.catLeaderList.sapMList { width: 100% !important; background: transparent !important; }
+.catLeaderList .sapMListItems { width: 100% !important; }
+.catLeaderListItem,
+.catLeaderListItem.sapMLIB {
+    padding: 0 !important;
+    border-bottom: 1px solid #f3f4f6 !important;
+    background: transparent !important;
+}
+.catLeaderListItem:nth-child(even) { background-color: #fafafa !important; }
+ 
+.catLeaderRow,
+.catLeaderRow.sapMHBox {
+    padding: 12px 14px !important;
+    width: 100% !important;
+    gap: 12px !important;
+    box-sizing: border-box !important;
+}
+ 
+.catLeaderCharCol,
+.catLeaderCharCol.sapMVBox {
+    flex: 0 0 120px !important;
+    min-width: 100px !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+ 
+.catLeaderThumbImg,
+.catLeaderThumbImg.sapMImg {
+    width: 80px !important;
+    height: 80px !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    display: block !important;
+}
+.catLeaderThumbImg:hover { opacity: 0.85 !important; transform: scale(1.04) !important; }
+ 
+.catLeaderName,
+.catLeaderName.sapMText {
+    font-size: 0.72rem !important;
+    color: #374151 !important;
+    font-weight: 600 !important;
+    text-align: center !important;
+    line-height: 1.3 !important;
+    max-width: 110px !important;
+}
+ 
+.catLeaderSkillCol,
+.catLeaderSkillCol.sapMText { flex: 1 !important; }
+ 
+.catLeaderSkillText,
+.catLeaderSkillText.sapMText {
+    font-size: 0.9rem !important;
+    color: #1f2937 !important;
+    line-height: 1.65 !important;
+    font-weight: 500 !important;
+}
+ 
+.categoryEmptyState,
+.categoryEmptyState.sapMVBox { padding: 3rem 1rem !important; align-items: center !important; }
+.categoryEmptyText,
+.categoryEmptyText.sapMText {
+    font-size: 1rem !important; color: #9ca3af !important;
+    font-weight: 500 !important; text-align: center !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
    7. RESPONSIVE — tablet (900 px) · móvil (600 px) · pequeño (400 px)
    ═══════════════════════════════════════════════════════════════ */
 

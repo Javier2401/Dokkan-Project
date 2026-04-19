@@ -10,18 +10,18 @@
                 <core:Fragment fragmentName="project.view.shared.Header" type="XML"/>
 
                 <VBox class="pageContent">
+
                     <Panel class="dokkanPanel" headerText="{i18n>panel.upcoming}">
                         <content>
-                            <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow" items="{chars>/upcoming}">
+                            <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
+                                     items="{chars>/upcoming}">
                                 <items>
                                     <VBox class="characterCard">
                                         <Image src="{chars>thumbnail}"
                                                class="characterImg"
                                                press=".onNavInfoCharacter"
                                                densityAware="false"/>
-                                        <VBox class="charCardDateBox">
-                                            <Text text="{chars>releaseDate}" class="charCardDate"/>
-                                        </VBox>
+                                        <Text text="{chars>releaseDateFmt}" class="characterDate"/>
                                     </VBox>
                                 </items>
                             </FlexBox>
@@ -34,10 +34,11 @@
                                      items="{chars>/recent}">
                                 <items>
                                     <VBox class="characterCard">
-                                        <Image src="{chars>thumbnail}" class="characterImg" press=".onNavInfoCharacter" densityAware="false"/>
-                                        <VBox class="charCardDateBox">
-                                            <Text text="{chars>releaseDate}" class="charCardDate"/>
-                                        </VBox>
+                                        <Image src="{chars>thumbnail}"
+                                               class="characterImg"
+                                               press=".onNavInfoCharacter"
+                                               densityAware="false"/>
+                                        <Text text="{chars>releaseDateFmt}" class="characterDate"/>
                                     </VBox>
                                 </items>
                             </FlexBox>

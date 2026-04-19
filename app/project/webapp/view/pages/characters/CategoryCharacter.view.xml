@@ -18,13 +18,13 @@
                                wrapping="true"/>
                     </VBox>
 
+                    <!-- ── Leaders ── -->
                     <Panel class="dokkanPanel" headerText="Leaders">
                         <content>
                             <VBox visible="{chars>/hasNoLeaders}" class="categoryEmptyState">
                                 <Text text="No leaders found for this category." class="categoryEmptyText"/>
                             </VBox>
                             <VBox visible="{chars>/hasLeaders}">
-                                <!-- Table header -->
                                 <HBox class="catLeaderTableHeader">
                                     <Text text="Character"    class="catLeaderCharCol catLeaderHeaderText"/>
                                     <Text text="Leader Skill" class="catLeaderSkillCol catLeaderHeaderText"/>
@@ -51,6 +51,7 @@
                         </content>
                     </Panel>
 
+                    <!-- ── Sub-Leaders / Rainbow ── -->
                     <Panel class="dokkanPanel" headerText="Sub-Leaders / Rainbow">
                         <content>
                             <VBox visible="{chars>/hasNoSubLeaders}" class="categoryEmptyState">
@@ -83,6 +84,7 @@
                         </content>
                     </Panel>
 
+                    <!-- ── Cards ── -->
                     <Panel class="dokkanPanel" headerText="Cards">
                         <content>
                             <VBox visible="{chars>/hasNoCards}" class="categoryEmptyState">
@@ -91,13 +93,25 @@
                             <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
                                      items="{chars>/cards}">
                                 <items>
-                                    <VBox class="characterCard">
+                                    <VBox class="characterCard catCard">
                                         <Image src="{chars>thumbnail}"
                                                class="characterImg"
                                                press=".onNavInfoCharacter"
                                                densityAware="false"/>
-                                        <HBox justifyContent="Center" wrap="Wrap">
-                                            <Text text="{chars>name}" class="characterCardName"/>
+                                        <!-- HP / ATK / DEF stat tiles -->
+                                        <HBox class="catStatGrid">
+                                            <VBox class="catStatBox catStatHP">
+                                                <Text text="HP"          class="catStatLabel"/>
+                                                <Text text="{chars>hp}"  class="catStatVal"/>
+                                            </VBox>
+                                            <VBox class="catStatBox catStatATK">
+                                                <Text text="ATK"         class="catStatLabel"/>
+                                                <Text text="{chars>atk}" class="catStatVal"/>
+                                            </VBox>
+                                            <VBox class="catStatBox catStatDEF">
+                                                <Text text="DEF"         class="catStatLabel"/>
+                                                <Text text="{chars>def}" class="catStatVal"/>
+                                            </VBox>
                                         </HBox>
                                     </VBox>
                                 </items>

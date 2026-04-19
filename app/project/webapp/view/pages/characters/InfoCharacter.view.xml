@@ -12,28 +12,30 @@
                 <VBox class="cardDetailContent">
                     <HBox class="cardTopRow" wrap="Wrap">
 
+                        <!-- ── Left column ── -->
                         <VBox class="cardLeftCol">
 
                             <VBox class="cardThumbBox">
                                 <Image src="{thumbnail}" class="cardThumbImg" densityAware="false"/>
                             </VBox>
 
-                            <VBox class="cardArtBox">
-                                <Image src="{artwork}" class="cardArtImg" densityAware="false"/>
-                            </VBox>
-
-                            <!-- Release date — white card style -->
-                            <VBox class="cardSection cardDateSection">
-                                <Text text="{stats>/releaseDate}" class="cardReleaseDateBig"/>
-                            </VBox>
+                            <!-- Artwork: container hugs the image -->
+                            <Image src="{artwork}" class="cardArtImg" densityAware="false"/>
 
                         </VBox>
 
+                        <!-- ── Right column ── -->
                         <VBox class="cardRightCol">
 
                             <VBox class="cardNameBox">
                                 <Text  text="{title}" class="cardSubtitle"/>
                                 <Title text="{name}"  class="cardTitle" titleStyle="H1" wrapping="true"/>
+                            </VBox>
+
+                            <!-- Release date — same section style as others -->
+                            <VBox class="cardSection">
+                                <Text text="Release date" class="cardSectionTitle"/>
+                                <Text text="{stats>/releaseDate}" class="cardSectionText"/>
                             </VBox>
 
                             <VBox class="cardSection">
@@ -79,35 +81,32 @@
                                 </FlexBox>
                             </VBox>
 
+                            <!-- Stats — white section with dividers, centered -->
                             <VBox class="cardSection">
                                 <Text text="Stats" class="cardSectionTitle"/>
                                 <VBox class="inlineStatsTable">
-                                    <!-- Header -->
                                     <HBox class="inlineStatsHeaderRow">
                                         <Text text="Stat"     class="inlineStatLabel inlineStatHead"/>
-                                        <Text text="Base Max" class="inlineStatVal   inlineStatHead"/>
-                                        <Text text="55%"      class="inlineStatVal   inlineStatHead"/>
+                                        <Text text="Base Max" class="inlineStatVal   inlineStatHead inlineDivider"/>
+                                        <Text text="55%"      class="inlineStatVal   inlineStatHead inlineDivider"/>
                                         <Text text="100%"     class="inlineStatVal   inlineStatHead"/>
                                     </HBox>
-                                    
                                     <HBox class="inlineStatsDataRow">
                                         <Text text="HP"              class="inlineStatLabel inlineHP"/>
-                                        <Text text="{stats>/hp}"     class="inlineStatVal"/>
-                                        <Text text="{stats>/hp55}"   class="inlineStatVal"/>
+                                        <Text text="{stats>/hp}"     class="inlineStatVal inlineDivider"/>
+                                        <Text text="{stats>/hp55}"   class="inlineStatVal inlineDivider"/>
                                         <Text text="{stats>/hp100}"  class="inlineStatVal"/>
                                     </HBox>
-
                                     <HBox class="inlineStatsDataRow inlineStatsAlt">
                                         <Text text="ATK"             class="inlineStatLabel inlineATK"/>
-                                        <Text text="{stats>/atk}"    class="inlineStatVal"/>
-                                        <Text text="{stats>/atk55}"  class="inlineStatVal"/>
+                                        <Text text="{stats>/atk}"    class="inlineStatVal inlineDivider"/>
+                                        <Text text="{stats>/atk55}"  class="inlineStatVal inlineDivider"/>
                                         <Text text="{stats>/atk100}" class="inlineStatVal"/>
                                     </HBox>
-
                                     <HBox class="inlineStatsDataRow">
                                         <Text text="DEF"             class="inlineStatLabel inlineDEF"/>
-                                        <Text text="{stats>/def}"    class="inlineStatVal"/>
-                                        <Text text="{stats>/def55}"  class="inlineStatVal"/>
+                                        <Text text="{stats>/def}"    class="inlineStatVal inlineDivider"/>
+                                        <Text text="{stats>/def55}"  class="inlineStatVal inlineDivider"/>
                                         <Text text="{stats>/def100}" class="inlineStatVal"/>
                                     </HBox>
                                 </VBox>

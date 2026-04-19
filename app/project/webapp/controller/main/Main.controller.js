@@ -4,29 +4,38 @@ sap.ui.define([
 ], (BaseController, JSONModel) => {
     "use strict";
 
+    const MONTH_MAP = {
+        Jan:"01", Feb:"02", Mar:"03", Apr:"04", May:"05", Jun:"06",
+        Jul:"07", Aug:"08", Sep:"09", Oct:"10", Nov:"11", Dec:"12"
+    };
+
+    function formatShortDate(s) {
+        if (!s) return "";
+        const p = s.trim().split(" ");
+        if (p.length !== 3) return s;
+        return `${p[0].padStart(2,"0")}/${MONTH_MAP[p[1]] || "00"}/${p[2].slice(2)}`;
+    }
+
     return BaseController.extend("project.controller.main.Main", {
 
         onInit() {
-            const oCharsModel = new JSONModel({ upcoming: [], recent: [] });
-            this.getView().setModel(oCharsModel, "chars");
+            this.getView().setModel(new JSONModel({ upcoming: [], recent: [] }), "chars");
             this._loadCharacters();
         },
 
-        _loadCharacters: function () {
-            const oCharsModel = this.getView().getModel("chars");
-
+        _loadCharacters() {
+            const oModel = this.getView().getModel("chars");
             fetch("/odata/v4/character-info/Characters?$orderby=ID desc")
-                .then(function (response) { return response.json(); })
-                .then(function (data) {
-                    const aAll      = data.value || [];
-                    const aUpcoming = aAll.filter(function (c) { return c.isUpcoming  === true; });
-                    const aRecent   = aAll.filter(function (c) { return c.isUpcoming !== true; });
-                    oCharsModel.setProperty("/upcoming", aUpcoming);
-                    oCharsModel.setProperty("/recent",   aRecent);
+                .then(r => r.json())
+                .then(data => {
+                    const aAll = (data.value || []).map(c => ({
+                        ...c,
+                        releaseDateFmt: formatShortDate(c.releaseDate)
+                    }));
+                    oModel.setProperty("/upcoming", aAll.filter(c =>  c.isUpcoming === true));
+                    oModel.setProperty("/recent",   aAll.filter(c =>  c.isUpcoming !== true));
                 })
-                .catch(function (err) {
-                    console.error("Error loading characters:", err);
-                });
+                .catch(err => console.error("Error loading characters:", err));
         }
     });
 });
