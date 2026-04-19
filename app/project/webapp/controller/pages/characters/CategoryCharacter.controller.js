@@ -45,9 +45,38 @@ sap.ui.define([
 
     function isSubLeader(c, cat) {
         if (isLeader(c, cat)) return false;
-        const rainbow   = (c.leaderSkill || "").includes("All Types");
-        const lowBoost  = (c.leaderSkill || "").includes(cat) && getMaxBoost(c.leaderSkill) < 170;
+        const rainbow  = (c.leaderSkill || "").includes("All Types");
+        const lowBoost = (c.leaderSkill || "").includes(cat) && getMaxBoost(c.leaderSkill) < 170;
         return rainbow || lowBoost;
+    }
+
+    /**
+     * Extrae Ki, HP%, ATK% y DEF% máximos del Leader Skill.
+     */
+    function parseLeaderStats(ls) {
+        const out = { ki: "-", hp: "-", atk: "-", def: "-" };
+        if (!ls) return out;
+
+        // Ki — valor máximo
+        const kiAll = [...ls.matchAll(/Ki\s*\+(\d+)/gi)];
+        if (kiAll.length) out.ki = `+${Math.max(...kiAll.map(m => +m[1]))}`;
+
+        // "HP, ATK & DEF +X%"
+        const fullAll = [...ls.matchAll(/HP,\s*ATK\s*&\s*DEF\s*\+(\d+)%/gi)];
+        // "ATK & DEF +X%"
+        const atkDefAll = [...ls.matchAll(/ATK\s*&\s*DEF\s*\+(\d+)%/gi)];
+        // "HP +X%"
+        const hpAll = [...ls.matchAll(/HP\s*\+(\d+)%/gi)];
+
+        const hpVals  = [...fullAll, ...hpAll].map(m => +m[1]);
+        const atkVals = [...fullAll, ...atkDefAll].map(m => +m[1]);
+        const defVals = [...fullAll, ...atkDefAll].map(m => +m[1]);
+
+        if (hpVals.length)  out.hp  = `+${Math.max(...hpVals)}%`;
+        if (atkVals.length) out.atk = `+${Math.max(...atkVals)}%`;
+        if (defVals.length) out.def = `+${Math.max(...defVals)}%`;
+
+        return out;
     }
 
     return BaseController.extend("project.controller.pages.characters.CategoryCharacter", {
@@ -104,8 +133,11 @@ sap.ui.define([
                         parseCategories(c.categories).includes(sCategoryName)
                     );
 
-                    const aLeaders    = aFiltered.filter(c =>  isLeader(c, sCategoryName));
-                    const aSubLeaders = aFiltered.filter(c => !isLeader(c, sCategoryName) && isSubLeader(c, sCategoryName));
+                    // Añadir leaderStats a leaders y sub-leaders
+                    const addStats = c => ({ ...c, leaderStats: parseLeaderStats(c.leaderSkill) });
+
+                    const aLeaders    = aFiltered.filter(c =>  isLeader(c, sCategoryName)).map(addStats);
+                    const aSubLeaders = aFiltered.filter(c => !isLeader(c, sCategoryName) && isSubLeader(c, sCategoryName)).map(addStats);
                     const aCards      = aFiltered.filter(c => !isLeader(c, sCategoryName) && !isSubLeader(c, sCategoryName));
 
                     oModel.setProperty("/leaders",          aLeaders);

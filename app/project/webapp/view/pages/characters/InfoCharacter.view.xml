@@ -12,55 +12,64 @@
                 <VBox class="cardDetailContent">
                     <HBox class="cardTopRow" wrap="Wrap">
 
-                        <!-- ── Left column ── -->
+                        <!-- ── Columna izquierda ── -->
                         <VBox class="cardLeftCol">
 
+                            <!-- Miniatura -->
                             <VBox class="cardThumbBox">
                                 <Image src="{thumbnail}" class="cardThumbImg" densityAware="false"/>
                             </VBox>
 
-                            <!-- Artwork: container hugs the image -->
-                            <Image src="{artwork}" class="cardArtImg" densityAware="false"/>
+                            <!-- Fecha de lanzamiento (debajo de la miniatura) -->
+                            <VBox class="cardDateBox">
+                                <Text text="Release Date" class="cardDateLabel"/>
+                                <Text text="{stats>/releaseDate}" class="cardDateValue"/>
+                            </VBox>
+
+                            <!-- Artwork completo -->
+                            <VBox class="cardArtBox">
+                                <Image src="{artwork}" class="cardArtImg" densityAware="false"/>
+                            </VBox>
 
                         </VBox>
 
-                        <!-- ── Right column ── -->
+                        <!-- ── Columna derecha ── -->
                         <VBox class="cardRightCol">
 
+                            <!-- Nombre -->
                             <VBox class="cardNameBox">
                                 <Text  text="{title}" class="cardSubtitle"/>
                                 <Title text="{name}"  class="cardTitle" titleStyle="H1" wrapping="true"/>
                             </VBox>
 
-                            <!-- Release date — same section style as others -->
-                            <VBox class="cardSection">
-                                <Text text="Release date" class="cardSectionTitle"/>
-                                <Text text="{stats>/releaseDate}" class="cardSectionText"/>
-                            </VBox>
-
+                            <!-- Leader Skill -->
                             <VBox class="cardSection">
                                 <Text text="Leader Skill" class="cardSectionTitle"/>
                                 <Text text="{leaderSkill}" class="cardSectionText" wrapping="true"/>
                             </VBox>
 
+                            <!-- Super Attack -->
                             <VBox class="cardSection">
                                 <Text text="Super Attack" class="cardSectionTitle"/>
                                 <Text text="{superAttackName}" class="cardSectionSubtitle" wrapping="true"/>
                                 <Text text="{superAttack}"     class="cardSectionText"     wrapping="true"/>
                             </VBox>
 
+                            <!-- Ultra Super Attack -->
                             <VBox class="cardSection">
                                 <Text text="Ultra Super Attack" class="cardSectionTitle"/>
                                 <Text text="{ultraSAName}" class="cardSectionSubtitle" wrapping="true"/>
                                 <Text text="{ultraSA}"     class="cardSectionText"     wrapping="true"/>
                             </VBox>
 
+                            <!-- Passive Skill -->
                             <VBox class="cardSection">
                                 <Text text="Passive Skill" class="cardSectionTitle"/>
                                 <Text text="{passiveName}" class="cardSectionSubtitle" wrapping="true"/>
                                 <Text text="{passive}"     class="cardSectionText"     wrapping="true"/>
                             </VBox>
 
+                            <!-- Link Skills -->
                             <VBox class="cardSection">
                                 <Text text="Link Skills" class="cardSectionTitle"/>
                                 <FlexBox wrap="Wrap" class="linkSkillsGrid" items="{linkSkills>/skills}">
@@ -70,6 +79,7 @@
                                 </FlexBox>
                             </VBox>
 
+                            <!-- Categories -->
                             <VBox class="cardSection">
                                 <Text text="Categories" class="cardSectionTitle"/>
                                 <FlexBox wrap="Wrap" class="categoriesGrid" items="{categories>/items}">
@@ -81,15 +91,15 @@
                                 </FlexBox>
                             </VBox>
 
-                            <!-- Stats — white section with dividers, centered -->
+                            <!-- Stats table (centrada, sin Base Min) -->
                             <VBox class="cardSection">
                                 <Text text="Stats" class="cardSectionTitle"/>
                                 <VBox class="inlineStatsTable">
                                     <HBox class="inlineStatsHeaderRow">
                                         <Text text="Stat"     class="inlineStatLabel inlineStatHead"/>
-                                        <Text text="Base Max" class="inlineStatVal   inlineStatHead inlineDivider"/>
-                                        <Text text="55%"      class="inlineStatVal   inlineStatHead inlineDivider"/>
-                                        <Text text="100%"     class="inlineStatVal   inlineStatHead"/>
+                                        <Text text="Base Max" class="inlineStatVal inlineStatHead inlineDivider"/>
+                                        <Text text="55%"      class="inlineStatVal inlineStatHead inlineDivider"/>
+                                        <Text text="100%"     class="inlineStatVal inlineStatHead"/>
                                     </HBox>
                                     <HBox class="inlineStatsDataRow">
                                         <Text text="HP"              class="inlineStatLabel inlineHP"/>

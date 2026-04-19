@@ -11,6 +11,7 @@
 
                 <VBox class="pageContent">
 
+                    <!-- ── Hero título de categoría ── -->
                     <VBox class="categoryHero">
                         <Title text="{chars>/categoryName}"
                                titleStyle="H1"
@@ -18,73 +19,95 @@
                                wrapping="true"/>
                     </VBox>
 
-                    <!-- ── Leaders ── -->
+                    <!-- ══ Leaders ══ -->
                     <Panel class="dokkanPanel" headerText="Leaders">
                         <content>
                             <VBox visible="{chars>/hasNoLeaders}" class="categoryEmptyState">
                                 <Text text="No leaders found for this category." class="categoryEmptyText"/>
                             </VBox>
-                            <VBox visible="{chars>/hasLeaders}">
-                                <HBox class="catLeaderTableHeader">
-                                    <Text text="Character"    class="catLeaderCharCol catLeaderHeaderText"/>
-                                    <Text text="Leader Skill" class="catLeaderSkillCol catLeaderHeaderText"/>
-                                </HBox>
-                                <List items="{chars>/leaders}" showSeparators="Inner" class="catLeaderList">
-                                    <items>
-                                        <CustomListItem type="Inactive" class="catLeaderListItem">
-                                            <HBox class="catLeaderRow" alignItems="Center">
-                                                <VBox class="catLeaderCharCol" alignItems="Center">
-                                                    <Image src="{chars>thumbnail}"
-                                                           class="catLeaderThumbImg"
-                                                           press=".onNavInfoCharacter"
-                                                           densityAware="false"/>
-                                                    <Text text="{chars>name}" class="catLeaderName" wrapping="true"/>
+                            <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
+                                     visible="{chars>/hasLeaders}"
+                                     items="{chars>/leaders}">
+                                <items>
+                                    <VBox class="characterCard leaderCard">
+                                        <Image src="{chars>thumbnail}"
+                                               class="characterImg"
+                                               press=".onNavInfoCharacter"
+                                               densityAware="false"/>
+                                        <!-- Stats del Leader Skill -->
+                                        <VBox class="leaderStatGrid">
+                                            <HBox class="leaderStatRow">
+                                                <VBox class="leaderStatBox leaderStatKi">
+                                                    <Text text="Ki"                    class="leaderStatLabel"/>
+                                                    <Text text="{chars>leaderStats/ki}" class="leaderStatVal"/>
                                                 </VBox>
-                                                <Text text="{chars>leaderSkill}"
-                                                      class="catLeaderSkillCol catLeaderSkillText"
-                                                      wrapping="true"/>
+                                                <VBox class="leaderStatBox leaderStatHP">
+                                                    <Text text="HP"                    class="leaderStatLabel"/>
+                                                    <Text text="{chars>leaderStats/hp}" class="leaderStatVal"/>
+                                                </VBox>
                                             </HBox>
-                                        </CustomListItem>
-                                    </items>
-                                </List>
-                            </VBox>
+                                            <HBox class="leaderStatRow">
+                                                <VBox class="leaderStatBox leaderStatATK">
+                                                    <Text text="ATK"                    class="leaderStatLabel"/>
+                                                    <Text text="{chars>leaderStats/atk}" class="leaderStatVal"/>
+                                                </VBox>
+                                                <VBox class="leaderStatBox leaderStatDEF">
+                                                    <Text text="DEF"                    class="leaderStatLabel"/>
+                                                    <Text text="{chars>leaderStats/def}" class="leaderStatVal"/>
+                                                </VBox>
+                                            </HBox>
+                                        </VBox>
+                                    </VBox>
+                                </items>
+                            </FlexBox>
                         </content>
                     </Panel>
 
-                    <!-- ── Sub-Leaders / Rainbow ── -->
+                    <!-- ══ Sub-Leaders / Rainbow ══ -->
                     <Panel class="dokkanPanel" headerText="Sub-Leaders / Rainbow">
                         <content>
                             <VBox visible="{chars>/hasNoSubLeaders}" class="categoryEmptyState">
                                 <Text text="No sub-leaders found for this category." class="categoryEmptyText"/>
                             </VBox>
-                            <VBox visible="{chars>/hasSubLeaders}">
-                                <HBox class="catLeaderTableHeader">
-                                    <Text text="Character"    class="catLeaderCharCol catLeaderHeaderText"/>
-                                    <Text text="Leader Skill" class="catLeaderSkillCol catLeaderHeaderText"/>
-                                </HBox>
-                                <List items="{chars>/subLeaders}" showSeparators="Inner" class="catLeaderList">
-                                    <items>
-                                        <CustomListItem type="Inactive" class="catLeaderListItem">
-                                            <HBox class="catLeaderRow" alignItems="Center">
-                                                <VBox class="catLeaderCharCol" alignItems="Center">
-                                                    <Image src="{chars>thumbnail}"
-                                                           class="catLeaderThumbImg"
-                                                           press=".onNavInfoCharacter"
-                                                           densityAware="false"/>
-                                                    <Text text="{chars>name}" class="catLeaderName" wrapping="true"/>
+                            <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
+                                     visible="{chars>/hasSubLeaders}"
+                                     items="{chars>/subLeaders}">
+                                <items>
+                                    <VBox class="characterCard leaderCard">
+                                        <Image src="{chars>thumbnail}"
+                                               class="characterImg"
+                                               press=".onNavInfoCharacter"
+                                               densityAware="false"/>
+                                        <!-- Stats del Leader Skill -->
+                                        <VBox class="leaderStatGrid">
+                                            <HBox class="leaderStatRow">
+                                                <VBox class="leaderStatBox leaderStatKi">
+                                                    <Text text="Ki"                    class="leaderStatLabel"/>
+                                                    <Text text="{chars>leaderStats/ki}" class="leaderStatVal"/>
                                                 </VBox>
-                                                <Text text="{chars>leaderSkill}"
-                                                      class="catLeaderSkillCol catLeaderSkillText"
-                                                      wrapping="true"/>
+                                                <VBox class="leaderStatBox leaderStatHP">
+                                                    <Text text="HP"                    class="leaderStatLabel"/>
+                                                    <Text text="{chars>leaderStats/hp}" class="leaderStatVal"/>
+                                                </VBox>
                                             </HBox>
-                                        </CustomListItem>
-                                    </items>
-                                </List>
-                            </VBox>
+                                            <HBox class="leaderStatRow">
+                                                <VBox class="leaderStatBox leaderStatATK">
+                                                    <Text text="ATK"                    class="leaderStatLabel"/>
+                                                    <Text text="{chars>leaderStats/atk}" class="leaderStatVal"/>
+                                                </VBox>
+                                                <VBox class="leaderStatBox leaderStatDEF">
+                                                    <Text text="DEF"                    class="leaderStatLabel"/>
+                                                    <Text text="{chars>leaderStats/def}" class="leaderStatVal"/>
+                                                </VBox>
+                                            </HBox>
+                                        </VBox>
+                                    </VBox>
+                                </items>
+                            </FlexBox>
                         </content>
                     </Panel>
 
-                    <!-- ── Cards ── -->
+                    <!-- ══ Cards (solo imagen) ══ -->
                     <Panel class="dokkanPanel" headerText="Cards">
                         <content>
                             <VBox visible="{chars>/hasNoCards}" class="categoryEmptyState">
@@ -93,26 +116,11 @@
                             <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
                                      items="{chars>/cards}">
                                 <items>
-                                    <VBox class="characterCard catCard">
+                                    <VBox class="characterCard">
                                         <Image src="{chars>thumbnail}"
                                                class="characterImg"
                                                press=".onNavInfoCharacter"
                                                densityAware="false"/>
-                                        <!-- HP / ATK / DEF stat tiles -->
-                                        <HBox class="catStatGrid">
-                                            <VBox class="catStatBox catStatHP">
-                                                <Text text="HP"          class="catStatLabel"/>
-                                                <Text text="{chars>hp}"  class="catStatVal"/>
-                                            </VBox>
-                                            <VBox class="catStatBox catStatATK">
-                                                <Text text="ATK"         class="catStatLabel"/>
-                                                <Text text="{chars>atk}" class="catStatVal"/>
-                                            </VBox>
-                                            <VBox class="catStatBox catStatDEF">
-                                                <Text text="DEF"         class="catStatLabel"/>
-                                                <Text text="{chars>def}" class="catStatVal"/>
-                                            </VBox>
-                                        </HBox>
                                     </VBox>
                                 </items>
                             </FlexBox>
