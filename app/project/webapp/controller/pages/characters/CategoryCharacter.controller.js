@@ -33,10 +33,21 @@ sap.ui.define([
         return result;
     }
 
-    /* A character is a "leader" if its leaderSkill string mentions
-       the category name — meaning it buffs allies who belong to it. */
-    function isLeader(oChar, sCategoryName) {
-        return (oChar.leaderSkill || "").includes(sCategoryName);
+    function getMaxBoost(ls) {
+        const matches = (ls || "").match(/\+(\d+)%/g) || [];
+        const nums = matches.map(m => parseInt(m.slice(1)));
+        return nums.length ? Math.max(...nums) : 0;
+    }
+
+    function isLeader(c, cat) {
+        return (c.leaderSkill || "").includes(cat) && getMaxBoost(c.leaderSkill) >= 170;
+    }
+
+    function isSubLeader(c, cat) {
+        if (isLeader(c, cat)) return false;
+        const rainbow   = (c.leaderSkill || "").includes("All Types");
+        const lowBoost  = (c.leaderSkill || "").includes(cat) && getMaxBoost(c.leaderSkill) < 170;
+        return rainbow || lowBoost;
     }
 
     return BaseController.extend("project.controller.pages.characters.CategoryCharacter", {
@@ -44,11 +55,16 @@ sap.ui.define([
         onInit() {
             this.getView().setModel(
                 new JSONModel({
-                    categoryName: "",
-                    leaders: [],
-                    members: [],
-                    hasNoLeaders: false,
-                    hasNoMembers: false
+                    categoryName:    "",
+                    leaders:         [],
+                    subLeaders:      [],
+                    cards:           [],
+                    hasLeaders:      false,
+                    hasSubLeaders:   false,
+                    hasCards:        false,
+                    hasNoLeaders:    true,
+                    hasNoSubLeaders: true,
+                    hasNoCards:      true
                 }),
                 "chars"
             );
@@ -64,40 +80,48 @@ sap.ui.define([
             const sCategoryName = oQuery.name || "";
 
             const oModel = this.getView().getModel("chars");
-            oModel.setProperty("/categoryName", sCategoryName);
-            oModel.setProperty("/leaders",      []);
-            oModel.setProperty("/members",      []);
-            oModel.setProperty("/hasNoLeaders", false);
-            oModel.setProperty("/hasNoMembers", false);
+            oModel.setData({
+                categoryName:    sCategoryName,
+                leaders:         [],
+                subLeaders:      [],
+                cards:           [],
+                hasLeaders:      false,
+                hasSubLeaders:   false,
+                hasCards:        false,
+                hasNoLeaders:    true,
+                hasNoSubLeaders: true,
+                hasNoCards:      true
+            });
 
             this.getView().setBusy(true);
 
-            fetch("/odata/v4/character-info/Characters?$orderby=ID")
+            fetch("/odata/v4/character-info/Characters?$orderby=ID desc")
                 .then(r => r.json())
                 .then(data => {
                     const aAll = data.value || [];
 
-                    /* All characters that belong to the category */
-                    const aFiltered = aAll.filter(c => {
-                        const aCategories = parseCategories(c.categories);
-                        return aCategories.includes(sCategoryName);
-                    });
+                    const aFiltered = aAll.filter(c =>
+                        parseCategories(c.categories).includes(sCategoryName)
+                    );
 
-                    /* Split into leaders (buff the category) and plain members */
-                    const aLeaders = aFiltered.filter(c =>  isLeader(c, sCategoryName));
-                    const aMembers = aFiltered.filter(c => !isLeader(c, sCategoryName));
+                    const aLeaders    = aFiltered.filter(c =>  isLeader(c, sCategoryName));
+                    const aSubLeaders = aFiltered.filter(c => !isLeader(c, sCategoryName) && isSubLeader(c, sCategoryName));
+                    const aCards      = aFiltered.filter(c => !isLeader(c, sCategoryName) && !isSubLeader(c, sCategoryName));
 
-                    oModel.setProperty("/leaders",      aLeaders);
-                    oModel.setProperty("/members",      aMembers);
-                    oModel.setProperty("/hasNoLeaders", aLeaders.length === 0);
-                    oModel.setProperty("/hasNoMembers", aMembers.length === 0);
+                    oModel.setProperty("/leaders",          aLeaders);
+                    oModel.setProperty("/subLeaders",       aSubLeaders);
+                    oModel.setProperty("/cards",            aCards);
+                    oModel.setProperty("/hasLeaders",       aLeaders.length    > 0);
+                    oModel.setProperty("/hasSubLeaders",    aSubLeaders.length > 0);
+                    oModel.setProperty("/hasCards",         aCards.length      > 0);
+                    oModel.setProperty("/hasNoLeaders",     aLeaders.length    === 0);
+                    oModel.setProperty("/hasNoSubLeaders",  aSubLeaders.length === 0);
+                    oModel.setProperty("/hasNoCards",       aCards.length      === 0);
 
                     this.getView().setBusy(false);
                 })
                 .catch(err => {
                     console.error("Error loading characters:", err);
-                    oModel.setProperty("/hasNoLeaders", true);
-                    oModel.setProperty("/hasNoMembers", true);
                     this.getView().setBusy(false);
                 });
         }

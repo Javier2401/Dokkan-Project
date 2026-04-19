@@ -3,7 +3,7 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
 
-    <Page showHeader="false" enableScrolling="false" class="dokkanPage">
+    <Page showHeader="false" enableScrolling="true" class="dokkanPage">
         <content>
             <VBox class="pageWrapper" width="100%">
 
@@ -19,9 +19,9 @@
                                                class="characterImg"
                                                press=".onNavInfoCharacter"
                                                densityAware="false"/>
-                                        <HBox justifyContent="Center" wrap="Wrap">
-                                            <Text text="{chars>releaseDate}" class="characterDate"/>
-                                        </HBox>
+                                        <VBox class="charCardDateBox">
+                                            <Text text="{chars>releaseDate}" class="charCardDate"/>
+                                        </VBox>
                                     </VBox>
                                 </items>
                             </FlexBox>
@@ -35,9 +35,9 @@
                                 <items>
                                     <VBox class="characterCard">
                                         <Image src="{chars>thumbnail}" class="characterImg" press=".onNavInfoCharacter" densityAware="false"/>
-                                        <HBox justifyContent="Center" wrap="Wrap">
-                                            <Text text="{chars>releaseDate}" class="characterDate"/>
-                                        </HBox>
+                                        <VBox class="charCardDateBox">
+                                            <Text text="{chars>releaseDate}" class="charCardDate"/>
+                                        </VBox>
                                     </VBox>
                                 </items>
                             </FlexBox>

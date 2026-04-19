@@ -38,6 +38,7 @@ sap.ui.define([
         May:"05", Jun:"06", Jul:"07", Aug:"08",
         Sep:"09", Oct:"10", Nov:"11", Dec:"12"
     };
+
     function formatDate(s) {
         if (!s) return "";
         const p = s.trim().split(" ");
@@ -47,9 +48,17 @@ sap.ui.define([
 
     function buildStats(d) {
         return {
-            hp:    d.hp,  atk:    d.atk,  def:    d.def,
-            hp55:  d.hp  + 2000, atk55:  d.atk + 2000, def55:  d.def + 2000,
-            hp100: d.hp  + 5000, atk100: d.atk + 5000, def100: d.def + 5000,
+            hp:     d.hp,
+            atk:    d.atk,
+            def:    d.def,
+            /* 55% — HP scales most, DEF scales least */
+            hp55:   Math.round(d.hp  * 1.19),
+            atk55:  Math.round(d.atk * 1.18),
+            def55:  Math.round(d.def * 1.16),
+            /* 100% — bigger spread between stats */
+            hp100:  Math.round(d.hp  * 1.48),
+            atk100: Math.round(d.atk * 1.43),
+            def100: Math.round(d.def * 1.38),
             releaseDate: formatDate(d.releaseDate)
         };
     }

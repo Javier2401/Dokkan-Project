@@ -11,7 +11,6 @@
 
                 <VBox class="pageContent">
 
-                    <!-- ── 1. Category name hero ── -->
                     <VBox class="categoryHero">
                         <Title text="{chars>/categoryName}"
                                titleStyle="H1"
@@ -19,48 +18,78 @@
                                wrapping="true"/>
                     </VBox>
 
-                    <!-- ── 2. Leaders panel ── -->
                     <Panel class="dokkanPanel" headerText="Leaders">
                         <content>
-
-                            <VBox alignItems="Center" class="categoryEmptyState"
-                                  visible="{chars>/hasNoLeaders}">
-                                <Text text="No leaders found for this category."
-                                      class="categoryEmptyText"/>
+                            <VBox visible="{chars>/hasNoLeaders}" class="categoryEmptyState">
+                                <Text text="No leaders found for this category." class="categoryEmptyText"/>
                             </VBox>
-
-                            <FlexBox wrap="Wrap" justifyContent="Center"
-                                     class="characterRow"
-                                     items="{chars>/leaders}">
-                                <items>
-                                    <VBox class="characterCard">
-                                        <Image src="{chars>thumbnail}"
-                                               class="characterImg"
-                                               press=".onNavInfoCharacter"
-                                               densityAware="false"/>
-                                        <HBox justifyContent="Center" wrap="Wrap">
-                                            <Text text="{chars>name}" class="characterCardName"/>
-                                        </HBox>
-                                    </VBox>
-                                </items>
-                            </FlexBox>
-
+                            <VBox visible="{chars>/hasLeaders}">
+                                <!-- Table header -->
+                                <HBox class="catLeaderTableHeader">
+                                    <Text text="Character"    class="catLeaderCharCol catLeaderHeaderText"/>
+                                    <Text text="Leader Skill" class="catLeaderSkillCol catLeaderHeaderText"/>
+                                </HBox>
+                                <List items="{chars>/leaders}" showSeparators="Inner" class="catLeaderList">
+                                    <items>
+                                        <CustomListItem type="Inactive" class="catLeaderListItem">
+                                            <HBox class="catLeaderRow" alignItems="Center">
+                                                <VBox class="catLeaderCharCol" alignItems="Center">
+                                                    <Image src="{chars>thumbnail}"
+                                                           class="catLeaderThumbImg"
+                                                           press=".onNavInfoCharacter"
+                                                           densityAware="false"/>
+                                                    <Text text="{chars>name}" class="catLeaderName" wrapping="true"/>
+                                                </VBox>
+                                                <Text text="{chars>leaderSkill}"
+                                                      class="catLeaderSkillCol catLeaderSkillText"
+                                                      wrapping="true"/>
+                                            </HBox>
+                                        </CustomListItem>
+                                    </items>
+                                </List>
+                            </VBox>
                         </content>
                     </Panel>
 
-                    <!-- ── 3. Members panel ── -->
-                    <Panel class="dokkanPanel" headerText="Members">
+                    <Panel class="dokkanPanel" headerText="Sub-Leaders / Rainbow">
                         <content>
-
-                            <VBox alignItems="Center" class="categoryEmptyState"
-                                  visible="{chars>/hasNoMembers}">
-                                <Text text="No members found for this category."
-                                      class="categoryEmptyText"/>
+                            <VBox visible="{chars>/hasNoSubLeaders}" class="categoryEmptyState">
+                                <Text text="No sub-leaders found for this category." class="categoryEmptyText"/>
                             </VBox>
+                            <VBox visible="{chars>/hasSubLeaders}">
+                                <HBox class="catLeaderTableHeader">
+                                    <Text text="Character"    class="catLeaderCharCol catLeaderHeaderText"/>
+                                    <Text text="Leader Skill" class="catLeaderSkillCol catLeaderHeaderText"/>
+                                </HBox>
+                                <List items="{chars>/subLeaders}" showSeparators="Inner" class="catLeaderList">
+                                    <items>
+                                        <CustomListItem type="Inactive" class="catLeaderListItem">
+                                            <HBox class="catLeaderRow" alignItems="Center">
+                                                <VBox class="catLeaderCharCol" alignItems="Center">
+                                                    <Image src="{chars>thumbnail}"
+                                                           class="catLeaderThumbImg"
+                                                           press=".onNavInfoCharacter"
+                                                           densityAware="false"/>
+                                                    <Text text="{chars>name}" class="catLeaderName" wrapping="true"/>
+                                                </VBox>
+                                                <Text text="{chars>leaderSkill}"
+                                                      class="catLeaderSkillCol catLeaderSkillText"
+                                                      wrapping="true"/>
+                                            </HBox>
+                                        </CustomListItem>
+                                    </items>
+                                </List>
+                            </VBox>
+                        </content>
+                    </Panel>
 
-                            <FlexBox wrap="Wrap" justifyContent="Center"
-                                     class="characterRow"
-                                     items="{chars>/members}">
+                    <Panel class="dokkanPanel" headerText="Cards">
+                        <content>
+                            <VBox visible="{chars>/hasNoCards}" class="categoryEmptyState">
+                                <Text text="No cards found for this category." class="categoryEmptyText"/>
+                            </VBox>
+                            <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
+                                     items="{chars>/cards}">
                                 <items>
                                     <VBox class="characterCard">
                                         <Image src="{chars>thumbnail}"
@@ -73,7 +102,6 @@
                                     </VBox>
                                 </items>
                             </FlexBox>
-
                         </content>
                     </Panel>
 

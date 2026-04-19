@@ -12,7 +12,6 @@
                 <VBox class="cardDetailContent">
                     <HBox class="cardTopRow" wrap="Wrap">
 
-                        <!-- ── Left column: thumbnail + big art + date ── -->
                         <VBox class="cardLeftCol">
 
                             <VBox class="cardThumbBox">
@@ -23,14 +22,13 @@
                                 <Image src="{artwork}" class="cardArtImg" densityAware="false"/>
                             </VBox>
 
-                            <!-- Release date in its own dedicated box -->
-                            <VBox class="cardDateBox">
+                            <!-- Release date — white card style -->
+                            <VBox class="cardSection cardDateSection">
                                 <Text text="{stats>/releaseDate}" class="cardReleaseDateBig"/>
                             </VBox>
 
                         </VBox>
 
-                        <!-- ── Right column: name, leader, SA, passive, links, categories ── -->
                         <VBox class="cardRightCol">
 
                             <VBox class="cardNameBox">
@@ -81,44 +79,42 @@
                                 </FlexBox>
                             </VBox>
 
+                            <VBox class="cardSection">
+                                <Text text="Stats" class="cardSectionTitle"/>
+                                <VBox class="inlineStatsTable">
+                                    <!-- Header -->
+                                    <HBox class="inlineStatsHeaderRow">
+                                        <Text text="Stat"     class="inlineStatLabel inlineStatHead"/>
+                                        <Text text="Base Max" class="inlineStatVal   inlineStatHead"/>
+                                        <Text text="55%"      class="inlineStatVal   inlineStatHead"/>
+                                        <Text text="100%"     class="inlineStatVal   inlineStatHead"/>
+                                    </HBox>
+                                    
+                                    <HBox class="inlineStatsDataRow">
+                                        <Text text="HP"              class="inlineStatLabel inlineHP"/>
+                                        <Text text="{stats>/hp}"     class="inlineStatVal"/>
+                                        <Text text="{stats>/hp55}"   class="inlineStatVal"/>
+                                        <Text text="{stats>/hp100}"  class="inlineStatVal"/>
+                                    </HBox>
+
+                                    <HBox class="inlineStatsDataRow inlineStatsAlt">
+                                        <Text text="ATK"             class="inlineStatLabel inlineATK"/>
+                                        <Text text="{stats>/atk}"    class="inlineStatVal"/>
+                                        <Text text="{stats>/atk55}"  class="inlineStatVal"/>
+                                        <Text text="{stats>/atk100}" class="inlineStatVal"/>
+                                    </HBox>
+
+                                    <HBox class="inlineStatsDataRow">
+                                        <Text text="DEF"             class="inlineStatLabel inlineDEF"/>
+                                        <Text text="{stats>/def}"    class="inlineStatVal"/>
+                                        <Text text="{stats>/def55}"  class="inlineStatVal"/>
+                                        <Text text="{stats>/def100}" class="inlineStatVal"/>
+                                    </HBox>
+                                </VBox>
+                            </VBox>
+
                         </VBox>
                     </HBox>
-
-                    <!-- ── Stats table — full width at the bottom ── -->
-                    <VBox class="statsTableBox">
-                        <Text text="Stats" class="statsTableTitle"/>
-                        <VBox class="statsTable">
-                            <!-- Header row -->
-                            <HBox class="statsTableRow statsTableHeader">
-                                <Text text="Stats"    class="statsTableCell statsTableHead statsColLabel"/>
-                                <Text text="Base Max" class="statsTableCell statsTableHead"/>
-                                <Text text="55%"      class="statsTableCell statsTableHead"/>
-                                <Text text="100%"     class="statsTableCell statsTableHead"/>
-                            </HBox>
-                            <!-- HP row -->
-                            <HBox class="statsTableRow">
-                                <Text text="HP"                    class="statsTableCell statsRowLabel statsColorHP"/>
-                                <Text text="{stats>/hp}"           class="statsTableCell statsValue"/>
-                                <Text text="{stats>/hp55}"         class="statsTableCell statsValue"/>
-                                <Text text="{stats>/hp100}"        class="statsTableCell statsValue"/>
-                            </HBox>
-                            <!-- ATK row -->
-                            <HBox class="statsTableRow">
-                                <Text text="ATK"                   class="statsTableCell statsRowLabel statsColorATK"/>
-                                <Text text="{stats>/atk}"          class="statsTableCell statsValue"/>
-                                <Text text="{stats>/atk55}"        class="statsTableCell statsValue"/>
-                                <Text text="{stats>/atk100}"       class="statsTableCell statsValue"/>
-                            </HBox>
-                            <!-- DEF row -->
-                            <HBox class="statsTableRow">
-                                <Text text="DEF"                   class="statsTableCell statsRowLabel statsColorDEF"/>
-                                <Text text="{stats>/def}"          class="statsTableCell statsValue"/>
-                                <Text text="{stats>/def55}"        class="statsTableCell statsValue"/>
-                                <Text text="{stats>/def100}"       class="statsTableCell statsValue"/>
-                            </HBox>
-                        </VBox>
-                    </VBox>
-
                 </VBox>
 
                 <core:Fragment fragmentName="project.view.shared.Footer" type="XML"/>

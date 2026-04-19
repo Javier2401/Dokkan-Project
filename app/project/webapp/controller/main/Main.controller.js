@@ -15,7 +15,7 @@ sap.ui.define([
         _loadCharacters: function () {
             const oCharsModel = this.getView().getModel("chars");
 
-            fetch("/odata/v4/character-info/Characters?$orderby=ID")
+            fetch("/odata/v4/character-info/Characters?$orderby=ID desc")
                 .then(function (response) { return response.json(); })
                 .then(function (data) {
                     const aAll      = data.value || [];
