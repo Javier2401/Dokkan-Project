@@ -688,9 +688,9 @@
 
 .linkSkillsGrid,
 .linkSkillsGrid.sapMHBox {
-    gap: 6px !important;
+    gap: 8px !important;
     flex-wrap: wrap !important;
-    margin-top: 4px !important;
+    margin-top: 6px !important;
 }
 
 .categoriesGrid,

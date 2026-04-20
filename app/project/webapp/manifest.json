@@ -181,7 +181,14 @@
           "target": [
             "TargetCategory"
           ]
-        } 
+        },
+          {
+            "name": "RouteSearchCharacter",
+            "pattern": "search-character",
+            "target": [
+              "TargetSearchCharacter"
+            ]
+          }
       ],
       "targets": {
         "TargetMain": {
@@ -227,6 +234,10 @@
         "TargetCategory": {
           "id": "CategoryCharacter",
           "name": "pages.characters.CategoryCharacter" 
+        },
+        "TargetSearchCharacter": {
+          "id": "SearchCharacter",
+          "name": "pages.characters.SearchCharacter"
         }
       }
     },

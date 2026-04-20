@@ -14,7 +14,7 @@
                 <Button text="{i18n>nav.missions}" class="navBtn" press=".onNavMissions"/>
                 <MenuButton text="{i18n>nav.characters}" class="navBtn">
                     <Menu>
-                        <MenuItem text="Name"/>
+                        <MenuItem text="Name" press=".onOpenSearchCharacter"/>
                     </Menu>
                 </MenuButton>
                 <MenuButton text="{i18n>nav.events}" class="navBtn">
