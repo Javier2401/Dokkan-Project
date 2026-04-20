@@ -499,7 +499,9 @@
     margin: 0 auto;
 }
 
-/* Fecha — solo visible en upcoming */
+/*
+ * Release date badge — todos los bordes redondeados (sin picos arriba)
+ */
 .characterDate.characterDateUpcoming,
 .characterDate.characterDateUpcoming.sapMText {
     margin-top: 0.4rem !important;
@@ -508,7 +510,7 @@
     color: #ffffff !important;
     text-align: center !important;
     background-color: rgba(0,0,0,0.65) !important;
-    border-radius: 0 0 6px 6px !important;
+    border-radius: 6px !important;
     padding: 5px 6px !important;
     line-height: 1.4 !important;
     display: block !important;
@@ -567,34 +569,6 @@
     margin: 0 auto !important;
 }
 
-/* Fecha — justo debajo del thumbnail */
-.cardDateBox,
-.cardDateBox.sapMVBox {
-    background-color: #ffffff !important;
-    border-radius: 10px !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
-    padding: 0.7rem 1rem !important;
-    align-items: center !important;
-    gap: 2px !important;
-}
-
-.cardDateLabel,
-.cardDateLabel.sapMText {
-    font-size: 0.72rem !important;
-    color: #9ca3af !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.8px !important;
-}
-
-.cardDateValue,
-.cardDateValue.sapMText {
-    font-size: 1.1rem !important;
-    font-weight: 800 !important;
-    color: #1f2937 !important;
-    text-align: center !important;
-}
-
 /* Artwork — imagen completa sin recortes */
 .cardArtBox,
 .cardArtBox.sapMVBox {
@@ -614,6 +588,36 @@
     max-width: 316px !important;
     object-fit: contain !important;
     border-radius: 8px !important;
+}
+
+/* Fecha — debajo del artwork */
+.cardDateBox,
+.cardDateBox.sapMVBox {
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08) !important;
+    padding: 0.7rem 1rem !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+
+/* "RELEASE DATE" label — negrita */
+.cardDateLabel,
+.cardDateLabel.sapMText {
+    font-size: 0.85rem !important;
+    color: #000000 !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.8px !important;
+}
+
+/* Valor de la fecha — peso normal */
+.cardDateValue,
+.cardDateValue.sapMText {
+    font-size: 1.05rem !important;
+    font-weight: 400 !important;
+    color: #1f2937 !important;
+    text-align: center !important;
 }
 
 /* ── Columna derecha ── */
@@ -688,9 +692,9 @@
 
 .linkSkillsGrid,
 .linkSkillsGrid.sapMHBox {
-    gap: 8px !important;
+    gap: 6px !important;
     flex-wrap: wrap !important;
-    margin-top: 6px !important;
+    margin-top: 4px !important;
 }
 
 .categoriesGrid,
@@ -700,72 +704,70 @@
     margin-top: 4px !important;
 }
 
-/* ── Tabla de Stats (centrada, sin Base Min) ── */
-.inlineStatsTable,
-.inlineStatsTable.sapMVBox {
+/* ── Stats Table (InfoCharacter) ── */
+.statsTable,
+.statsTable.sapMVBox {
     width: 100% !important;
-    border-radius: 8px !important;
+    border-radius: 10px !important;
     overflow: hidden !important;
     border: 1px solid #e5e7eb !important;
     margin-top: 8px !important;
 }
 
-.inlineStatsHeaderRow,
-.inlineStatsHeaderRow.sapMHBox {
-    background-color: #f3f4f6 !important;
-    border-bottom: 2px solid #e5e7eb !important;
-    width: 100% !important;
-}
-
-.inlineStatsDataRow,
-.inlineStatsDataRow.sapMHBox {
+.statsRow,
+.statsRow.sapMHBox {
     width: 100% !important;
     background-color: #ffffff !important;
     border-bottom: 1px solid #e5e7eb !important;
 }
 
-.inlineStatsDataRow:last-child {
+.statsRow:last-child {
     border-bottom: none !important;
 }
 
-.inlineStatsAlt,
-.inlineStatsAlt.sapMHBox {
+.statsHeaderRow,
+.statsHeaderRow.sapMHBox {
+    background-color: #f3f4f6 !important;
+    border-bottom: 2px solid #e5e7eb !important;
+}
+
+.statsAltRow,
+.statsAltRow.sapMHBox {
     background-color: #fafafa !important;
 }
 
-.inlineStatLabel,
-.inlineStatLabel.sapMText {
-    flex: 0 0 70px !important;
-    min-width: 70px !important;
-    padding: 14px 12px !important;
-    font-weight: 900 !important;
-    font-size: 1rem !important;
-    border-right: 1px solid #e5e7eb !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-}
-
-.inlineStatVal,
-.inlineStatVal.sapMText {
+.statCell,
+.statCell.sapMText {
     flex: 1 !important;
     padding: 14px 8px !important;
     font-size: 0.95rem !important;
-    color: #1f2937 !important;
     font-weight: 700 !important;
+    color: #1f2937 !important;
     text-align: center !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-}
-
-.inlineDivider,
-.inlineDivider.sapMText {
     border-right: 1px solid #e5e7eb !important;
+    box-sizing: border-box !important;
 }
 
-.inlineStatHead,
-.inlineStatHead.sapMText {
+.statCell:last-child {
+    border-right: none !important;
+}
+
+/* Label column (STAT / HP / ATK / DEF) */
+.statLabelCol,
+.statLabelCol.sapMText {
+    flex: 0 0 72px !important;
+    min-width: 72px !important;
+    font-weight: 900 !important;
+    font-size: 1rem !important;
+    background-color: inherit !important;
+}
+
+/* Header cells */
+.statsHead,
+.statsHead.sapMText {
     color: #6b7280 !important;
     font-weight: 700 !important;
     font-size: 0.78rem !important;
@@ -773,10 +775,10 @@
     letter-spacing: 0.5px !important;
 }
 
-/* Colores de estadísticas */
-.inlineHP  { color: #16a34a !important; }
-.inlineATK { color: #dc2626 !important; }
-.inlineDEF { color: #2563eb !important; }
+/* Stat colors */
+.statHP  { color: #16a34a !important; }
+.statATK { color: #dc2626 !important; }
+.statDEF { color: #2563eb !important; }
 
 
 /* ═══════════════════════════════════════════════════════════════
@@ -805,28 +807,33 @@
     white-space: normal !important;
 }
 
-/* ── Leader Card (similar a characterCard + stats de leader) ── */
+/* ── Leader Card ── */
 .leaderCard,
 .leaderCard.sapMVBox {
     min-width: 140px !important;
     max-width: 165px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
 }
 
-/* Grid de stats del leader (2x2) */
+.leaderCard .characterImg {
+    border-radius: 6px 6px 0 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    max-width: 165px !important;
+    height: 130px !important;
+    object-fit: cover !important;
+}
+
+/* ── Stats row 1×4 horizontal ── */
 .leaderStatGrid,
-.leaderStatGrid.sapMVBox {
+.leaderStatGrid.sapMHBox {
     width: 100% !important;
     background-color: #1a1a2e !important;
     border-radius: 0 0 6px 6px !important;
-    padding: 4px 4px !important;
+    padding: 5px 4px !important;
     gap: 3px !important;
     box-sizing: border-box !important;
-}
-
-.leaderStatRow,
-.leaderStatRow.sapMHBox {
-    width: 100% !important;
-    gap: 3px !important;
 }
 
 .leaderStatBox,
@@ -835,15 +842,15 @@
     align-items: center !important;
     background-color: rgba(255,255,255,0.08) !important;
     border-radius: 4px !important;
-    padding: 4px 2px !important;
-    gap: 1px !important;
+    padding: 5px 2px !important;
+    gap: 2px !important;
 }
 
 .leaderStatLabel,
 .leaderStatLabel.sapMText {
-    font-size: 0.60rem !important;
+    font-size: 0.58rem !important;
     font-weight: 700 !important;
-    letter-spacing: 0.4px !important;
+    letter-spacing: 0.3px !important;
     text-transform: uppercase !important;
     text-align: center !important;
     line-height: 1.1 !important;
@@ -852,7 +859,7 @@
 
 .leaderStatVal,
 .leaderStatVal.sapMText {
-    font-size: 0.75rem !important;
+    font-size: 0.72rem !important;
     font-weight: 900 !important;
     text-align: center !important;
     line-height: 1.2 !important;
@@ -1033,6 +1040,10 @@
     .cardArtImg,  .cardArtImg.sapMImg   { max-width: 236px !important; }
     .cardTitle .sapMTitle { font-size: 1.7rem !important; }
 
+    /* Stats table */
+    .statCell, .statCell.sapMText { padding: 12px 6px !important; font-size: 0.88rem !important; }
+    .statLabelCol, .statLabelCol.sapMText { flex: 0 0 60px !important; min-width: 60px !important; }
+
     /* Category */
     .categoryHeroTitle .sapMTitle { font-size: 1.9rem !important; }
     .leaderCard { min-width: 130px !important; max-width: 155px !important; }
@@ -1072,12 +1083,17 @@
     .cardArtImg, .cardArtImg.sapMImg { max-width: 100% !important; }
     .cardRightCol { flex: 0 0 100% !important; }
     .cardTitle .sapMTitle { font-size: 1.5rem !important; }
-    .inlineStatLabel, .inlineStatLabel.sapMText { flex: 0 0 55px !important; min-width: 55px !important; padding: 8px 8px !important; font-size: 0.82rem !important; }
-    .inlineStatVal,   .inlineStatVal.sapMText   { padding: 8px 4px !important; font-size: 0.8rem !important; }
+
+    /* Stats table */
+    .statCell, .statCell.sapMText { padding: 10px 4px !important; font-size: 0.8rem !important; }
+    .statLabelCol, .statLabelCol.sapMText { flex: 0 0 50px !important; min-width: 50px !important; font-size: 0.85rem !important; }
+    .statsHead, .statsHead.sapMText { font-size: 0.68rem !important; }
 
     /* Category */
     .categoryHeroTitle .sapMTitle { font-size: 1.5rem !important; }
     .leaderCard { min-width: 120px !important; max-width: 140px !important; }
+    .leaderStatLabel, .leaderStatLabel.sapMText { font-size: 0.52rem !important; }
+    .leaderStatVal,   .leaderStatVal.sapMText   { font-size: 0.65rem !important; }
 
     /* Legal */
     .legalCard { padding: 1.2rem 1rem !important; }
@@ -1103,7 +1119,8 @@
 
     /* InfoCharacter */
     .cardTitle .sapMTitle { font-size: 1.2rem !important; }
-    .inlineStatLabel, .inlineStatLabel.sapMText { flex: 0 0 44px !important; min-width: 44px !important; font-size: 0.72rem !important; }
+    .statCell, .statCell.sapMText { padding: 8px 3px !important; font-size: 0.72rem !important; }
+    .statLabelCol, .statLabelCol.sapMText { flex: 0 0 42px !important; min-width: 42px !important; font-size: 0.75rem !important; }
 
     /* Legal */
     .legalCard { padding: 1rem 0.8rem !important; }

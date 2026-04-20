@@ -11,7 +11,7 @@
 
                 <VBox class="pageContent">
 
-                    <!-- ── Hero título de categoría ── -->
+                    <!-- ── Category hero title ── -->
                     <VBox class="categoryHero">
                         <Title text="{chars>/categoryName}"
                                titleStyle="H1"
@@ -34,29 +34,25 @@
                                                class="characterImg"
                                                press=".onNavInfoCharacter"
                                                densityAware="false"/>
-                                        <!-- Stats del Leader Skill -->
-                                        <VBox class="leaderStatGrid">
-                                            <HBox class="leaderStatRow">
-                                                <VBox class="leaderStatBox leaderStatKi">
-                                                    <Text text="Ki"                    class="leaderStatLabel"/>
-                                                    <Text text="{chars>leaderStats/ki}" class="leaderStatVal"/>
-                                                </VBox>
-                                                <VBox class="leaderStatBox leaderStatHP">
-                                                    <Text text="HP"                    class="leaderStatLabel"/>
-                                                    <Text text="{chars>leaderStats/hp}" class="leaderStatVal"/>
-                                                </VBox>
-                                            </HBox>
-                                            <HBox class="leaderStatRow">
-                                                <VBox class="leaderStatBox leaderStatATK">
-                                                    <Text text="ATK"                    class="leaderStatLabel"/>
-                                                    <Text text="{chars>leaderStats/atk}" class="leaderStatVal"/>
-                                                </VBox>
-                                                <VBox class="leaderStatBox leaderStatDEF">
-                                                    <Text text="DEF"                    class="leaderStatLabel"/>
-                                                    <Text text="{chars>leaderStats/def}" class="leaderStatVal"/>
-                                                </VBox>
-                                            </HBox>
-                                        </VBox>
+                                        <!-- 1×4 horizontal stats row -->
+                                        <HBox class="leaderStatGrid">
+                                            <VBox class="leaderStatBox leaderStatKi">
+                                                <Text text="KI"                     class="leaderStatLabel"/>
+                                                <Text text="{chars>leaderStats/ki}" class="leaderStatVal"/>
+                                            </VBox>
+                                            <VBox class="leaderStatBox leaderStatHP">
+                                                <Text text="HP"                     class="leaderStatLabel"/>
+                                                <Text text="{chars>leaderStats/hp}" class="leaderStatVal"/>
+                                            </VBox>
+                                            <VBox class="leaderStatBox leaderStatATK">
+                                                <Text text="ATK"                     class="leaderStatLabel"/>
+                                                <Text text="{chars>leaderStats/atk}" class="leaderStatVal"/>
+                                            </VBox>
+                                            <VBox class="leaderStatBox leaderStatDEF">
+                                                <Text text="DEF"                     class="leaderStatLabel"/>
+                                                <Text text="{chars>leaderStats/def}" class="leaderStatVal"/>
+                                            </VBox>
+                                        </HBox>
                                     </VBox>
                                 </items>
                             </FlexBox>
@@ -78,36 +74,32 @@
                                                class="characterImg"
                                                press=".onNavInfoCharacter"
                                                densityAware="false"/>
-                                        <!-- Stats del Leader Skill -->
-                                        <VBox class="leaderStatGrid">
-                                            <HBox class="leaderStatRow">
-                                                <VBox class="leaderStatBox leaderStatKi">
-                                                    <Text text="Ki"                    class="leaderStatLabel"/>
-                                                    <Text text="{chars>leaderStats/ki}" class="leaderStatVal"/>
-                                                </VBox>
-                                                <VBox class="leaderStatBox leaderStatHP">
-                                                    <Text text="HP"                    class="leaderStatLabel"/>
-                                                    <Text text="{chars>leaderStats/hp}" class="leaderStatVal"/>
-                                                </VBox>
-                                            </HBox>
-                                            <HBox class="leaderStatRow">
-                                                <VBox class="leaderStatBox leaderStatATK">
-                                                    <Text text="ATK"                    class="leaderStatLabel"/>
-                                                    <Text text="{chars>leaderStats/atk}" class="leaderStatVal"/>
-                                                </VBox>
-                                                <VBox class="leaderStatBox leaderStatDEF">
-                                                    <Text text="DEF"                    class="leaderStatLabel"/>
-                                                    <Text text="{chars>leaderStats/def}" class="leaderStatVal"/>
-                                                </VBox>
-                                            </HBox>
-                                        </VBox>
+                                        <!-- 1×4 horizontal stats row -->
+                                        <HBox class="leaderStatGrid">
+                                            <VBox class="leaderStatBox leaderStatKi">
+                                                <Text text="KI"                     class="leaderStatLabel"/>
+                                                <Text text="{chars>leaderStats/ki}" class="leaderStatVal"/>
+                                            </VBox>
+                                            <VBox class="leaderStatBox leaderStatHP">
+                                                <Text text="HP"                     class="leaderStatLabel"/>
+                                                <Text text="{chars>leaderStats/hp}" class="leaderStatVal"/>
+                                            </VBox>
+                                            <VBox class="leaderStatBox leaderStatATK">
+                                                <Text text="ATK"                     class="leaderStatLabel"/>
+                                                <Text text="{chars>leaderStats/atk}" class="leaderStatVal"/>
+                                            </VBox>
+                                            <VBox class="leaderStatBox leaderStatDEF">
+                                                <Text text="DEF"                     class="leaderStatLabel"/>
+                                                <Text text="{chars>leaderStats/def}" class="leaderStatVal"/>
+                                            </VBox>
+                                        </HBox>
                                     </VBox>
                                 </items>
                             </FlexBox>
                         </content>
                     </Panel>
 
-                    <!-- ══ Cards (solo imagen) ══ -->
+                    <!-- ══ Cards (image only) ══ -->
                     <Panel class="dokkanPanel" headerText="Cards">
                         <content>
                             <VBox visible="{chars>/hasNoCards}" class="categoryEmptyState">

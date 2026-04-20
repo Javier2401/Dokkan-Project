@@ -12,31 +12,31 @@
                 <VBox class="cardDetailContent">
                     <HBox class="cardTopRow" wrap="Wrap">
 
-                        <!-- ── Columna izquierda ── -->
+                        <!-- ── Left column ── -->
                         <VBox class="cardLeftCol">
 
-                            <!-- Miniatura -->
+                            <!-- Thumbnail -->
                             <VBox class="cardThumbBox">
                                 <Image src="{thumbnail}" class="cardThumbImg" densityAware="false"/>
                             </VBox>
 
-                            <!-- Fecha de lanzamiento (debajo de la miniatura) -->
-                            <VBox class="cardDateBox">
-                                <Text text="Release Date" class="cardDateLabel"/>
-                                <Text text="{stats>/releaseDate}" class="cardDateValue"/>
-                            </VBox>
-
-                            <!-- Artwork completo -->
+                            <!-- Full artwork -->
                             <VBox class="cardArtBox">
                                 <Image src="{artwork}" class="cardArtImg" densityAware="false"/>
+                            </VBox> 
+
+                            <!-- Release Date -->
+                            <VBox class="cardDateBox">
+                                <Text text="RELEASE DATE:" class="cardDateLabel"/>
+                                <Text text="{stats>/releaseDate}" class="cardDateValue"/>
                             </VBox>
 
                         </VBox>
 
-                        <!-- ── Columna derecha ── -->
+                        <!-- ── Right column ── -->
                         <VBox class="cardRightCol">
 
-                            <!-- Nombre -->
+                            <!-- Name -->
                             <VBox class="cardNameBox">
                                 <Text  text="{title}" class="cardSubtitle"/>
                                 <Title text="{name}"  class="cardTitle" titleStyle="H1" wrapping="true"/>
@@ -91,34 +91,43 @@
                                 </FlexBox>
                             </VBox>
 
-                            <!-- Stats table (centrada, sin Base Min) -->
+                            <!-- Stats Table -->
                             <VBox class="cardSection">
                                 <Text text="Stats" class="cardSectionTitle"/>
-                                <VBox class="inlineStatsTable">
-                                    <HBox class="inlineStatsHeaderRow">
-                                        <Text text="Stat"     class="inlineStatLabel inlineStatHead"/>
-                                        <Text text="Base Max" class="inlineStatVal inlineStatHead inlineDivider"/>
-                                        <Text text="55%"      class="inlineStatVal inlineStatHead inlineDivider"/>
-                                        <Text text="100%"     class="inlineStatVal inlineStatHead"/>
+                                <VBox class="statsTable">
+
+                                    <!-- Header row -->
+                                    <HBox class="statsRow statsHeaderRow">
+                                        <Text text="Stat"     class="statCell statLabelCol statsHead"/>
+                                        <Text text="Base Max" class="statCell statsHead"/>
+                                        <Text text="55%"      class="statCell statsHead"/>
+                                        <Text text="100%"     class="statCell statsHead"/>
                                     </HBox>
-                                    <HBox class="inlineStatsDataRow">
-                                        <Text text="HP"              class="inlineStatLabel inlineHP"/>
-                                        <Text text="{stats>/hp}"     class="inlineStatVal inlineDivider"/>
-                                        <Text text="{stats>/hp55}"   class="inlineStatVal inlineDivider"/>
-                                        <Text text="{stats>/hp100}"  class="inlineStatVal"/>
+
+                                    <!-- HP -->
+                                    <HBox class="statsRow">
+                                        <Text text="HP"             class="statCell statLabelCol statHP"/>
+                                        <Text text="{stats>/hp}"    class="statCell"/>
+                                        <Text text="{stats>/hp55}"  class="statCell"/>
+                                        <Text text="{stats>/hp100}" class="statCell"/>
                                     </HBox>
-                                    <HBox class="inlineStatsDataRow inlineStatsAlt">
-                                        <Text text="ATK"             class="inlineStatLabel inlineATK"/>
-                                        <Text text="{stats>/atk}"    class="inlineStatVal inlineDivider"/>
-                                        <Text text="{stats>/atk55}"  class="inlineStatVal inlineDivider"/>
-                                        <Text text="{stats>/atk100}" class="inlineStatVal"/>
+
+                                    <!-- ATK -->
+                                    <HBox class="statsRow statsAltRow">
+                                        <Text text="ATK"              class="statCell statLabelCol statATK"/>
+                                        <Text text="{stats>/atk}"     class="statCell"/>
+                                        <Text text="{stats>/atk55}"   class="statCell"/>
+                                        <Text text="{stats>/atk100}"  class="statCell"/>
                                     </HBox>
-                                    <HBox class="inlineStatsDataRow">
-                                        <Text text="DEF"             class="inlineStatLabel inlineDEF"/>
-                                        <Text text="{stats>/def}"    class="inlineStatVal inlineDivider"/>
-                                        <Text text="{stats>/def55}"  class="inlineStatVal inlineDivider"/>
-                                        <Text text="{stats>/def100}" class="inlineStatVal"/>
+
+                                    <!-- DEF -->
+                                    <HBox class="statsRow">
+                                        <Text text="DEF"              class="statCell statLabelCol statDEF"/>
+                                        <Text text="{stats>/def}"     class="statCell"/>
+                                        <Text text="{stats>/def55}"   class="statCell"/>
+                                        <Text text="{stats>/def100}"  class="statCell"/>
                                     </HBox>
+
                                 </VBox>
                             </VBox>
 
