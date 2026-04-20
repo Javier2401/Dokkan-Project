@@ -71,6 +71,10 @@ sap.ui.define([], function () {
             return rainbow || lowBoost;
         },
 
+        /**
+         * Devuelve los stats del leader skill como números puros (sin % ni +).
+         * Ki: número (ej. "4"), HP/ATK/DEF: número (ej. "200")
+         */
         parseLeaderStats(ls) {
             const out = { ki: "-", hp: "-", atk: "-", def: "-" };
             if (!ls) return out;
@@ -86,9 +90,9 @@ sap.ui.define([], function () {
             const atkVals = [...fullAll, ...atkDefAll].map(m => +m[1]);
             const defVals = [...fullAll, ...atkDefAll].map(m => +m[1]);
 
-            if (hpVals.length)  out.hp  = `${Math.max(...hpVals)}%`;
-            if (atkVals.length) out.atk = `${Math.max(...atkVals)}%`;
-            if (defVals.length) out.def = `${Math.max(...defVals)}%`;
+            if (hpVals.length)  out.hp  = String(Math.max(...hpVals));
+            if (atkVals.length) out.atk = String(Math.max(...atkVals));
+            if (defVals.length) out.def = String(Math.max(...defVals));
 
             return out;
         },

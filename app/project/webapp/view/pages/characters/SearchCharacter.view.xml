@@ -10,7 +10,47 @@
                 <core:Fragment fragmentName="project.view.shared.Header" type="XML"/>
 
                 <VBox class="pageContent">
-                    <Text text=" PAGINA BUSCAR PERSONAJES"/>
+
+                    <!-- ── Search bar ── -->
+                    <VBox class="searchBarWrapper">
+                        <SearchField
+                            placeholder="Search by name or title…"
+                            search=".onSearch"
+                            liveChange=".onLiveSearch"
+                            class="characterSearchField"
+                            showSearchButton="true"/>
+                    </VBox>
+
+                    <!-- ── Results panel ── -->
+                    <Panel class="dokkanPanel" headerText="Search Results">
+                        <content>
+
+                            <!-- Estado vacío / inicial -->
+                            <VBox class="searchEmptyState" visible="{chars>/showEmpty}">
+                                <Image src="images/logo.png" class="searchEmptyIcon" densityAware="false"/>
+                                <Text text="{chars>/emptyMessage}" class="searchEmptyText"/>
+                            </VBox>
+
+                            <!-- Grid de resultados -->
+                            <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
+                                     visible="{chars>/hasResults}"
+                                     items="{chars>/results}">
+                                <items>
+                                    <VBox class="characterCard searchResultCard" alignItems="Center">
+                                        <Image src="{chars>thumbnail}"
+                                               class="characterImg"
+                                               press=".onNavInfoCharacter"
+                                               densityAware="false"/>
+                                        <Text text="{chars>name}"
+                                              class="searchResultName"
+                                              wrapping="true"/>
+                                    </VBox>
+                                </items>
+                            </FlexBox>
+
+                        </content>
+                    </Panel>
+
                 </VBox>
 
                 <core:Fragment fragmentName="project.view.shared.Footer" type="XML"/>

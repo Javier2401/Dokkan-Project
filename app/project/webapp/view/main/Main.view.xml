@@ -17,19 +17,22 @@
                             <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
                                      items="{chars>/upcoming}">
                                 <items>
-                                    <VBox class="characterCard">
-                                        <Image src="{chars>thumbnail}"
-                                               class="characterImg"
-                                               press=".onNavInfoCharacter"
-                                               densityAware="false"/>
-                                        <Text text="{chars>releaseDateFmt}" class="characterDate characterDateUpcoming"/>
+                                    <!-- Wrapper propio: card + fecha debajo separados -->
+                                    <VBox class="characterCardWrapper" alignItems="Center">
+                                        <VBox class="characterCard">
+                                            <Image src="{chars>thumbnail}"
+                                                   class="characterImg"
+                                                   press=".onNavInfoCharacter"
+                                                   densityAware="false"/>
+                                        </VBox>
+                                        <Text text="{chars>releaseDateFmt}" class="characterDateBadge"/>
                                     </VBox>
                                 </items>
                             </FlexBox>
                         </content>
                     </Panel>
 
-                    <!-- ── Recent Characters (sin fecha) ── -->
+                    <!-- ── Recent Characters ── -->
                     <Panel class="dokkanPanel" headerText="{i18n>panel.recent}">
                         <content>
                             <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"

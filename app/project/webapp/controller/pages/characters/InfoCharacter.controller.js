@@ -5,6 +5,9 @@ sap.ui.define([
 ], (BaseController, JSONModel, CharacterUtils) => {
     "use strict";
 
+    // Clases CSS de tipo — deben coincidir con las del CSS
+    const TYPE_CLASSES = ["typeAGL", "typeSTR", "typeTEQ", "typeINT", "typePHY"];
+
     return BaseController.extend("project.controller.pages.characters.InfoCharacter", {
 
         onInit() {
@@ -26,14 +29,28 @@ sap.ui.define([
 
             oView.getModel().bindContext(sPath).requestObject()
                 .then(d => {
+                    // Link skills
                     oView.getModel("linkSkills").setProperty("/skills",
                         (d.linkSkills || "").split(" - ")
                             .map(s => s.trim()).filter(Boolean).map(s => ({ name: s }))
                     );
+
+                    // Categories
                     oView.getModel("categories").setProperty("/items",
                         CharacterUtils.parseCategories(d.categories).map(name => ({ name }))
                     );
+
+                    // Stats
                     oView.getModel("stats").setData(CharacterUtils.buildStats(d));
+
+                    // Color de borde según el tipo del personaje
+                    const oNameBox = oView.byId("cardNameBox");
+                    if (oNameBox) {
+                        TYPE_CLASSES.forEach(c => oNameBox.removeStyleClass(c));
+                        const sType = (d.type || "AGL").trim().toUpperCase();
+                        oNameBox.addStyleClass("type" + sType);
+                    }
+
                     oView.bindElement({ path: sPath });
                     oView.setBusy(false);
                 })
