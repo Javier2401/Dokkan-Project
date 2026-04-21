@@ -41,8 +41,12 @@
     align-items: center !important;
 }
 
-.dokkanPanel .sapMPanelHeaderText {
-    font-size: 10.4rem !important;
+/* ── Panel header text — target both wrapper and inner Title span ── */
+.dokkanPanel .sapMPanelHeaderText,
+.dokkanPanel .sapMPanelHdr .sapMTitle,
+.dokkanPanel .sapMPanelHdr .sapMTitleStyle,
+.dokkanPanel .sapMPanelHdr span {
+    font-size: 1.25rem !important;
     font-weight: 800 !important;
     color: #1a1a1a !important;
     text-align: center !important;
@@ -711,12 +715,12 @@
     margin-top: 4px !important;
 }
 
-/* ── Stats Table — full width below both columns ── */
+/* ── Stats Table — inside left column ── */
 .statsTable,
 .statsTable.sapMVBox {
     width: 100% !important;
-    max-width: 620px !important;   /* was 460px — now below full-width section */
-    margin: 8px auto 0 !important;
+    max-width: 100% !important;
+    margin: 8px 0 0 !important;
     border-radius: 10px !important;
     overflow: hidden !important;
     border: 1px solid #e5e7eb !important;
@@ -747,8 +751,8 @@
 .statCell.sapMText {
     flex: 1 !important;
     min-width: 0 !important;
-    padding: 13px 6px !important;
-    font-size: 0.93rem !important;
+    padding: 11px 4px !important;
+    font-size: 0.88rem !important;
     font-weight: 700 !important;
     color: #1f2937 !important;
     display: flex !important;
@@ -770,17 +774,17 @@
 
 .statLabelCol,
 .statLabelCol.sapMText {
-    flex: 0 0 70px !important;
-    min-width: 70px !important;
+    flex: 0 0 56px !important;
+    min-width: 56px !important;
     font-weight: 900 !important;
-    font-size: 0.95rem !important;
+    font-size: 0.9rem !important;
 }
 
 .statsHead,
 .statsHead.sapMText {
     color: #6b7280 !important;
     font-weight: 700 !important;
-    font-size: 0.75rem !important;
+    font-size: 0.72rem !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
 }
@@ -839,7 +843,7 @@
     width: 140px !important;
     max-width: 155px !important;
     background-color: #d0d0d0  !important;
-    border-radius: 8px !important;  
+    border-radius: 8px !important;
     padding: 6px 4px !important;
     gap: 3px !important;
     box-sizing: border-box !important;
@@ -1020,15 +1024,17 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
-   SECCIÓN 9 · SEARCH CHARACTER VIEW
+   SECCIÓN 9 · SEARCH CHARACTER VIEW — contenedor unificado
    ═══════════════════════════════════════════════════════════════ */
 
-.searchBarWrapper,
-.searchBarWrapper.sapMVBox {
+/* Contenedor único que agrupa buscador + resultados */
+.searchUnifiedCard,
+.searchUnifiedCard.sapMVBox {
     background-color: #ffffff !important;
     border-radius: 12px !important;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.10) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important;
     padding: 1.4rem 1.6rem !important;
+    gap: 0 !important;
 }
 
 .characterSearchField { width: 100% !important; }
@@ -1058,6 +1064,26 @@
     padding: 0 1rem !important;
     color: #1f2937 !important;
     background-color: transparent !important;
+}
+
+/* Separador interno entre buscador y resultados */
+.searchInternalDivider,
+.searchInternalDivider.sapMHBox {
+    width: 100% !important;
+    height: 1px !important;
+    min-height: 1px !important;
+    background-color: #f3f4f6 !important;
+    margin: 1rem 0 !important;
+}
+
+/* Título de resultados dentro del contenedor */
+.searchResultsLabel,
+.searchResultsLabel.sapMText {
+    font-size: 1.1rem !important;
+    font-weight: 800 !important;
+    color: #1a1a1a !important;
+    margin-bottom: 0.5rem !important;
+    display: block !important;
 }
 
 .searchEmptyState,
@@ -1094,6 +1120,7 @@
     padding: 4px 4px 2px !important;
 }
 
+
 /* ═══════════════════════════════════════════════════════════════
    SECCIÓN 10 · RESPONSIVE
    ═══════════════════════════════════════════════════════════════ */
@@ -1109,15 +1136,14 @@
     .characterDateBadge.sapMText { min-width: 112px !important; max-width: 125px !important; }
     .leaderStatGrid, .leaderStatGrid.sapMHBox { width: 120px !important; }
     .cardDetailContent { padding: 0 0.8rem 1.5rem 0.8rem; margin: 1rem auto !important; }
-    .cardLeftCol { flex: 0 0 260px !important; }
+    .cardLeftCol { flex: 0 0 280px !important; }
     .cardThumbImg, .cardThumbImg.sapMImg { width: 170px !important; height: 170px !important; }
     .cardArtImg,  .cardArtImg.sapMImg   { max-width: 236px !important; }
     .cardTitle .sapMTitle { font-size: 1.7rem !important; }
-    .statsTable, .statsTable.sapMVBox { max-width: 480px !important; }
-    .statCell, .statCell.sapMText { padding: 11px 5px !important; font-size: 0.85rem !important; }
-    .statLabelCol, .statLabelCol.sapMText { flex: 0 0 58px !important; min-width: 58px !important; }
+    .statCell, .statCell.sapMText { padding: 9px 3px !important; font-size: 0.82rem !important; }
+    .statLabelCol, .statLabelCol.sapMText { flex: 0 0 50px !important; min-width: 50px !important; }
     .categoryHeroTitle .sapMTitle { font-size: 1.9rem !important; }
-    .searchBarWrapper { padding: 1rem 1.2rem !important; }
+    .searchUnifiedCard { padding: 1rem 1.2rem !important; }
 }
 
 @media (max-width: 600px) {
@@ -1145,10 +1171,9 @@
     .cardArtImg, .cardArtImg.sapMImg { max-width: 100% !important; }
     .cardRightCol { flex: 0 0 100% !important; }
     .cardTitle .sapMTitle { font-size: 1.5rem !important; }
-    .statsTable, .statsTable.sapMVBox { max-width: 100% !important; }
-    .statCell, .statCell.sapMText { padding: 10px 4px !important; font-size: 0.78rem !important; }
-    .statLabelCol, .statLabelCol.sapMText { flex: 0 0 48px !important; min-width: 48px !important; font-size: 0.82rem !important; }
-    .statsHead, .statsHead.sapMText { font-size: 0.65rem !important; }
+    .statCell, .statCell.sapMText { padding: 9px 3px !important; font-size: 0.76rem !important; }
+    .statLabelCol, .statLabelCol.sapMText { flex: 0 0 44px !important; min-width: 44px !important; font-size: 0.78rem !important; }
+    .statsHead, .statsHead.sapMText { font-size: 0.62rem !important; }
     .categoryHeroTitle .sapMTitle { font-size: 1.5rem !important; }
     .leaderStatLabel, .leaderStatLabel.sapMText { font-size: 0.52rem !important; }
     .leaderStatVal,   .leaderStatVal.sapMText   { font-size: 0.65rem !important; }
@@ -1156,7 +1181,7 @@
     .legalHeroTitle .sapMTitle { font-size: 1.7rem !important; }
     .legalSectionTitle .sapMTitle { font-size: 1rem !important; }
     .legalTableCell.sapMText { padding: 8px 10px !important; font-size: 0.8rem !important; }
-    .searchBarWrapper { padding: 0.8rem !important; }
+    .searchUnifiedCard { padding: 0.8rem !important; }
     .searchResultName.sapMText { font-size: 0.65rem !important; }
 }
 
@@ -1172,8 +1197,8 @@
     .leaderStatGrid, .leaderStatGrid.sapMHBox { width: 78px !important; }
     .categoryCard .characterImg { height: 90px !important; }
     .cardTitle .sapMTitle { font-size: 1.2rem !important; }
-    .statCell, .statCell.sapMText { padding: 8px 3px !important; font-size: 0.70rem !important; }
-    .statLabelCol, .statLabelCol.sapMText { flex: 0 0 40px !important; min-width: 40px !important; font-size: 0.72rem !important; }
+    .statCell, .statCell.sapMText { padding: 8px 2px !important; font-size: 0.68rem !important; }
+    .statLabelCol, .statLabelCol.sapMText { flex: 0 0 38px !important; min-width: 38px !important; font-size: 0.70rem !important; }
     .legalCard { padding: 1rem 0.8rem !important; }
     .legalHeroTitle .sapMTitle { font-size: 1.5rem !important; }
     .legalTable { display: none !important; }

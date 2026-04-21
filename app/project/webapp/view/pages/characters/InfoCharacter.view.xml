@@ -11,7 +11,7 @@
 
                 <VBox class="cardDetailContent">
 
-                    <!-- ══ Top row: left (images + date) / right (text sections) ══ -->
+                    <!-- ══ Top row: left (images + date + stats) / right (text sections) ══ -->
                     <HBox class="cardTopRow" wrap="Wrap">
 
                         <!-- ── Left column ── -->
@@ -25,6 +25,37 @@
                             <VBox class="cardDateBox">
                                 <Text text="{i18n>info.releaseDate}" class="cardDateLabel"/>
                                 <Text text="{stats>/releaseDate}"    class="cardDateValue"/>
+                            </VBox>
+
+                            <!-- ── Stats Table — left column, below release date ── -->
+                            <VBox class="cardSection">
+                                <Text text="{i18n>info.stats}" class="cardSectionTitle"/>
+                                <VBox class="statsTable">
+                                    <HBox class="statsRow statsHeaderRow">
+                                        <Text text="{i18n>info.statLabel}"   class="statCell statLabelCol statsHead"/>
+                                        <Text text="{i18n>info.statBaseMax}" class="statCell statsHead"/>
+                                        <Text text="55%"                      class="statCell statsHead"/>
+                                        <Text text="100%"                     class="statCell statsHead"/>
+                                    </HBox>
+                                    <HBox class="statsRow">
+                                        <Text text="HP"             class="statCell statLabelCol statHP"/>
+                                        <Text text="{stats>/hp}"    class="statCell"/>
+                                        <Text text="{stats>/hp55}"  class="statCell"/>
+                                        <Text text="{stats>/hp100}" class="statCell"/>
+                                    </HBox>
+                                    <HBox class="statsRow statsAltRow">
+                                        <Text text="ATK"             class="statCell statLabelCol statATK"/>
+                                        <Text text="{stats>/atk}"    class="statCell"/>
+                                        <Text text="{stats>/atk55}"  class="statCell"/>
+                                        <Text text="{stats>/atk100}" class="statCell"/>
+                                    </HBox>
+                                    <HBox class="statsRow">
+                                        <Text text="DEF"             class="statCell statLabelCol statDEF"/>
+                                        <Text text="{stats>/def}"    class="statCell"/>
+                                        <Text text="{stats>/def55}"  class="statCell"/>
+                                        <Text text="{stats>/def100}" class="statCell"/>
+                                    </HBox>
+                                </VBox>
                             </VBox>
                         </VBox>
 
@@ -82,37 +113,6 @@
 
                         </VBox>
                     </HBox>
-
-                    <!-- ══ Stats Table — full width, below both columns ══ -->
-                    <VBox class="cardSection">
-                        <Text text="{i18n>info.stats}" class="cardSectionTitle"/>
-                        <VBox class="statsTable">
-                            <HBox class="statsRow statsHeaderRow">
-                                <Text text="{i18n>info.statLabel}"   class="statCell statLabelCol statsHead"/>
-                                <Text text="{i18n>info.statBaseMax}" class="statCell statsHead"/>
-                                <Text text="55%"                      class="statCell statsHead"/>
-                                <Text text="100%"                     class="statCell statsHead"/>
-                            </HBox>
-                            <HBox class="statsRow">
-                                <Text text="HP"             class="statCell statLabelCol statHP"/>
-                                <Text text="{stats>/hp}"    class="statCell"/>
-                                <Text text="{stats>/hp55}"  class="statCell"/>
-                                <Text text="{stats>/hp100}" class="statCell"/>
-                            </HBox>
-                            <HBox class="statsRow statsAltRow">
-                                <Text text="ATK"             class="statCell statLabelCol statATK"/>
-                                <Text text="{stats>/atk}"    class="statCell"/>
-                                <Text text="{stats>/atk55}"  class="statCell"/>
-                                <Text text="{stats>/atk100}" class="statCell"/>
-                            </HBox>
-                            <HBox class="statsRow">
-                                <Text text="DEF"             class="statCell statLabelCol statDEF"/>
-                                <Text text="{stats>/def}"    class="statCell"/>
-                                <Text text="{stats>/def55}"  class="statCell"/>
-                                <Text text="{stats>/def100}" class="statCell"/>
-                            </HBox>
-                        </VBox>
-                    </VBox>
 
                 </VBox>
 

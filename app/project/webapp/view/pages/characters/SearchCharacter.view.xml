@@ -11,47 +11,49 @@
 
                 <VBox class="pageContent">
 
-                    <!-- ── Search bar ── -->
-                    <VBox class="searchBarWrapper">
+                    <!-- ── Contenedor unificado: buscador + resultados ── -->
+                    <VBox class="searchUnifiedCard">
+
+                        <!-- Barra de búsqueda -->
                         <SearchField
                             placeholder="{i18n>search.placeholder}"
                             search=".onSearch"
                             liveChange=".onLiveSearch"
                             class="characterSearchField"
                             showSearchButton="true"/>
-                    </VBox>
 
-                    <!-- ── Results panel ── -->
-                    <Panel class="dokkanPanel" headerText="{i18n>search.results}">
-                        <content>
+                        <!-- Separador interno -->
+                        <HBox class="searchInternalDivider"/>
 
-                            <!-- Estado vacío / inicial -->
-                            <VBox class="searchEmptyState" visible="{chars>/showEmpty}">
-                                <Image src="images/logo.png" class="searchEmptyIcon" densityAware="false"/>
-                                <Text text="{chars>/emptyMessage}" class="searchEmptyText"/>
-                            </VBox>
+                        <!-- Título de resultados -->
+                        <Text text="{i18n>search.results}" class="searchResultsLabel"/>
 
-                            <!-- Grid de resultados — characterCardWrapper evita el stacking -->
-                            <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
-                                     visible="{chars>/hasResults}"
-                                     items="{chars>/results}">
-                                <items>
-                                    <VBox class="characterCardWrapper" alignItems="Center">
-                                        <VBox class="characterCard" alignItems="Center">
-                                            <Image src="{chars>thumbnail}"
-                                                   class="characterImg"
-                                                   press=".onNavInfoCharacter"
-                                                   densityAware="false"/>
-                                            <Text text="{chars>name}"
-                                                  class="searchResultName"
-                                                  wrapping="true"/>
-                                        </VBox>
+                        <!-- Estado vacío / inicial -->
+                        <VBox class="searchEmptyState" visible="{chars>/showEmpty}">
+                            <Image src="images/logo.png" class="searchEmptyIcon" densityAware="false"/>
+                            <Text text="{chars>/emptyMessage}" class="searchEmptyText"/>
+                        </VBox>
+
+                        <!-- Grid de resultados -->
+                        <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
+                                 visible="{chars>/hasResults}"
+                                 items="{chars>/results}">
+                            <items>
+                                <VBox class="characterCardWrapper" alignItems="Center">
+                                    <VBox class="characterCard" alignItems="Center">
+                                        <Image src="{chars>thumbnail}"
+                                               class="characterImg"
+                                               press=".onNavInfoCharacter"
+                                               densityAware="false"/>
+                                        <Text text="{chars>name}"
+                                              class="searchResultName"
+                                              wrapping="true"/>
                                     </VBox>
-                                </items>
-                            </FlexBox>
+                                </VBox>
+                            </items>
+                        </FlexBox>
 
-                        </content>
-                    </Panel>
+                    </VBox>
 
                 </VBox>
 

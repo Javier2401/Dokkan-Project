@@ -51,9 +51,9 @@ sap.ui.define([
 
             CharacterService.loadAll()
                 .then(aAll => {
+                    // Búsqueda solo por nombre (campo "name")
                     const aFiltered = aAll.filter(c =>
-                        (c.name  || "").toLowerCase().includes(sQ) ||
-                        (c.title || "").toLowerCase().includes(sQ)
+                        (c.name || "").toLowerCase().includes(sQ)
                     );
 
                     oModel.setProperty("/results",    aFiltered);
