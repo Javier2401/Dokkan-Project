@@ -1,24 +1,22 @@
 sap.ui.define([
     "project/controller/shared/BaseController",
-    "sap/ui/model/json/JSONModel"
-], (BaseController, JSONModel) => {
+    "sap/ui/model/json/JSONModel",
+    "project/model/CharacterService"
+], (BaseController, JSONModel, CharacterService) => {
     "use strict";
 
     return BaseController.extend("project.controller.pages.characters.SearchCharacter", {
 
         onInit() {
-            
             this.getView().setModel(
                 new JSONModel({
                     results:      [],
                     hasResults:   false,
                     showEmpty:    true,
-                    emptyMessage: "Type a name or title to search characters."
+                    emptyMessage: ""
                 }),
                 "chars"
             );
-
-            this._allCharacters = [];
 
             this.getOwnerComponent().getRouter()
                 .getRoute("RouteSearchCharacter")
@@ -26,20 +24,11 @@ sap.ui.define([
         },
 
         _onRouteMatched() {
-            // Carga solo si aún no tenemos datos
-            if (this._allCharacters.length === 0) {
-                this._loadAll();
-            }
+            // Pre-warm the shared cache
+            CharacterService.loadAll().catch(err =>
+                console.error("SearchCharacter: pre-load failed", err)
+            );
             this._reset();
-        },
-
-        _loadAll() {
-            fetch("/odata/v4/character-info/Characters?$orderby=name asc")
-                .then(r => r.json())
-                .then(data => {
-                    this._allCharacters = data.value || [];
-                })
-                .catch(err => console.error("SearchCharacter: error loading characters", err));
         },
 
         onLiveSearch(oEvent) {
@@ -51,35 +40,41 @@ sap.ui.define([
         },
 
         _filter(sQuery) {
-            const oModel = this.getView().getModel("chars");
-            const sQ     = sQuery.trim().toLowerCase();
+            const oModel   = this.getView().getModel("chars");
+            const oBundle  = this.getView().getModel("i18n").getResourceBundle();
+            const sQ       = sQuery.trim().toLowerCase();
 
             if (!sQ) {
                 this._reset();
                 return;
             }
 
-            const aFiltered = this._allCharacters.filter(c =>
-                (c.name  || "").toLowerCase().includes(sQ) ||
-                (c.title || "").toLowerCase().includes(sQ)
-            );
+            CharacterService.loadAll()
+                .then(aAll => {
+                    const aFiltered = aAll.filter(c =>
+                        (c.name  || "").toLowerCase().includes(sQ) ||
+                        (c.title || "").toLowerCase().includes(sQ)
+                    );
 
-            oModel.setProperty("/results",    aFiltered);
-            oModel.setProperty("/hasResults", aFiltered.length > 0);
-            oModel.setProperty("/showEmpty",  aFiltered.length === 0);
-            oModel.setProperty("/emptyMessage",
-                aFiltered.length === 0
-                    ? `No characters found for "${sQuery}".`
-                    : ""
-            );
+                    oModel.setProperty("/results",    aFiltered);
+                    oModel.setProperty("/hasResults", aFiltered.length > 0);
+                    oModel.setProperty("/showEmpty",  aFiltered.length === 0);
+                    oModel.setProperty("/emptyMessage",
+                        aFiltered.length === 0
+                            ? oBundle.getText("search.empty.noresults", [sQuery])
+                            : ""
+                    );
+                })
+                .catch(err => console.error("SearchCharacter: filter failed", err));
         },
 
         _reset() {
-            const oModel = this.getView().getModel("chars");
+            const oModel  = this.getView().getModel("chars");
+            const oBundle = this.getView().getModel("i18n").getResourceBundle();
             oModel.setProperty("/results",      []);
             oModel.setProperty("/hasResults",   false);
             oModel.setProperty("/showEmpty",    true);
-            oModel.setProperty("/emptyMessage", "Type a name or title to search characters.");
+            oModel.setProperty("/emptyMessage", oBundle.getText("search.empty.initial"));
         }
     });
 });

@@ -14,9 +14,8 @@ sap.ui.define([
 
         onNavInfoCharacter: function (oEvent) {
             const oSource = oEvent.getSource();
-
-            const oCtx = oSource.getBindingContext("chars")
-                      || oSource.getBindingContext();
+            const oCtx    = oSource.getBindingContext("chars")
+                         || oSource.getBindingContext();
 
             if (!oCtx) {
                 console.warn("onNavInfoCharacter: no binding context found");
@@ -40,16 +39,15 @@ sap.ui.define([
             });
         },
 
-        onNavMain:           function () { this.getOwnerComponent().getRouter().navTo("RouteMain"); },
-        onNavNews:           function () { this.getOwnerComponent().getRouter().navTo("RouteNews"); },
-        onNavBanners:        function () { this.getOwnerComponent().getRouter().navTo("RouteBanners"); },
-        onNavMissions:       function () { this.getOwnerComponent().getRouter().navTo("RouteMissions"); },
-        onOpenProfile:       function () { this.getOwnerComponent().getRouter().navTo("RouteProfile"); },
-        onOpenSettings:      function () { this.getOwnerComponent().getRouter().navTo("RouteSettings"); },
-        onOpenTermsOfUse:    function () { this.getOwnerComponent().getRouter().navTo("RouteTermsOfUse"); },
-        onOpenCookiePolicy:  function () { this.getOwnerComponent().getRouter().navTo("RouteCookiePolicy"); },
-        onOpenPrivacyPolicy: function () { this.getOwnerComponent().getRouter().navTo("RoutePrivacyPolicy"); },
-        onOpenPrivacyPolicy: function () { this.getOwnerComponent().getRouter().navTo("RoutePrivacyPolicy"); },
+        onNavMain:             function () { this.getOwnerComponent().getRouter().navTo("RouteMain"); },
+        onNavNews:             function () { this.getOwnerComponent().getRouter().navTo("RouteNews"); },
+        onNavBanners:          function () { this.getOwnerComponent().getRouter().navTo("RouteBanners"); },
+        onNavMissions:         function () { this.getOwnerComponent().getRouter().navTo("RouteMissions"); },
+        onOpenProfile:         function () { this.getOwnerComponent().getRouter().navTo("RouteProfile"); },
+        onOpenSettings:        function () { this.getOwnerComponent().getRouter().navTo("RouteSettings"); },
+        onOpenTermsOfUse:      function () { this.getOwnerComponent().getRouter().navTo("RouteTermsOfUse"); },
+        onOpenCookiePolicy:    function () { this.getOwnerComponent().getRouter().navTo("RouteCookiePolicy"); },
+        onOpenPrivacyPolicy:   function () { this.getOwnerComponent().getRouter().navTo("RoutePrivacyPolicy"); },
         onOpenSearchCharacter: function () { this.getOwnerComponent().getRouter().navTo("RouteSearchCharacter"); }
     });
 });

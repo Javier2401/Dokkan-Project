@@ -14,7 +14,7 @@
                     <!-- ── Search bar ── -->
                     <VBox class="searchBarWrapper">
                         <SearchField
-                            placeholder="Search by name or title…"
+                            placeholder="{i18n>search.placeholder}"
                             search=".onSearch"
                             liveChange=".onLiveSearch"
                             class="characterSearchField"
@@ -22,7 +22,7 @@
                     </VBox>
 
                     <!-- ── Results panel ── -->
-                    <Panel class="dokkanPanel" headerText="Search Results">
+                    <Panel class="dokkanPanel" headerText="{i18n>search.results}">
                         <content>
 
                             <!-- Estado vacío / inicial -->
@@ -31,19 +31,21 @@
                                 <Text text="{chars>/emptyMessage}" class="searchEmptyText"/>
                             </VBox>
 
-                            <!-- Grid de resultados -->
+                            <!-- Grid de resultados — characterCardWrapper evita el stacking -->
                             <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
                                      visible="{chars>/hasResults}"
                                      items="{chars>/results}">
                                 <items>
-                                    <VBox class="characterCard searchResultCard" alignItems="Center">
-                                        <Image src="{chars>thumbnail}"
-                                               class="characterImg"
-                                               press=".onNavInfoCharacter"
-                                               densityAware="false"/>
-                                        <Text text="{chars>name}"
-                                              class="searchResultName"
-                                              wrapping="true"/>
+                                    <VBox class="characterCardWrapper" alignItems="Center">
+                                        <VBox class="characterCard" alignItems="Center">
+                                            <Image src="{chars>thumbnail}"
+                                                   class="characterImg"
+                                                   press=".onNavInfoCharacter"
+                                                   densityAware="false"/>
+                                            <Text text="{chars>name}"
+                                                  class="searchResultName"
+                                                  wrapping="true"/>
+                                        </VBox>
                                     </VBox>
                                 </items>
                             </FlexBox>

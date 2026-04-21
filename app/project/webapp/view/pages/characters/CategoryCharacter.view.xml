@@ -20,21 +20,24 @@
                     </VBox>
 
                     <!-- ══ Leaders ══ -->
-                    <Panel class="dokkanPanel" headerText="Leaders">
+                    <Panel class="dokkanPanel" headerText="{i18n>category.leaders}">
                         <content>
                             <VBox visible="{chars>/hasNoLeaders}" class="categoryEmptyState">
-                                <Text text="No leaders found for this category." class="categoryEmptyText"/>
+                                <Text text="{i18n>category.noLeaders}" class="categoryEmptyText"/>
                             </VBox>
                             <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
                                      visible="{chars>/hasLeaders}"
                                      items="{chars>/leaders}">
                                 <items>
-                                    <VBox class="characterCard leaderCard">
-                                        <Image src="{chars>thumbnail}"
-                                               class="characterImg"
-                                               press=".onNavInfoCharacter"
-                                               densityAware="false"/>
-                                        <!-- 1×4 horizontal stats row -->
+                                    <!-- Wrapper: card arriba, stat grid abajo (fuera del clip) -->
+                                    <VBox class="characterCardWrapper" alignItems="Center">
+                                        <VBox class="characterCard categoryCard">
+                                            <Image src="{chars>thumbnail}"
+                                                   class="characterImg"
+                                                   press=".onNavInfoCharacter"
+                                                   densityAware="false"/>
+                                        </VBox>
+                                        <!-- Stat grid debajo de la imagen, con esquinas redondeadas -->
                                         <HBox class="leaderStatGrid">
                                             <VBox class="leaderStatBox leaderStatKi">
                                                 <Text text="KI"                     class="leaderStatLabel"/>
@@ -60,21 +63,22 @@
                     </Panel>
 
                     <!-- ══ Sub-Leaders / Rainbow ══ -->
-                    <Panel class="dokkanPanel" headerText="Sub-Leaders / Rainbow">
+                    <Panel class="dokkanPanel" headerText="{i18n>category.subLeaders}">
                         <content>
                             <VBox visible="{chars>/hasNoSubLeaders}" class="categoryEmptyState">
-                                <Text text="No sub-leaders found for this category." class="categoryEmptyText"/>
+                                <Text text="{i18n>category.noSubLeaders}" class="categoryEmptyText"/>
                             </VBox>
                             <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
                                      visible="{chars>/hasSubLeaders}"
                                      items="{chars>/subLeaders}">
                                 <items>
-                                    <VBox class="characterCard leaderCard">
-                                        <Image src="{chars>thumbnail}"
-                                               class="characterImg"
-                                               press=".onNavInfoCharacter"
-                                               densityAware="false"/>
-                                        <!-- 1×4 horizontal stats row -->
+                                    <VBox class="characterCardWrapper" alignItems="Center">
+                                        <VBox class="characterCard categoryCard">
+                                            <Image src="{chars>thumbnail}"
+                                                   class="characterImg"
+                                                   press=".onNavInfoCharacter"
+                                                   densityAware="false"/>
+                                        </VBox>
                                         <HBox class="leaderStatGrid">
                                             <VBox class="leaderStatBox leaderStatKi">
                                                 <Text text="KI"                     class="leaderStatLabel"/>
@@ -100,19 +104,22 @@
                     </Panel>
 
                     <!-- ══ Cards (image only) ══ -->
-                    <Panel class="dokkanPanel" headerText="Cards">
+                    <Panel class="dokkanPanel" headerText="{i18n>category.cards}">
                         <content>
                             <VBox visible="{chars>/hasNoCards}" class="categoryEmptyState">
-                                <Text text="No cards found for this category." class="categoryEmptyText"/>
+                                <Text text="{i18n>category.noCards}" class="categoryEmptyText"/>
                             </VBox>
                             <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
+                                     visible="{chars>/hasCards}"
                                      items="{chars>/cards}">
                                 <items>
-                                    <VBox class="characterCard">
-                                        <Image src="{chars>thumbnail}"
-                                               class="characterImg"
-                                               press=".onNavInfoCharacter"
-                                               densityAware="false"/>
+                                    <VBox class="characterCardWrapper" alignItems="Center">
+                                        <VBox class="characterCard">
+                                            <Image src="{chars>thumbnail}"
+                                                   class="characterImg"
+                                                   press=".onNavInfoCharacter"
+                                                   densityAware="false"/>
+                                        </VBox>
                                     </VBox>
                                 </items>
                             </FlexBox>

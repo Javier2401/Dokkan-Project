@@ -14,17 +14,17 @@
                 <Button text="{i18n>nav.missions}" class="navBtn" press=".onNavMissions"/>
                 <MenuButton text="{i18n>nav.characters}" class="navBtn">
                     <Menu>
-                        <MenuItem text="Name" press=".onOpenSearchCharacter"/>
+                        <MenuItem text="{i18n>nav.characters.name}" press=".onOpenSearchCharacter"/>
                     </Menu>
                 </MenuButton>
                 <MenuButton text="{i18n>nav.events}" class="navBtn">
                     <Menu>
-                        <MenuItem text="Current Events"/>
+                        <MenuItem text="{i18n>nav.events.current}"/>
                     </Menu>
                 </MenuButton>
                 <MenuButton text="{i18n>nav.items}" class="navBtn">
                     <Menu>
-                        <MenuItem text="Support Items"/>
+                        <MenuItem text="{i18n>nav.items.support}"/>
                     </Menu>
                 </MenuButton>
             </HBox>
@@ -39,6 +39,7 @@
                     </Menu>
                 </MenuButton>
             </HBox>
+
         </HBox>
 
     </VBox>

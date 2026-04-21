@@ -1,8 +1,9 @@
 sap.ui.define([
     "project/controller/shared/BaseController",
     "sap/ui/model/json/JSONModel",
-    "project/model/CharacterUtils"
-], (BaseController, JSONModel, CharacterUtils) => {
+    "project/model/CharacterUtils",
+    "project/model/CharacterService"
+], (BaseController, JSONModel, CharacterUtils, CharacterService) => {
     "use strict";
 
     return BaseController.extend("project.controller.pages.characters.CategoryCharacter", {
@@ -50,28 +51,27 @@ sap.ui.define([
 
             this.getView().setBusy(true);
 
-            fetch("/odata/v4/character-info/Characters?$orderby=ID desc")
-                .then(r => r.json())
-                .then(data => {
-                    const aAll = data.value || [];
-
-                    const aFiltered = aAll.filter(c =>
-                        CharacterUtils.parseCategories(c.categories).includes(sCategoryName)
-                    );
-
+            CharacterService.loadAll()
+                .then(aAll => {
                     const addStats = c => ({
                         ...c,
                         leaderStats: CharacterUtils.parseLeaderStats(c.leaderSkill)
                     });
 
-                    const aLeaders = aFiltered.filter(c =>
-                        CharacterUtils.isLeader(c, sCategoryName)
-                    ).map(addStats);
+                    const aFiltered = aAll.filter(c =>
+                        CharacterUtils.parseCategories(c.categories).includes(sCategoryName)
+                    );
 
-                    const aSubLeaders = aFiltered.filter(c =>
-                        !CharacterUtils.isLeader(c, sCategoryName) &&
-                         CharacterUtils.isSubLeader(c, sCategoryName)
-                    ).map(addStats);
+                    const aLeaders = aFiltered
+                        .filter(c => CharacterUtils.isLeader(c, sCategoryName))
+                        .map(addStats);
+
+                    const aSubLeaders = aFiltered
+                        .filter(c =>
+                            !CharacterUtils.isLeader(c, sCategoryName) &&
+                             CharacterUtils.isSubLeader(c, sCategoryName)
+                        )
+                        .map(addStats);
 
                     const aCards = aFiltered.filter(c =>
                         !CharacterUtils.isLeader(c, sCategoryName) &&
@@ -91,7 +91,7 @@ sap.ui.define([
                     this.getView().setBusy(false);
                 })
                 .catch(err => {
-                    console.error("Error loading characters:", err);
+                    console.error("CategoryCharacter: error loading characters:", err);
                     this.getView().setBusy(false);
                 });
         }
