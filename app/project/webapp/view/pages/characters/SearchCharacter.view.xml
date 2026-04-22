@@ -11,21 +11,19 @@
 
                 <VBox class="pageContent">
 
-                    <!-- ── Contenedor unificado: buscador + resultados ── -->
-                    <VBox class="searchUnifiedCard">
-
-                        <!-- Barra de búsqueda -->
+                    <!-- ── Tarjeta del buscador ── -->
+                    <VBox class="searchInputCard">
                         <SearchField
                             placeholder="{i18n>search.placeholder}"
                             search=".onSearch"
                             liveChange=".onLiveSearch"
                             class="characterSearchField"
                             showSearchButton="true"/>
+                    </VBox>
 
-                        <!-- Separador interno -->
-                        <HBox class="searchInternalDivider"/>
+                    <!-- ── Tarjeta de resultados ── -->
+                    <VBox class="searchResultsCard">
 
-                        <!-- Título de resultados -->
                         <Text text="{i18n>search.results}" class="searchResultsLabel"/>
 
                         <!-- Estado vacío / inicial -->

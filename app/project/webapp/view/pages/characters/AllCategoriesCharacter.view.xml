@@ -1,0 +1,42 @@
+<mvc:View controllerName="project.controller.pages.characters.AllCategoriesCharacter"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+
+    <Page showHeader="false" enableScrolling="true" class="dokkanPage">
+        <content>
+            <VBox class="pageWrapper">
+
+                <core:Fragment fragmentName="project.view.shared.Header" type="XML"/>
+
+                <VBox class="pageContent">
+
+                    <!-- ── Hero ── -->
+                    <VBox class="categoryHero">
+                        <Title text="{i18n>allCategories.title}"
+                               titleStyle="H1"
+                               class="categoryHeroTitle"
+                               wrapping="true"/>
+                        <Text text="{i18n>allCategories.subtitle}" class="legalHeroDate"/>
+                    </VBox>
+
+                    <!-- ── Grid de categorías ── -->
+                    <VBox class="allCategoriesCard">
+                        <FlexBox wrap="Wrap" class="allCategoriesGrid" items="{allCats>/items}">
+                            <items>
+                                <Button text="{allCats>name}"
+                                        class="categoryChipBtn"
+                                        press=".onNavCategory"/>
+                            </items>
+                        </FlexBox>
+                    </VBox>
+
+                </VBox>
+
+                <core:Fragment fragmentName="project.view.shared.Footer" type="XML"/>
+
+            </VBox>
+        </content>
+    </Page>
+
+</mvc:View>

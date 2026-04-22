@@ -182,13 +182,21 @@
             "TargetCategory"
           ]
         },
-          {
-            "name": "RouteSearchCharacter",
-            "pattern": "search-character",
-            "target": [
-              "TargetSearchCharacter"
-            ]
-          }
+        {
+          "name": "RouteSearchCharacter",
+          "pattern": "search-character",
+          "target": [
+            "TargetSearchCharacter"
+          ]
+        },
+        {
+          "name": "RouteAllCategoriesCharacter",
+          "pattern": "all-categories",
+          "target": [
+            "TargetAllCategories"
+          ]
+        }
+          
       ],
       "targets": {
         "TargetMain": {
@@ -238,6 +246,10 @@
         "TargetSearchCharacter": {
           "id": "SearchCharacter",
           "name": "pages.characters.SearchCharacter"
+        },
+         "TargetAllCategories": {
+          "id": "AllCategories",
+          "name": "pages.characters.AllCategoriesCharacter"
         }
       }
     },

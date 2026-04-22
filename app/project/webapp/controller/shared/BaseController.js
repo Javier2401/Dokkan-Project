@@ -48,6 +48,7 @@ sap.ui.define([
         onOpenTermsOfUse:      function () { this.getOwnerComponent().getRouter().navTo("RouteTermsOfUse"); },
         onOpenCookiePolicy:    function () { this.getOwnerComponent().getRouter().navTo("RouteCookiePolicy"); },
         onOpenPrivacyPolicy:   function () { this.getOwnerComponent().getRouter().navTo("RoutePrivacyPolicy"); },
-        onOpenSearchCharacter: function () { this.getOwnerComponent().getRouter().navTo("RouteSearchCharacter"); }
+        onOpenSearchCharacter: function () { this.getOwnerComponent().getRouter().navTo("RouteSearchCharacter"); },
+        onOpenAllCategories:   function () { this.getOwnerComponent().getRouter().navTo("RouteAllCategoriesCharacter"); }
     });
 });

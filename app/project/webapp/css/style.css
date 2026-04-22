@@ -39,19 +39,27 @@
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    min-height: 54px !important;
 }
 
-/* ── Panel header text — target both wrapper and inner Title span ── */
-.dokkanPanel .sapMPanelHeaderText,
-.dokkanPanel .sapMPanelHdr .sapMTitle,
-.dokkanPanel .sapMPanelHdr .sapMTitleStyle,
-.dokkanPanel .sapMPanelHdr span {
+/* ── Panel header text — super-specific override for sap_horizon theme ── */
+body .dokkanPanel .sapMPanelHdr .sapMTitle,
+body .dokkanPanel .sapMPanelHdr .sapMTitle *,
+body .dokkanPanel .sapMPanelHdr span,
+body .dokkanPanel .sapMPanelHdr bdi,
+body .dokkanPanel .sapMPanelHeaderText,
+body .dokkanPanel .sapMPanelHdr .sapMTitleStyleH1,
+body .dokkanPanel .sapMPanelHdr .sapMTitleStyleH2,
+body .dokkanPanel .sapMPanelHdr .sapMTitleStyleH3,
+body .dokkanPanel .sapMPanelHdr .sapMTitleStyleH4,
+body .dokkanPanel .sapMPanelHdr .sapMTitleStyleH5,
+body .dokkanPanel .sapMPanelHdr .sapMTitleStyleH6,
+body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     font-size: 1.25rem !important;
     font-weight: 800 !important;
     color: #1a1a1a !important;
     text-align: center !important;
     width: 100% !important;
-    display: block !important;
 }
 
 .dokkanPanel .sapMPanelContent {
@@ -471,7 +479,6 @@
     padding: 0.5rem 0;
 }
 
-/* ── characterCardWrapper — flex item, prevents stacking ── */
 .characterCardWrapper,
 .characterCardWrapper.sapMVBox {
     align-items: center !important;
@@ -481,7 +488,6 @@
     width: fit-content !important;
 }
 
-/* ── characterCard — explicit width prevents full-row stretch ── */
 .characterCard,
 .characterCard.sapMVBox {
     align-items: center;
@@ -715,7 +721,7 @@
     margin-top: 4px !important;
 }
 
-/* ── Stats Table — inside left column ── */
+/* ── Stats Table ── */
 .statsTable,
 .statsTable.sapMVBox {
     width: 100% !important;
@@ -724,6 +730,7 @@
     border-radius: 10px !important;
     overflow: hidden !important;
     border: 1px solid #e5e7eb !important;
+    box-sizing: border-box !important;
 }
 
 .statsRow,
@@ -747,6 +754,7 @@
     background-color: #fafafa !important;
 }
 
+/* All cells equal width — perfect alignment between header and data rows */
 .statCell,
 .statCell.sapMText {
     flex: 1 !important;
@@ -772,12 +780,13 @@
     width: 100% !important;
 }
 
+/* Label column (STAT / HP / ATK / DEF) — same flex:1, slightly bolder */
 .statLabelCol,
 .statLabelCol.sapMText {
-    flex: 0 0 56px !important;
-    min-width: 56px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
     font-weight: 900 !important;
-    font-size: 0.9rem !important;
+    font-size: 0.88rem !important;
 }
 
 .statsHead,
@@ -819,7 +828,6 @@
     white-space: normal !important;
 }
 
-/* ── categoryCard — used in category views for image cards ── */
 .categoryCard,
 .categoryCard.sapMVBox {
     padding: 0 !important;
@@ -837,7 +845,6 @@
     object-fit: cover !important;
 }
 
-/* ── leaderStatGrid — moved OUTSIDE the card; smooth rounded corners ── */
 .leaderStatGrid,
 .leaderStatGrid.sapMHBox {
     width: 140px !important;
@@ -907,7 +914,38 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
-   SECCIÓN 8 · LEGAL PAGES
+   SECCIÓN 8 · ALL CATEGORIES PAGE
+   ═══════════════════════════════════════════════════════════════ */
+
+.allCategoriesCard,
+.allCategoriesCard.sapMVBox {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important;
+    padding: 1.6rem !important;
+    gap: 1rem !important;
+}
+
+.allCategoriesGrid,
+.allCategoriesGrid.sapMFlexBox {
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    align-items: flex-start !important;
+}
+
+/* Slightly bigger chips in the AllCategories page */
+.allCategoriesGrid .categoryChipBtn.sapMBtn .sapMBtnInner {
+    padding: 8px 18px !important;
+    min-height: 36px !important;
+}
+
+.allCategoriesGrid .categoryChipBtn.sapMBtn bdi {
+    font-size: 0.88rem !important;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   SECCIÓN 9 · LEGAL PAGES
    ═══════════════════════════════════════════════════════════════ */
 
 .legalPageContent,
@@ -1024,17 +1062,27 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
-   SECCIÓN 9 · SEARCH CHARACTER VIEW — contenedor unificado
+   SECCIÓN 10 · SEARCH CHARACTER VIEW — dos contenedores separados
    ═══════════════════════════════════════════════════════════════ */
 
-/* Contenedor único que agrupa buscador + resultados */
-.searchUnifiedCard,
-.searchUnifiedCard.sapMVBox {
+/* ── Tarjeta del campo de búsqueda ── */
+.searchInputCard,
+.searchInputCard.sapMVBox {
     background-color: #ffffff !important;
     border-radius: 12px !important;
     box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important;
     padding: 1.4rem 1.6rem !important;
-    gap: 0 !important;
+}
+
+/* ── Tarjeta de resultados ── */
+.searchResultsCard,
+.searchResultsCard.sapMVBox {
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12) !important;
+    padding: 1.4rem 1.6rem !important;
+    min-height: 220px !important;
+    gap: 1rem !important;
 }
 
 .characterSearchField { width: 100% !important; }
@@ -1066,29 +1114,17 @@
     background-color: transparent !important;
 }
 
-/* Separador interno entre buscador y resultados */
-.searchInternalDivider,
-.searchInternalDivider.sapMHBox {
-    width: 100% !important;
-    height: 1px !important;
-    min-height: 1px !important;
-    background-color: #f3f4f6 !important;
-    margin: 1rem 0 !important;
-}
-
-/* Título de resultados dentro del contenedor */
 .searchResultsLabel,
 .searchResultsLabel.sapMText {
     font-size: 1.1rem !important;
     font-weight: 800 !important;
     color: #1a1a1a !important;
-    margin-bottom: 0.5rem !important;
     display: block !important;
 }
 
 .searchEmptyState,
 .searchEmptyState.sapMVBox {
-    padding: 3rem 1rem !important;
+    padding: 2.5rem 1rem !important;
     align-items: center !important;
     gap: 1rem !important;
 }
@@ -1122,7 +1158,7 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
-   SECCIÓN 10 · RESPONSIVE
+   SECCIÓN 11 · RESPONSIVE
    ═══════════════════════════════════════════════════════════════ */
 
 @media (max-width: 900px) {
@@ -1141,9 +1177,8 @@
     .cardArtImg,  .cardArtImg.sapMImg   { max-width: 236px !important; }
     .cardTitle .sapMTitle { font-size: 1.7rem !important; }
     .statCell, .statCell.sapMText { padding: 9px 3px !important; font-size: 0.82rem !important; }
-    .statLabelCol, .statLabelCol.sapMText { flex: 0 0 50px !important; min-width: 50px !important; }
     .categoryHeroTitle .sapMTitle { font-size: 1.9rem !important; }
-    .searchUnifiedCard { padding: 1rem 1.2rem !important; }
+    .searchInputCard, .searchResultsCard { padding: 1rem 1.2rem !important; }
 }
 
 @media (max-width: 600px) {
@@ -1172,7 +1207,6 @@
     .cardRightCol { flex: 0 0 100% !important; }
     .cardTitle .sapMTitle { font-size: 1.5rem !important; }
     .statCell, .statCell.sapMText { padding: 9px 3px !important; font-size: 0.76rem !important; }
-    .statLabelCol, .statLabelCol.sapMText { flex: 0 0 44px !important; min-width: 44px !important; font-size: 0.78rem !important; }
     .statsHead, .statsHead.sapMText { font-size: 0.62rem !important; }
     .categoryHeroTitle .sapMTitle { font-size: 1.5rem !important; }
     .leaderStatLabel, .leaderStatLabel.sapMText { font-size: 0.52rem !important; }
@@ -1181,8 +1215,9 @@
     .legalHeroTitle .sapMTitle { font-size: 1.7rem !important; }
     .legalSectionTitle .sapMTitle { font-size: 1rem !important; }
     .legalTableCell.sapMText { padding: 8px 10px !important; font-size: 0.8rem !important; }
-    .searchUnifiedCard { padding: 0.8rem !important; }
+    .searchInputCard, .searchResultsCard { padding: 0.8rem !important; }
     .searchResultName.sapMText { font-size: 0.65rem !important; }
+    .allCategoriesCard { padding: 1rem !important; }
 }
 
 @media (max-width: 400px) {
@@ -1198,7 +1233,7 @@
     .categoryCard .characterImg { height: 90px !important; }
     .cardTitle .sapMTitle { font-size: 1.2rem !important; }
     .statCell, .statCell.sapMText { padding: 8px 2px !important; font-size: 0.68rem !important; }
-    .statLabelCol, .statLabelCol.sapMText { flex: 0 0 38px !important; min-width: 38px !important; font-size: 0.70rem !important; }
+    .statLabelCol, .statLabelCol.sapMText { font-size: 0.70rem !important; }
     .legalCard { padding: 1rem 0.8rem !important; }
     .legalHeroTitle .sapMTitle { font-size: 1.5rem !important; }
     .legalTable { display: none !important; }
