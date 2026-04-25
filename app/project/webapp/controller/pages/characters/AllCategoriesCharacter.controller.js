@@ -12,7 +12,7 @@ sap.ui.define([
             this.getView().setModel(new JSONModel({ items: [] }), "allCats");
 
             this.getOwnerComponent().getRouter()
-                .getRoute("RouteAllCategories")
+                .getRoute("RouteAllCategoriesCharacter")
                 .attachPatternMatched(this._onRouteMatched, this);
         },
 

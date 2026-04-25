@@ -1156,6 +1156,53 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     padding: 4px 4px 2px !important;
 }
 
+/* FORZAR que cada celda ocupe exactamente el mismo espacio */
+.statsRow .sapMFlexItem {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+}
+
+/* Asegura que la fila use todo el ancho */
+.statsRow {
+    width: 100% !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
+}
+
+/* Cada celda ocupa todo su espacio */
+.statCell {
+    width: 100% !important;
+}
+
+.customPanelHeader {
+    justify-content: center !important;
+    background: transparent !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    min-height: 70px !important;
+}
+
+.customPanelTitle {
+    font-size: 1.5rem !important;
+    font-weight: 900 !important;
+    color: #1a1a1a !important;
+}
+
+.customPanelHeader2 {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: transparent !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    min-height: 70px !important;
+    padding: 0.5rem 1rem !important;
+}
+
+.customPanelTitle2 {
+    font-size: 1.75rem !important; 
+    font-weight: 900 !important;
+    color: #1a1a1a !important;
+    text-align: center !important;
+}
 
 /* ═══════════════════════════════════════════════════════════════
    SECCIÓN 11 · RESPONSIVE

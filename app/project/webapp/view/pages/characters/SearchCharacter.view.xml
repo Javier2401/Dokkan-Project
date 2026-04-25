@@ -11,7 +11,6 @@
 
                 <VBox class="pageContent">
 
-                    <!-- ── Tarjeta del buscador ── -->
                     <VBox class="searchInputCard">
                         <SearchField
                             placeholder="{i18n>search.placeholder}"
@@ -21,18 +20,15 @@
                             showSearchButton="true"/>
                     </VBox>
 
-                    <!-- ── Tarjeta de resultados ── -->
                     <VBox class="searchResultsCard">
 
                         <Text text="{i18n>search.results}" class="searchResultsLabel"/>
 
-                        <!-- Estado vacío / inicial -->
                         <VBox class="searchEmptyState" visible="{chars>/showEmpty}">
                             <Image src="images/logo.png" class="searchEmptyIcon" densityAware="false"/>
                             <Text text="{chars>/emptyMessage}" class="searchEmptyText"/>
                         </VBox>
 
-                        <!-- Grid de resultados -->
                         <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
                                  visible="{chars>/hasResults}"
                                  items="{chars>/results}">
