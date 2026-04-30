@@ -7,7 +7,7 @@ sap.ui.define([
     return Controller.extend("project.controller.shared.BaseController", {
 
         onChangeLang: function (oEvent) {
-            const sText   = oEvent.getSource().getText();
+            const sText   = oEvent.getSource().getText() || "";
             const sLocale = sText.includes("Español") ? "es" : "en";
             LanguageManager.changeLanguage(sLocale);
         },
@@ -31,7 +31,7 @@ sap.ui.define([
         },
 
         onNavCategory: function (oEvent) {
-            const sCategoryName = oEvent.getSource().getText();
+            const sCategoryName = (oEvent.getSource().getText() || "").trim();
             if (!sCategoryName) return;
 
             this.getOwnerComponent().getRouter().navTo("RouteCategory", {

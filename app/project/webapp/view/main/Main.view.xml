@@ -11,7 +11,6 @@
 
                 <VBox class="pageContent">
 
-                    <!-- ── Upcoming Characters ── -->
                     <Panel class="dokkanPanel">
                         <headerToolbar>
                             <Toolbar class="customPanelHeader">
@@ -23,7 +22,6 @@
                             <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
                                      items="{chars>/upcoming}">
                                 <items>
-                                    <!-- Wrapper propio: card + fecha debajo separados -->
                                     <VBox class="characterCardWrapper" alignItems="Center">
                                         <VBox class="characterCard">
                                             <Image src="{chars>thumbnail}"
@@ -38,8 +36,7 @@
                         </content>
                     </Panel>
 
-                    <!-- ── Recent Characters ── -->
-                    <Panel class="dokkanPanel" >
+                    <Panel class="dokkanPanel">
                         <headerToolbar>
                             <Toolbar class="customPanelHeader">
                                 <Title text="{i18n>panel.recent}" class="customPanelTitle"/>
@@ -49,11 +46,13 @@
                             <FlexBox wrap="Wrap" justifyContent="Center" class="characterRow"
                                      items="{chars>/recent}">
                                 <items>
-                                    <VBox class="characterCard">
-                                        <Image src="{chars>thumbnail}"
-                                               class="characterImg"
-                                               press=".onNavInfoCharacter"
-                                               densityAware="false"/>
+                                    <VBox class="characterCardWrapper" alignItems="Center">
+                                        <VBox class="characterCard">
+                                            <Image src="{chars>thumbnail}"
+                                                   class="characterImg"
+                                                   press=".onNavInfoCharacter"
+                                                   densityAware="false"/>
+                                        </VBox>
                                     </VBox>
                                 </items>
                             </FlexBox>

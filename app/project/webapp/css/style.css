@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   SECCIÓN 1 · GLOBAL — base de página y wrapper de layout
+   SECCIÓN 1 · GLOBAL
    ═══════════════════════════════════════════════════════════════ */
 
 .dokkanPage {
@@ -14,6 +14,7 @@
 
 .dokkanPage .sapMScrollContScroll {
     background-color: #e8e8e8 !important;
+    scroll-behavior: smooth;
 }
 
 .pageWrapper,
@@ -42,7 +43,6 @@
     min-height: 54px !important;
 }
 
-/* ── Panel header text — super-specific override for sap_horizon theme ── */
 body .dokkanPanel .sapMPanelHdr .sapMTitle,
 body .dokkanPanel .sapMPanelHdr .sapMTitle *,
 body .dokkanPanel .sapMPanelHdr span,
@@ -109,6 +109,7 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    transition: background-color 0.15s ease !important;
 }
 .navBtn.sapMBtn .sapMBtnContent,
 .navBtn.sapMBtn .sapMBtnText,
@@ -135,6 +136,7 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     display: inline-flex !important;
     align-items: center !important;
     vertical-align: middle !important;
+    transition: background-color 0.15s ease !important;
 }
 .navBtn.sapMMenuBtn .sapMBtnInner {
     background-color: transparent !important;
@@ -198,6 +200,7 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    transition: background-color 0.15s ease !important;
 }
 .navIconBtn.sapMBtn .sapMBtnIcon { color: #ffffff !important; font-size: 1rem !important; }
 .navIconBtn.sapMBtn:hover .sapMBtnInner {
@@ -224,6 +227,7 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     box-shadow: none !important;
     display: flex !important;
     align-items: center !important;
+    transition: background-color 0.15s ease !important;
 }
 .linkSkillBtn.sapMBtn bdi {
     color: #3730a3 !important;
@@ -252,6 +256,7 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     box-shadow: none !important;
     display: flex !important;
     align-items: center !important;
+    transition: background-color 0.15s ease !important;
 }
 .categoryChipBtn.sapMBtn bdi {
     color: #166534 !important;
@@ -278,6 +283,7 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     padding: 2px 4px !important;
     height: auto !important;
     box-shadow: none !important;
+    transition: border-bottom-color 0.15s ease !important;
 }
 .footerLinkBtn.sapMBtn bdi {
     color: rgba(255,255,255,0.7) !important;
@@ -342,6 +348,7 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     width: 170px !important;
     height: 100px !important;
     object-fit: contain !important;
+    cursor: pointer !important;
 }
 
 .navButtons,
@@ -472,7 +479,6 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
    ═══════════════════════════════════════════════════════════════ */
 
 .characterRow {
-    font-size: 1.05rem !important;
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
@@ -500,19 +506,27 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     flex-shrink: 0 !important;
     transition: transform 0.15s ease, box-shadow 0.15s ease;
     cursor: pointer;
+    user-select: none;
 }
 
 .characterCard:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-.characterImg {
+.characterImg,
+.characterImg.sapMImg {
     width: 120px !important;
     height: 120px !important;
     border-radius: 6px;
     display: block;
     margin: 0 auto;
+    cursor: pointer !important;
+    transition: opacity 0.15s ease !important;
+}
+
+.characterImg.sapMImg:hover {
+    opacity: 0.92 !important;
 }
 
 .characterDateBadge,
@@ -739,6 +753,8 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     display: flex !important;
     background-color: #ffffff !important;
     border-bottom: 1px solid #e5e7eb !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
 }
 
 .statsRow:last-child { border-bottom: none !important; }
@@ -754,10 +770,9 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     background-color: #fafafa !important;
 }
 
-/* All cells equal width — perfect alignment between header and data rows */
 .statCell,
 .statCell.sapMText {
-    flex: 1 !important;
+    flex: 1 1 0 !important;
     min-width: 0 !important;
     padding: 11px 4px !important;
     font-size: 0.88rem !important;
@@ -769,6 +784,7 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     text-align: center !important;
     border-right: 1px solid #e5e7eb !important;
     box-sizing: border-box !important;
+    width: 100% !important;
 }
 
 .statCell:last-child,
@@ -780,10 +796,9 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     width: 100% !important;
 }
 
-/* Label column (STAT / HP / ATK / DEF) — same flex:1, slightly bolder */
 .statLabelCol,
 .statLabelCol.sapMText {
-    flex: 1 !important;
+    flex: 1 1 0 !important;
     min-width: 0 !important;
     font-weight: 900 !important;
     font-size: 0.88rem !important;
@@ -801,6 +816,11 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
 .statHP  { color: #16a34a !important; }
 .statATK { color: #dc2626 !important; }
 .statDEF { color: #2563eb !important; }
+
+.statsRow .sapMFlexItem {
+    flex: 1 1 0 !important;
+    min-width: 0 !important;
+}
 
 
 /* ═══════════════════════════════════════════════════════════════
@@ -849,7 +869,7 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
 .leaderStatGrid.sapMHBox {
     width: 140px !important;
     max-width: 155px !important;
-    background-color: #d0d0d0  !important;
+    background-color: #d0d0d0 !important;
     border-radius: 8px !important;
     padding: 6px 4px !important;
     gap: 3px !important;
@@ -862,7 +882,7 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     font-size: 10px !important;
     flex: 1 !important;
     align-items: center !important;
-    background-color: #374151!important;
+    background-color: #374151 !important;
     border-radius: 4px !important;
     padding: 5px 2px !important;
     gap: 2px !important;
@@ -933,7 +953,6 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     align-items: flex-start !important;
 }
 
-/* Slightly bigger chips in the AllCategories page */
 .allCategoriesGrid .categoryChipBtn.sapMBtn .sapMBtnInner {
     padding: 8px 18px !important;
     min-height: 36px !important;
@@ -1062,10 +1081,9 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   SECCIÓN 10 · SEARCH CHARACTER VIEW — dos contenedores separados
+   SECCIÓN 10 · SEARCH CHARACTER VIEW
    ═══════════════════════════════════════════════════════════════ */
 
-/* ── Tarjeta del campo de búsqueda ── */
 .searchInputCard,
 .searchInputCard.sapMVBox {
     background-color: #ffffff !important;
@@ -1074,7 +1092,6 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     padding: 1.4rem 1.6rem !important;
 }
 
-/* ── Tarjeta de resultados ── */
 .searchResultsCard,
 .searchResultsCard.sapMVBox {
     background-color: #ffffff !important;
@@ -1092,7 +1109,7 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     background-color: #f3f4f6 !important;
     border: 2px solid #e5e7eb !important;
     box-shadow: none !important;
-    transition: border-color 0.2s ease !important;
+    transition: border-color 0.2s ease, background-color 0.2s ease !important;
 }
 
 .characterSearchField.sapMSF:focus-within,
@@ -1156,24 +1173,6 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     padding: 4px 4px 2px !important;
 }
 
-/* FORZAR que cada celda ocupe exactamente el mismo espacio */
-.statsRow .sapMFlexItem {
-    flex: 1 1 0 !important;
-    min-width: 0 !important;
-}
-
-/* Asegura que la fila use todo el ancho */
-.statsRow {
-    width: 100% !important;
-    justify-content: space-between !important;
-    align-items: stretch !important;
-}
-
-/* Cada celda ocupa todo su espacio */
-.statCell {
-    width: 100% !important;
-}
-
 .customPanelHeader {
     justify-content: center !important;
     background: transparent !important;
@@ -1198,11 +1197,12 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
 }
 
 .customPanelTitle2 {
-    font-size: 1.75rem !important; 
+    font-size: 1.75rem !important;
     font-weight: 900 !important;
     color: #1a1a1a !important;
     text-align: center !important;
 }
+
 
 /* ═══════════════════════════════════════════════════════════════
    SECCIÓN 11 · RESPONSIVE

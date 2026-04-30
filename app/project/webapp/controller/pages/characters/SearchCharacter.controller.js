@@ -40,9 +40,9 @@ sap.ui.define([
         },
 
         _filter(sQuery) {
-            const oModel   = this.getView().getModel("chars");
-            const oBundle  = this.getView().getModel("i18n").getResourceBundle();
-            const sQ       = sQuery.trim().toLowerCase();
+            const oModel  = this.getView().getModel("chars");
+            const oBundle = this.getView().getModel("i18n").getResourceBundle();
+            const sQ      = sQuery.trim().toLowerCase();
 
             if (!sQ) {
                 this._reset();
@@ -51,9 +51,10 @@ sap.ui.define([
 
             CharacterService.loadAll()
                 .then(aAll => {
-                    // Búsqueda solo por nombre (campo "name")
+                    // Search by name OR title (subtitle)
                     const aFiltered = aAll.filter(c =>
-                        (c.name || "").toLowerCase().includes(sQ)
+                        (c.name  || "").toLowerCase().includes(sQ) ||
+                        (c.title || "").toLowerCase().includes(sQ)
                     );
 
                     oModel.setProperty("/results",    aFiltered);
@@ -65,7 +66,13 @@ sap.ui.define([
                             : ""
                     );
                 })
-                .catch(err => console.error("SearchCharacter: filter failed", err));
+                .catch(err => {
+                    console.error("SearchCharacter: filter failed", err);
+                    oModel.setProperty("/showEmpty", true);
+                    oModel.setProperty("/emptyMessage",
+                        oBundle.getText("search.empty.initial")
+                    );
+                });
         },
 
         _reset() {

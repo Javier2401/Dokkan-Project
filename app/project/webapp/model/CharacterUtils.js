@@ -4,8 +4,16 @@ sap.ui.define([], function () {
     const COMPOUND_CATEGORIES = [
         "Earth - Bred Fighters",
         "Earth - Protecting Heroes",
-        "All - Out Struggle"
+        "All - Out Struggle",
+        "Target: Goku",
+        "Bond of Parent and Child",
     ];
+
+    const COMPOUND_SET = new Set([
+        "Earth - Bred Fighters",
+        "Earth - Protecting Heroes",
+        "All - Out Struggle"
+    ]);
 
     const MONTH_MAP = {
         Jan:"01", Feb:"02", Mar:"03", Apr:"04",
@@ -18,14 +26,15 @@ sap.ui.define([], function () {
         COMPOUND_CATEGORIES,
 
         parseCategories(str) {
-            const parts = (str || "").split(" - ");
+            if (!str) return [];
+            const parts = str.split(" - ");
             const result = [];
             let i = 0;
             while (i < parts.length) {
                 let matched = false;
                 if (i + 1 < parts.length) {
                     const compound = parts[i] + " - " + parts[i + 1];
-                    if (COMPOUND_CATEGORIES.includes(compound)) {
+                    if (COMPOUND_SET.has(compound)) {
                         result.push(compound);
                         i += 2;
                         matched = true;
@@ -71,10 +80,6 @@ sap.ui.define([], function () {
             return rainbow || lowBoost;
         },
 
-        /**
-         * Devuelve los stats del leader skill como números puros (sin % ni +).
-         * Ki: número (ej. "4"), HP/ATK/DEF: número (ej. "200")
-         */
         parseLeaderStats(ls) {
             const out = { ki: "-", hp: "-", atk: "-", def: "-" };
             if (!ls) return out;
