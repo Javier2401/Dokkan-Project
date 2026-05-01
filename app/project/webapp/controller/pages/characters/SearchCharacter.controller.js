@@ -24,7 +24,6 @@ sap.ui.define([
         },
 
         _onRouteMatched() {
-            // Pre-warm the shared cache
             CharacterService.loadAll().catch(err =>
                 console.error("SearchCharacter: pre-load failed", err)
             );
@@ -51,10 +50,9 @@ sap.ui.define([
 
             CharacterService.loadAll()
                 .then(aAll => {
-                    // Search by name OR title (subtitle)
                     const aFiltered = aAll.filter(c =>
-                        (c.name  || "").toLowerCase().includes(sQ) ||
-                        (c.title || "").toLowerCase().includes(sQ)
+                        (c.name  || "").toLowerCase().includes(sQ)
+                        // (c.title || "").toLowerCase().includes(sQ)
                     );
 
                     oModel.setProperty("/results",    aFiltered);

@@ -11,10 +11,8 @@
 
                 <VBox class="cardDetailContent">
 
-                    <!-- ══ Top row: left (images + date + stats) / right (text sections) ══ -->
                     <HBox class="cardTopRow" wrap="Wrap">
 
-                        <!-- ── Left column ── -->
                         <VBox class="cardLeftCol">
                             <VBox class="cardThumbBox">
                                 <Image src="{thumbnail}" class="cardThumbImg" densityAware="false"/>
@@ -27,9 +25,7 @@
                                 <Text text="{stats>/releaseDate}"    class="cardDateValue"/>
                             </VBox>
 
-                            <!-- ── Stats Table — left column, below release date ── -->
                             <VBox class="cardSection">
-                                <Text text="{i18n>info.stats}" class="cardSectionTitle"/>
                                 <VBox class="statsTable">
                                     <HBox class="statsRow statsHeaderRow">
                                         <Text text="{i18n>info.statLabel}"   class="statCell statLabelCol statsHead"/>
@@ -59,10 +55,8 @@
                             </VBox>
                         </VBox>
 
-                        <!-- ── Right column ── -->
                         <VBox class="cardRightCol">
 
-                            <!-- Name — id para que el controller inyecte la clase de tipo -->
                             <VBox class="cardNameBox" id="cardNameBox">
                                 <Text  text="{title}" class="cardSubtitle"/>
                                 <Title text="{name}"  class="cardTitle" titleStyle="H1" wrapping="true"/>

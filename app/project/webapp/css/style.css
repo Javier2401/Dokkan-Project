@@ -1105,11 +1105,9 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
 .characterSearchField { width: 100% !important; }
 
 .characterSearchField.sapMSF {
-    border-radius: 24px !important;
-    background-color: #f3f4f6 !important;
-    border: 2px solid #e5e7eb !important;
+    background-color: transparent !important;
+    border: none !important;
     box-shadow: none !important;
-    transition: border-color 0.2s ease, background-color 0.2s ease !important;
 }
 
 .characterSearchField.sapMSF:focus-within,
@@ -1203,6 +1201,22 @@ body .dokkanPanel .sapMPanelHdr .sapMTitleEllipsis {
     text-align: center !important;
 }
 
+.customPanelHeader3 {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    background: transparent !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    min-height: 70px !important;
+    padding: 0.5rem 1rem !important;
+}
+
+.customPanelTitle3 {
+    font-size: 2rem !important;
+    font-weight: 900 !important;
+    color: #1a1a1a !important;
+    text-align: center !important;
+}
 
 /* ═══════════════════════════════════════════════════════════════
    SECCIÓN 11 · RESPONSIVE

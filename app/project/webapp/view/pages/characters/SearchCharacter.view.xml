@@ -5,6 +5,7 @@
 
     <Page showHeader="false" enableScrolling="true" class="dokkanPage">
         <content>
+        
             <VBox class="pageWrapper">
 
                 <core:Fragment fragmentName="project.view.shared.Header" type="XML"/>
@@ -20,9 +21,12 @@
                             showSearchButton="true"/>
                     </VBox>
 
-                    <VBox class="searchResultsCard">
-
-                        <Text text="{i18n>search.results}" class="searchResultsLabel"/>
+                    <Panel class="dokkanPanel">
+                        <headerToolbar>
+                            <Toolbar class="customPanelHeader2">
+                                <Title text="{i18n>search.results}" class="customPanelTitle2"/>
+                            </Toolbar>
+                        </headerToolbar>
 
                         <VBox class="searchEmptyState" visible="{chars>/showEmpty}">
                             <Image src="images/logo.png" class="searchEmptyIcon" densityAware="false"/>
@@ -47,7 +51,7 @@
                             </items>
                         </FlexBox>
 
-                    </VBox>
+                    </Panel>
 
                 </VBox>
 

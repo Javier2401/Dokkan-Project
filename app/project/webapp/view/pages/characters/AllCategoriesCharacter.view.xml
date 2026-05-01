@@ -10,18 +10,14 @@
                 <core:Fragment fragmentName="project.view.shared.Header" type="XML"/>
 
                 <VBox class="pageContent">
+                    <Panel class="dokkanPanel">
+                
+                        <headerToolbar>
+                            <Toolbar class="customPanelHeader3">
+                                <Title text="{i18n>allCategories.title}" class="customPanelTitle3"/>
+                            </Toolbar>
+                        </headerToolbar>
 
-                    <!-- ── Hero ── -->
-                    <VBox class="categoryHero">
-                        <Title text="{i18n>allCategories.title}"
-                               titleStyle="H1"
-                               class="categoryHeroTitle"
-                               wrapping="true"/>
-                        <Text text="{i18n>allCategories.subtitle}" class="legalHeroDate"/>
-                    </VBox>
-
-                    <!-- ── Grid de categorías ── -->
-                    <VBox class="allCategoriesCard">
                         <FlexBox wrap="Wrap" class="allCategoriesGrid" items="{allCats>/items}">
                             <items>
                                 <Button text="{allCats>name}"
@@ -29,8 +25,7 @@
                                         press=".onNavCategory"/>
                             </items>
                         </FlexBox>
-                    </VBox>
-
+                    </Panel>
                 </VBox>
 
                 <core:Fragment fragmentName="project.view.shared.Footer" type="XML"/>
